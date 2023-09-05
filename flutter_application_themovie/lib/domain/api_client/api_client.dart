@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_application_themovie/domain/entity/movie_details.dart';
 import 'package:flutter_application_themovie/domain/entity/popular_movie_response.dart';
+
 
 enum ApiClientExeptionType {Network, Auth, Other}
 
@@ -130,6 +132,7 @@ class ApiClient {
        return result;
          
   }
+ 
    Future<PopularMovieResponse> searchMovie(int page, String locale, String query) async {
     final parser = (dynamic json) {
       final jsonMap = json as Map<String, dynamic>;
@@ -147,6 +150,24 @@ class ApiClient {
        return result;
          
   }
+   
+
+     Future<MovieDetails> movieDetails(int movieId, String locale,) async {
+    final parser = (dynamic json) {
+      final jsonMap = json as Map<String, dynamic>;
+      final response = MovieDetails.fromJson(jsonMap);
+      return response;
+    };
+    final result = _get(
+      '/movie/$movieId',
+       parser,
+       <String, dynamic>{'api_key': _apiKey,
+       'language': locale,});
+       return result;
+         
+  }
+  
+
 
 
 

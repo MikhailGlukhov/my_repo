@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_themovie/domain/api_client/api_client.dart';
 
-import 'package:flutter_application_themovie/image.dart';
+
 import 'package:flutter_application_themovie/widgets/radial_piersent_widget.dart';
+import 'package:intl/intl.dart';
+
+import '../../Library/widget/inherited/provider.dart';
+import 'movie_details_model.dart';
 
 
 
@@ -11,26 +16,23 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _TopPosterWidget(),
          Padding(
-           padding: const EdgeInsets.all(20),
+           padding: EdgeInsets.all(20),
            child: _MovieNameWidget(),
          ),
          _ScoreWidget(),
          _SummeryWidget(),
+        
          Padding(
-           padding: const EdgeInsets.all(10),
-           child: _TextLogoWidget(),
-         ),
-         Padding(
-           padding: const EdgeInsets.all(10),
+           padding: EdgeInsets.all(10),
            child: _OverwieWidget(),
          ),
          Padding(
-           padding: const EdgeInsets.all(10),
+           padding: EdgeInsets.all(10),
            child: _TextDiscriptionWidget(),
          ),
          _PeopleWidget()
@@ -46,11 +48,11 @@ class _PeopleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-final nameStyle =  TextStyle(
+final nameStyle =  const TextStyle(
           color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w600);
-              final jobeStyle = TextStyle(
+              final jobeStyle = const TextStyle(
           color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.w400);
@@ -83,8 +85,10 @@ class _TextDiscriptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Во время встречи двух сестёр появляются зловещие демоны, и теперь, чтобы остаться на этом свете, девушкам придётся очень сильно постараться.',
-    style: TextStyle(
+    final model = NotifierProvider.watch<MovieDetailsModel>(context);
+    final overview =  model?.movieDetails?.overview ?? '';
+    return  Text(overview.toString(),
+    style: const TextStyle(
      color: Colors.white,
          fontSize: 16,
          fontWeight: FontWeight.w400));
@@ -98,7 +102,7 @@ class _OverwieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Обзор',
+    return const Text('Обзор',
     style: TextStyle(
      color: Colors.white,
          fontSize: 21,
@@ -106,35 +110,29 @@ class _OverwieWidget extends StatelessWidget {
   }
 }
 
-class _TextLogoWidget extends StatelessWidget {
-  const _TextLogoWidget({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Text('«Мамочка любит тебя до смерти»',
-    style: TextStyle(
-     color: Colors.grey,
-         fontSize: 17.5,
-         fontWeight: FontWeight.w400));
-  }
-}
 
 class _TopPosterWidget extends StatelessWidget {
   const _TopPosterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Image(image: AssetImage(AppImage.tophead.assetName)),
-      Positioned(
-        top: 20,
-        left: 20,
-       bottom: 20,
-        child: Image(image: AssetImage(AppImage.logo.assetName)))
-    ],
-      
+    final model = NotifierProvider.watch<MovieDetailsModel>(context);
+    final backdropPath = model?.movieDetails?.backdropPath;
+    final posterPath = model?.movieDetails?.posterPath;
+    
+    return AspectRatio(
+      aspectRatio: 390/219,
+      child: Stack(children: [
+         backdropPath != null ? Image.network(ApiClient.imageUrl(backdropPath)) : const SizedBox.shrink(),
+        Positioned(
+          top: 20,
+          left: 20,
+         bottom: 20,
+          child: posterPath != null ? Image.network(ApiClient.imageUrl(posterPath)) : const SizedBox.shrink())
+      ],
+        
+      ),
     );
   }
 }
@@ -143,19 +141,24 @@ class _MovieNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      maxLines: 3,
-      text: TextSpan(children: [
-        TextSpan(text: 'Восстание зловещих мертвецов ',
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600)),
-        TextSpan(text: ' (2023)',
-        style: TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w400)),
-      ]),
+    final model = NotifierProvider.watch<MovieDetailsModel>(context);
+    var year = model?.movieDetails?.releaseDate?.year.toString();
+    year = year !=null ? ' ($year)' : '';
+    return Center(
+      child: RichText(
+        textAlign: TextAlign.center,
+        maxLines: 3,
+        text:  TextSpan(children: [
+          TextSpan(text: model?.movieDetails?.title ?? '',
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600)),
+          TextSpan(text: year,
+          style: const TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w400)),
+        ]),
+      ),
     );
   }
 }
@@ -168,25 +171,31 @@ class _ScoreWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = NotifierProvider.watch<MovieDetailsModel>(context);
+    var voteAverage = model?.movieDetails?.voteAverage ?? 0;
+    voteAverage = voteAverage * 10;
+   
+
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
       Row(
         children: [
-         SizedBox(
+          SizedBox(
           width: 50,
           height: 50,
            child: RadialPersentWindget(
-            child: Text('71',
-            style: TextStyle(color: Colors.white),),
-           persent: 0.71,
-           fillColor: Color.fromARGB(255, 10, 23, 25),
-           freeColor: Color.fromARGB(255, 25, 54, 31),
-           lineColor: Color.fromARGB(255, 37, 203, 103),
+            persent:voteAverage/100,
+           fillColor: const Color.fromARGB(255, 10, 23, 25),
+           freeColor: const Color.fromARGB(255, 25, 54, 31),
+           lineColor: const Color.fromARGB(255, 37, 203, 103),
            lineWidth: 3,
+            child: Text(voteAverage.toStringAsFixed(0),
+            style:  const TextStyle(color: Colors.white),),
            ),
          ),
-          TextButton(onPressed: () {}, child: Text ('Рейтинг')),
+          TextButton(onPressed: () {}, child: const Text ('Рейтинг')),
         ],
       ),
       Container(
@@ -196,8 +205,8 @@ class _ScoreWidget extends StatelessWidget {
       ),
       Row(
         children: [
-          Icon(Icons.play_arrow),
-          TextButton(onPressed: () {}, child: Text ('Воспроизвести трейлер')),
+          const Icon(Icons.play_arrow),
+          TextButton(onPressed: () {}, child: const Text ('Воспроизвести трейлер')),
         ],
       ),
 
@@ -214,15 +223,43 @@ class _SummeryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Color.fromRGBO(29, 29, 10, 1),
+    final model = NotifierProvider.watch<MovieDetailsModel>(context);
+    if(model ==null) return const SizedBox.shrink();
+    var texts = <String>[];
+    final releaseDate =  model.movieDetails?.releaseDate;
+    if(releaseDate != null){
+      texts.add(model.stringFromDate(releaseDate));
+    }
+    final productionCountries = model.movieDetails?.productionCountries;
+    if(productionCountries != null && productionCountries.isNotEmpty){
+           
+       texts.add('(${productionCountries.first.iso})');
+    }
+    final runtime =  model.movieDetails?.runtime ?? 0;
+    final duration = Duration(minutes:runtime );
+    final hours = duration.inHours;
+    final minutes = duration.inMinutes.remainder(60);
+    texts.add('${hours}h ${minutes}m');
+    final genres =  model.movieDetails?.genres;
+    if(genres != null && genres.isNotEmpty){
+      var genresNames = <String>[];
+      for (var genr in genres) {
+        genresNames.add(genr.name);
+        
+      }
+      texts.add(genresNames.join(', '));
+      
+    }
+
+    return  ColoredBox(
+      color: const Color.fromRGBO(29, 29, 10, 1),
       child: Padding(
-       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 65),
-        child: Text('16,  20/04/2023 (NL) триллер, ужасы, фэнтези 1h 37m',
+       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        child: Text(texts.join(' '),
            
         textAlign: TextAlign.center,
         maxLines: 3,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w400)

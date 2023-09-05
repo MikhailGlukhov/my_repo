@@ -1,3 +1,4 @@
+import 'package:flutter_application_themovie/domain/entity/movie_date_parser.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'movie.g.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
@@ -7,7 +8,7 @@ class Movie {
   final String? posterPath;
   final bool adult;
   final String overview;
-  @JsonKey(fromJson: _parseDateFromString)
+  @JsonKey(fromJson: parseMovieDateFromString)
   final DateTime? releaseDate;
   final List<int> genre_ids;
   final int id;
@@ -40,9 +41,5 @@ class Movie {
 
    Map<String, dynamic> toJson() => _$MovieToJson(this);
    
-   static DateTime? _parseDateFromString(String? rawDate){
-    if(rawDate == null || rawDate.isEmpty) return null;
-    return DateTime.tryParse(rawDate);
-
-   }
+   
   }
