@@ -4,16 +4,13 @@ import 'package:to_do_app/registration_screen.dart';
 const hintTextStyle =
     TextStyle(fontWeight: FontWeight.w400, color: Colors.blueGrey);
 
-    final containerDecoration = BoxDecoration(
-                    boxShadow: const [
-                        BoxShadow(
-                          color: Colors.brown,
-                          blurRadius: 5,
-                          spreadRadius: 2,
-                          offset: Offset(0, 3))
-                    ],
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.amber.shade100);
+final containerDecoration = BoxDecoration(boxShadow: const [
+  BoxShadow(
+      color: Colors.brown, blurRadius: 5, spreadRadius: 2, offset: Offset(0, 3))
+], borderRadius: BorderRadius.circular(20), color: Colors.amber.shade100);
+
+const appBarTextStyle =  TextStyle(
+    fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blueGrey);
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -33,10 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         title: const Text(
           'Please Sign in or Register',
-          style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: Colors.blueGrey),
+          style: appBarTextStyle
         ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
@@ -83,7 +77,8 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 35,
             ),
-            ElevatedButton(style: ButtonStyle(),
+            ElevatedButton(
+                style: ButtonStyle(),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const RegistrationScreen()));

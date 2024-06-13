@@ -16,10 +16,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         centerTitle: true,
         title: const Text(
           'Registration',
-          style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: Colors.blueGrey),
+          style: appBarTextStyle
         ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
