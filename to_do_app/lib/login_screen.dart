@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/registration_screen.dart';
+import 'package:to_do_app/task_list_widget.dart';
 
 const hintTextStyle =
     TextStyle(fontWeight: FontWeight.w400, color: Colors.blueGrey);
@@ -9,7 +10,7 @@ final containerDecoration = BoxDecoration(boxShadow: const [
       color: Colors.brown, blurRadius: 5, spreadRadius: 2, offset: Offset(0, 3))
 ], borderRadius: BorderRadius.circular(20), color: Colors.amber.shade100);
 
-const appBarTextStyle =  TextStyle(
+const appBarTextStyle = TextStyle(
     fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blueGrey);
 
 class LoginScreen extends StatefulWidget {
@@ -28,10 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Please Sign in or Register',
-          style: appBarTextStyle
-        ),
+        title: const Text('Please Sign in or Register', style: appBarTextStyle),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
@@ -69,7 +67,10 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 25,
             ),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const TaskListWidget()));
+                },
                 child: const Text(
                   'Enter',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -78,7 +79,6 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 35,
             ),
             ElevatedButton(
-                style: ButtonStyle(),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const RegistrationScreen()));
