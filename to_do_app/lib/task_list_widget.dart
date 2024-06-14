@@ -10,7 +10,7 @@ class TaskListWidget extends StatefulWidget {
 }
 
 class _TaskListWidgetState extends State<TaskListWidget> {
-  List<String> task = [
+  /*List<String> task = [
     'Task 1',
     'Task 2',
     'Task 3',
@@ -22,7 +22,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
     'Task 9',
     'Task 10',
     'Task 11',
-  ];
+  ];*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +32,12 @@ class _TaskListWidgetState extends State<TaskListWidget> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: ListView.builder(
-          itemCount: task.length,
+          itemCount: 20,
           itemBuilder: (context, index) {
             return Dismissible(
-              key: ValueKey<String>(task[index]),
+              key: Key(index.toString()),
               onDismissed: (DismissDirection deirection) {
-                setState(() {
-                  task.removeAt(index);
-                });
+               
               },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -53,7 +51,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                         child: const Icon(Icons.check),
                       ),
                       title:  Text(
-                        task[index],
+                        'Task',
                         style: TextStyle(fontSize: 20),
                       )),
                 ),
