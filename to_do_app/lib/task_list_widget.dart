@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:to_do_app/login_screen.dart';
+import 'package:to_do_app/to_do_dialog_widget.dart';
 
 class TaskListWidget extends StatefulWidget {
   const TaskListWidget({super.key});
@@ -10,19 +11,6 @@ class TaskListWidget extends StatefulWidget {
 }
 
 class _TaskListWidgetState extends State<TaskListWidget> {
-  /*List<String> task = [
-    'Task 1',
-    'Task 2',
-    'Task 3',
-    'Task 4',
-    'Task 5',
-    'Task 6',
-    'Task 7',
-    'Task 8',
-    'Task 9',
-    'Task 10',
-    'Task 11',
-  ];*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,9 +24,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
           itemBuilder: (context, index) {
             return Dismissible(
               key: Key(index.toString()),
-              onDismissed: (DismissDirection deirection) {
-               
-              },
+              onDismissed: (DismissDirection deirection) {},
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
@@ -50,7 +36,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                         width: 20,
                         child: const Icon(Icons.check),
                       ),
-                      title:  Text(
+                      title: const Text(
                         'Task',
                         style: TextStyle(fontSize: 20),
                       )),
@@ -58,6 +44,10 @@ class _TaskListWidgetState extends State<TaskListWidget> {
               ),
             );
           }),
+      floatingActionButton: FloatingActionButton(backgroundColor: Colors.orange.shade300,
+        onPressed: () {showDialog(context: context, builder: (context) => const ToDoDialogWidget());},
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
