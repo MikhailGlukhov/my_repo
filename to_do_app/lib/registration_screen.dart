@@ -14,10 +14,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Registration',
-          style: appBarTextStyle
-        ),
+        title: const Text('Registration', style: appBarTextStyle),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
@@ -27,6 +24,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               decoration: containerDecoration,
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                     hintText: 'Enter your email adress',
@@ -38,7 +36,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             const SizedBox(height: 25),
             Container(
               decoration: containerDecoration,
-              child: TextFormField(obscureText: true,
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
+                obscureText: true,
                 decoration: InputDecoration(
                     hintText: 'Enter your password',
                     hintStyle: hintTextStyle,
@@ -48,8 +48,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 25),
             Container(
-              decoration:containerDecoration,
-              child: TextFormField(obscureText: true,
+              decoration: containerDecoration,
+              child: TextFormField(
+                textInputAction: TextInputAction.done,
+                obscureText: true,
                 decoration: InputDecoration(
                     hintText: 'Repit your password ',
                     hintStyle: hintTextStyle,

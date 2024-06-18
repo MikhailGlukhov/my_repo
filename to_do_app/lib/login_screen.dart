@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Container(
                 decoration: containerDecoration,
-                child: TextFormField(
+                child: TextFormField(textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
                   controller: emailAdressController,
                   decoration: InputDecoration(
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Container(
                 decoration: containerDecoration,
-                child: TextFormField(
+                child: TextFormField(textInputAction: TextInputAction.done,
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
