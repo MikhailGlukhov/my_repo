@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_app/login_screen.dart';
+import 'package:to_do_app/sevices/auth.dart';
 import 'package:to_do_app/to_do_dialog_widget.dart';
 import 'package:to_do_app/model/task_model.dart';
 
@@ -17,6 +18,16 @@ class _TaskListWidgetState extends State<TaskListWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Auth().signOut();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ));
+              },
+              icon: const Icon(Icons.exit_to_app))
+        ],
         centerTitle: true,
         title: const Text('To Do', style: appBarTextStyle),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
