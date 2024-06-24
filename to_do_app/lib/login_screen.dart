@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:to_do_app/registration_screen.dart';
 import 'package:to_do_app/sevices/auth.dart';
-import 'package:to_do_app/task_list_widget.dart';
+
 
 const hintTextStyle =
     TextStyle(fontWeight: FontWeight.w400, color: Colors.blueGrey);
@@ -25,30 +25,6 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailAdressController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  String errorMessage = '';
-  bool isLogin = true;
-
-  Future<void> signInWithEmailAndPassword() async {
-    try {
-      await Auth().signInWithEmailAndPassword(
-        email: _emailAdressController.text,
-        password: _passwordController.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message!;
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
-          (Route<dynamic> route) => false,
-        );
-      });
-    }
-  }
-
-  Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Some erorr: $errorMessage');
-  }
 
   @override
   void dispose() {
@@ -98,15 +74,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(20)),
                   ),
                 )),
-            _errorMessage(),
+           // _errorMessage(),
             const SizedBox(
               height: 25,
             ),
             ElevatedButton(
                 onPressed: () {
-                  signInWithEmailAndPassword();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const TaskListWidget()));
+                  Auth().signInWithEmailAndPassword(email: _emailAdressController.text,
+                   password: _passwordController.text,
+                    context: context); 
+                
                 },
                 child: const Text(
                   'Enter',

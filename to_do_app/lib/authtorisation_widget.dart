@@ -19,7 +19,7 @@ class _AuthtorisationWidgetState extends State<AuthtorisationWidget> {
         if(snapshot.hasData){
           return const TaskListWidget();
         } else {
-          return const LoginScreen();
+          return  LoginScreen();
         }
       },
     );

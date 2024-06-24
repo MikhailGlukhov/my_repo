@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:to_do_app/login_screen.dart';
 import 'package:to_do_app/sevices/auth.dart';
-import 'package:to_do_app/task_list_widget.dart';
+
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -15,24 +15,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final _emailAdressController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  String errorMessage = '';
-
-  Future<void> createUserWithEmailAndPassword() async {
-    try {
-      await Auth().createUserWithEmailAndPassword(
-        email: _emailAdressController.text,
-        password: _passwordController.text,
-      );
-    } on FirebaseException catch (e) {
-      setState(() {
-        errorMessage = e.message!;
-      });
-    }
-  }
-
-  Widget _errorMessage(){
-    return Text(errorMessage == '' ? '' : 'Some erorr: $errorMessage');
-  }
 
   @override
   void dispose() {
@@ -80,13 +62,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         borderRadius: BorderRadius.circular(20))),
               ),
             ),
-            _errorMessage(),
+       
             const SizedBox(height: 25),
             ElevatedButton(
                 onPressed: () {
-                  createUserWithEmailAndPassword();
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const TaskListWidget()));
+                  Auth().createUserWithEmailAndPassword(email: _emailAdressController.text,
+                   password: _passwordController.text,
+                    context: context);
+                
                 },
                 child: const Text(
                   'Enter',
