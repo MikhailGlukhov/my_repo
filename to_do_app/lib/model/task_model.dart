@@ -1,33 +1,18 @@
-import 'package:flutter/material.dart';
-
-class Task{
-  final String title;
-   bool isComplete;
+class Task {
+  String title;
+  bool isComplete;
 
   Task({required this.title, required this.isComplete});
 
-  void isDone(){
+  void isDone() {
     isComplete = !isComplete;
   }
-}
 
-class AddTask extends ChangeNotifier{
-  List<Task> _tasks =[];
+  Map toJson() => {'title': title, 'isComplete': isComplete};
 
-  List<Task> get tasks => _tasks;
+  Task.fromJson(Map json)
+      : title = json['title'],
+        isComplete = json['isComplete'];
 
-  void saveTask(Task task){
-    tasks.add(task);
-    notifyListeners();
-  }
-
-  void deleteTask(Task task){
-    tasks.remove(task);
-    notifyListeners();
-  }
-
-  void checkTask(int index){
-    tasks[index].isDone();
-    notifyListeners();
-  }
+ 
 }
