@@ -37,7 +37,7 @@ class ToDoDialogWidget extends StatelessWidget {
         ElevatedButton(
             onPressed: () {
               context.read<AddTask>().saveTask(
-                  Task(title: taskController.text, isComplete: false));
+                  taskController.text);
               taskController.clear();
               Navigator.of(context).pop();
             },

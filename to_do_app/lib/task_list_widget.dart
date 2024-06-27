@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_app/login_screen.dart';
+import 'package:to_do_app/model/task_model.dart';
 import 'package:to_do_app/provider/task_provider.dart';
 import 'package:to_do_app/sevices/auth.dart';
 import 'package:to_do_app/to_do_dialog_widget.dart';
@@ -35,13 +37,20 @@ class _TaskListWidgetState extends State<TaskListWidget> {
       ),
       body: Consumer<AddTask>(
         builder: (context, task, Widget? child) {
+          return StreamBuilder<List<Task>>(stream: AddTask().ListTask(), builder: (context, snapshot){
+          
+            if(!snapshot.hasData) {
+              return const Center(child:  CircularProgressIndicator());
+            } 
+             List<Task>? toDo = snapshot.data;
           return ListView.builder(
-              itemCount: task.tasks.length,
+              itemCount: toDo!.length,
               itemBuilder: (context, index) {
                 return Dismissible(
-                  key: Key(task.tasks.toString()),
+                  key: UniqueKey(),
                   onDismissed: (DismissDirection deirection) {
-                    context.read<AddTask>().deleteTask(task.tasks[index]);
+                    context.read<AddTask>().deleteTask(toDo[index].uid);
+                    
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -49,13 +58,14 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                       decoration: containerDecoration,
                       child: ListTile(
                           onTap: () {
-                            context.read<AddTask>().checkTask(index);
-                          },
-                          trailing: Container(
+                            bool newCompleteTodo = !toDo[index].isComplete;
+                            context.read<AddTask>().checkTask(toDo[index].uid, newCompleteTodo);
+                          },//need to show isComplete
+                          trailing: Container(                            
                             color: Colors.blueAccent,
                             height: 20,
                             width: 20,
-                            child: task.tasks[index].isComplete
+                            child: toDo[index].isComplete
                                 ? const Icon(Icons.check)
                                 : Container(
                                     height: 20,
@@ -64,10 +74,10 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                                   ),
                           ),
                           title: Text(
-                            task.tasks[index].title,
+                           toDo[index].title,  // need show form firebase
                             style: TextStyle(
                               fontSize: 20,
-                              decoration: task.tasks[index].isComplete
+                              decoration: toDo[index].isComplete
                                   ? TextDecoration.lineThrough
                                   : TextDecoration.none,
                             ),
@@ -77,7 +87,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                 );
               });
         },
-      ),
+      );}),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.orange.shade300,
         onPressed: () {

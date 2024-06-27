@@ -1,18 +1,18 @@
 class Task {
+  String uid;
   String title;
   bool isComplete;
 
-  Task({required this.title, required this.isComplete});
+  Task({required this.title, required this.isComplete,required this.uid });
 
-  void isDone() {
+  isDone() {
     isComplete = !isComplete;
   }
 
-  Map toJson() => {'title': title, 'isComplete': isComplete};
+  Map<String, Object> toJson() => {'uid': uid,'title': title, 'isComplete': isComplete};
 
   Task.fromJson(Map json)
-      : title = json['title'],
+      : uid = json['uid'],
+        title = json['title'],
         isComplete = json['isComplete'];
-
- 
 }
