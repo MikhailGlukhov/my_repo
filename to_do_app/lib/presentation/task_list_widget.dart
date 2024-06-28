@@ -1,12 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do_app/login_screen.dart';
+import 'package:to_do_app/presentation/login_screen.dart';
 import 'package:to_do_app/model/task_model.dart';
 import 'package:to_do_app/provider/task_provider.dart';
 import 'package:to_do_app/sevices/auth.dart';
-import 'package:to_do_app/to_do_dialog_widget.dart';
+import 'package:to_do_app/sevices/firestore.dart';
+import 'package:to_do_app/presentation/to_do_dialog_widget.dart';
 
 
 class TaskListWidget extends StatefulWidget {
@@ -37,12 +38,12 @@ class _TaskListWidgetState extends State<TaskListWidget> {
       ),
       body: Consumer<AddTask>(
         builder: (context, task, Widget? child) {
-          return StreamBuilder<List<Task>>(stream: AddTask().ListTask(), builder: (context, snapshot){
+          return StreamBuilder<List<TaskModel>>(stream: Firestore().listTask(), builder: (context, snapshot){
           
             if(!snapshot.hasData) {
               return const Center(child:  CircularProgressIndicator());
             } 
-             List<Task>? toDo = snapshot.data;
+             List<TaskModel>? toDo = snapshot.data;
           return ListView.builder(
               itemCount: toDo!.length,
               itemBuilder: (context, index) {
@@ -60,7 +61,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                           onTap: () {
                             bool newCompleteTodo = !toDo[index].isComplete;
                             context.read<AddTask>().checkTask(toDo[index].uid, newCompleteTodo);
-                          },//need to show isComplete
+                          },
                           trailing: Container(                            
                             color: Colors.blueAccent,
                             height: 20,
@@ -74,7 +75,7 @@ class _TaskListWidgetState extends State<TaskListWidget> {
                                   ),
                           ),
                           title: Text(
-                           toDo[index].title,  // need show form firebase
+                           toDo[index].title,  
                             style: TextStyle(
                               fontSize: 20,
                               decoration: toDo[index].isComplete

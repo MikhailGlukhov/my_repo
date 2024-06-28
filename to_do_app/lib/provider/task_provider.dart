@@ -15,13 +15,7 @@ class AddTask extends ChangeNotifier {
     return db.collection('tasks').orderBy('Time', descending: true).snapshots().map(taskFromFirestore);
   }
 
- /* late final tasksCollection = db.collection('tasks').withConverter(
-      fromFirestore: (snapshot, _) => Task.fromJson(snapshot.data()!),
-      toFirestore: (task, _) => task.toJson());
 
-  Stream<List<Task>> get taskStream => tasksCollection
-      .snapshots()
-      .map((snapshot) => snapshot.docs.map((doc) => doc.data()).toList());*/
 
 /* AddTask(){
     initialState();
@@ -75,7 +69,7 @@ class AddTask extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future updateSharedPreference() async {
+ /* Future updateSharedPreference() async {
     List<String> myTask = tasks.map((e) => json.encode(e.toJson())).toList();
     SharedPreferences pref = await SharedPreferences.getInstance();
 
@@ -90,5 +84,5 @@ class AddTask extends ChangeNotifier {
       _tasks = result.map((e) => Task.fromJson(json.decode(e))).toList();
     }
     notifyListeners();
-  }
+  }*/
 }

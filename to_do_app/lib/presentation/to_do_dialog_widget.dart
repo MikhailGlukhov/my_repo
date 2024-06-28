@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do_app/model/task_model.dart';
+
 import 'package:to_do_app/provider/task_provider.dart';
 
 class ToDoDialogWidget extends StatelessWidget {

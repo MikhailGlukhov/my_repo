@@ -1,9 +1,9 @@
-class Task {
+class TaskModel {
   String uid;
   String title;
   bool isComplete;
 
-  Task({required this.title, required this.isComplete,required this.uid });
+  TaskModel({required this.title, required this.isComplete,required this.uid });
 
   isDone() {
     isComplete = !isComplete;
@@ -11,7 +11,7 @@ class Task {
 
   Map<String, Object> toJson() => {'uid': uid,'title': title, 'isComplete': isComplete};
 
-  Task.fromJson(Map json)
+  TaskModel.fromJson(Map json)
       : uid = json['uid'],
         title = json['title'],
         isComplete = json['isComplete'];
