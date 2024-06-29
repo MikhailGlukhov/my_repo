@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:to_do_app/registration_screen.dart';
+import 'package:to_do_app/presentation/registration_screen.dart';
 import 'package:to_do_app/sevices/auth.dart';
 
 

@@ -1,26 +1,45 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:to_do_app/model/task_model.dart';
 
-class Firestore{
 
+class Firestore {
+
+ 
+
+  
   FirebaseFirestore db = FirebaseFirestore.instance;
 
+ 
+   var newCollection = FirebaseFirestore.instance.collection('user').doc(FirebaseAuth.instance.currentUser!.uid).collection('tasks'); 
+
+
+
+
   Stream<List<TaskModel>> listTask(){
-    return db.collection('tasks').orderBy('Time', descending: true).snapshots().map(taskFromFirestore);
+  
+   return newCollection.orderBy('Time', descending: true).snapshots().map(taskFromFirestore);
   }
 
    Future<void> fillDb(String title) async {
-    await db
-        .collection('tasks').add({'title': title, 'isComplete': false, 'Time': FieldValue.serverTimestamp()});
+   
+    await newCollection.add({'title': title, 'isComplete': false, 'Time': FieldValue.serverTimestamp()});
+    
+
+    
   }
 
   Future<void> updateTask(uid, bool newComplete) async {
     
-    await db.collection('tasks').doc(uid).update({'isComplete': newComplete});
+   
+   await newCollection.doc(uid).update({'isComplete': newComplete});
   }
 
   Future<void> removeTask(uid) async {
-    await db.collection('tasks').doc(uid).delete();
+    
+    await newCollection.doc(uid).delete();
   }
 
   List<TaskModel> taskFromFirestore(QuerySnapshot snapshot) {

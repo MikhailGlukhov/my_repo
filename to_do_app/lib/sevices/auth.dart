@@ -2,13 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:to_do_app/task_list_widget.dart';
+import 'package:to_do_app/presentation/task_list_widget.dart';
+
 
 class Auth {
   final _firebaseAuth = FirebaseAuth.instance;
   User? get currentUser => _firebaseAuth.currentUser;
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  
 
   Future<void> signInWithEmailAndPassword({
     required String email,
@@ -51,6 +53,7 @@ class Auth {
       email: email,
       password: password,
     );
+  
     await Future.delayed(const Duration(seconds: 1));
     Navigator.pushReplacement( context,
           MaterialPageRoute(

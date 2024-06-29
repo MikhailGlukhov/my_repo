@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_app/login_screen.dart';
-import 'package:to_do_app/sevices/auth.dart';
-import 'package:to_do_app/task_list_widget.dart';
+import 'package:to_do_app/presentation/login_screen.dart';
+import 'package:to_do_app/presentation/task_list_widget.dart';
 
 class AuthtorisationWidget extends StatefulWidget {
   const AuthtorisationWidget({super.key});
@@ -13,13 +13,13 @@ class AuthtorisationWidget extends StatefulWidget {
 class _AuthtorisationWidgetState extends State<AuthtorisationWidget> {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: Auth().authStateChanges,
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if(snapshot.hasData){
           return const TaskListWidget();
         } else {
-          return  LoginScreen();
+          return  const LoginScreen();
         }
       },
     );
