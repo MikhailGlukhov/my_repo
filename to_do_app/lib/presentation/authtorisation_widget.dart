@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/presentation/login_screen.dart';
 import 'package:to_do_app/presentation/task_list_widget.dart';
 
-class AuthtorisationWidget extends StatefulWidget {
+class AuthtorisationWidget extends StatelessWidget {
   const AuthtorisationWidget({super.key});
 
-  @override
-  State<AuthtorisationWidget> createState() => _AuthtorisationWidgetState();
-}
-
-class _AuthtorisationWidgetState extends State<AuthtorisationWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(

@@ -10,14 +10,9 @@ import 'package:to_do_app/sevices/firestore.dart';
 import 'package:to_do_app/presentation/to_do_dialog_widget.dart';
 
 
-class TaskListWidget extends StatefulWidget {
+class TaskListWidget extends StatelessWidget {
   const TaskListWidget({super.key});
 
-  @override
-  State<TaskListWidget> createState() => _TaskListWidgetState();
-}
-
-class _TaskListWidgetState extends State<TaskListWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +34,15 @@ class _TaskListWidgetState extends State<TaskListWidget> {
       body: Consumer<AddTask>(
         builder: (context, task, Widget? child) {
           return StreamBuilder<List<TaskModel>>(stream: Firestore().listTask(), builder: (context, snapshot){
-          
-            if(!snapshot.hasData) {
-              return const Center(child:  CircularProgressIndicator());
-            } 
              List<TaskModel>? toDo = snapshot.data;
+          
+           if(toDo == null) {
+           return const Center(child:  CircularProgressIndicator());
+           } 
+            
+            
           return ListView.builder(
-              itemCount: toDo!.length,
+              itemCount: toDo.length ,
               itemBuilder: (context, index) {
                 return Dismissible(
                   key: UniqueKey(),

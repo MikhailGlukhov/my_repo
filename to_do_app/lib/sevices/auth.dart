@@ -22,8 +22,7 @@ class Auth {
         email: email,
         password: password,
       );
-      await Future.delayed(const Duration(seconds: 1));
-      Navigator.pushReplacement(
+       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => const TaskListWidget(),
@@ -54,8 +53,7 @@ class Auth {
       password: password,
     );
   
-    await Future.delayed(const Duration(seconds: 1));
-    Navigator.pushReplacement( context,
+     Navigator.pushReplacement( context,
           MaterialPageRoute(
             builder: (context) => const TaskListWidget(),
           ));
