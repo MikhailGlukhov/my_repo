@@ -4,18 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:to_do_app/presentation/task_list_widget.dart';
 
-
 class Auth {
   final _firebaseAuth = FirebaseAuth.instance;
   User? get currentUser => _firebaseAuth.currentUser;
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
-  
 
   Future<void> signInWithEmailAndPassword({
     required String email,
     required String password,
-    required BuildContext context,
+    required  context,
+   
   }) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -27,12 +26,12 @@ class Auth {
           MaterialPageRoute(
             builder: (context) => const TaskListWidget(),
           ));
+      
     } on FirebaseAuthException catch (e) {
       String message = '';
       if (e.code == 'invalid-credential') {
         message = 'Wrong password or email';
       } else {
-        
         message = 'User not found';
       }
       Fluttertoast.showToast(
@@ -45,15 +44,16 @@ class Auth {
   Future<void> createUserWithEmailAndPassword({
     required String email,
     required String password,
-    required BuildContext context,
+    required  context,
   }) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-  
-     Navigator.pushReplacement( context,
+        email: email,
+        password: password,
+      );
+
+      Navigator.pushReplacement(
+          context,
           MaterialPageRoute(
             builder: (context) => const TaskListWidget(),
           ));
@@ -61,11 +61,9 @@ class Auth {
       String message = '';
       if (e.code == 'email-already-in-use') {
         message = 'Account already exists with this email';
-      } else if(e.code == 'weak-password') {
+      } else if (e.code == 'weak-password') {
         message = 'Password too short';
-        
-      }
-      else{
+      } else {
         message = 'Unknown error';
       }
       Fluttertoast.showToast(
@@ -73,7 +71,14 @@ class Auth {
           gravity: ToastGravity.SNACKBAR,
           toastLength: Toast.LENGTH_LONG);
     }
-    
+  }
+
+  Future<void> resetPassword(String email) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
+    Fluttertoast.showToast(
+        msg: 'We send you email. Please check your mail',
+        gravity: ToastGravity.CENTER,
+        toastLength: Toast.LENGTH_LONG);
   }
 
   Future<void> signOut() async {

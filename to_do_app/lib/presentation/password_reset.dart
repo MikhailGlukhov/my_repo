@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/presentation/login_screen.dart';
+import 'package:to_do_app/sevices/auth.dart';
 
 class PasswordReset extends StatefulWidget {
   const PasswordReset({super.key});
@@ -39,7 +40,7 @@ class _PasswordResetState extends State<PasswordReset> {
               )),
           const SizedBox(height: 35),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {Auth().resetPassword(_emailAdressController.text);},
               child: const Text(
                 'Reset Password',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

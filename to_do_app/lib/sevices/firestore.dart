@@ -11,6 +11,7 @@ class Firestore {
 
   
   FirebaseFirestore db = FirebaseFirestore.instance;
+ 
 
  
    var newCollection = FirebaseFirestore.instance.collection('user').doc(FirebaseAuth.instance.currentUser!.uid).collection('tasks'); 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/presentation/password_reset.dart';
 import 'package:to_do_app/presentation/registration_screen.dart';
+
 import 'package:to_do_app/sevices/auth.dart';
 
 const hintTextStyle =
@@ -73,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(20)),
                   ),
                 )),
-            // _errorMessage(),
+            
             const SizedBox(
               height: 25,
             ),
@@ -81,8 +82,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Auth().signInWithEmailAndPassword(
                       email: _emailAdressController.text,
-                      password: _passwordController.text,
-                      context: context);
+                      password: _passwordController.text, context: context,
+                     );
+                      
                 },
                 child: const Text(
                   'Enter',
