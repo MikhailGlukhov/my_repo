@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:to_do_app/presentation/login_screen.dart';
 import 'package:to_do_app/sevices/auth.dart';
+import 'package:to_do_app/theme/custom_box_decoration.dart';
+import 'package:to_do_app/theme/custom_text_style.dart';
 
 
 class RegistrationScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Registration', style: appBarTextStyle),
+        title: const Text('Registration',),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
@@ -36,28 +37,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: Column(
           children: [
             Container(
-              decoration: containerDecoration,
+              decoration: CustomBoxDecoration.containerDecoration,
               child: TextFormField(
                 controller: _emailAdressController,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                     hintText: 'Enter your email adress',
-                    hintStyle: hintTextStyle,
+                    hintStyle: CustomTextStyle.hintStyle,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20))),
               ),
             ),
             const SizedBox(height: 25),
             Container(
-              decoration: containerDecoration,
+              decoration: CustomBoxDecoration.containerDecoration,
               child: TextFormField(
                 controller: _passwordController,
                 textInputAction: TextInputAction.next,
                 obscureText: true,
                 decoration: InputDecoration(
                     hintText: 'Enter your password',
-                    hintStyle: hintTextStyle,
+                    hintStyle: CustomTextStyle.hintStyle,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20))),
               ),

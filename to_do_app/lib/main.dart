@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_app/presentation/authtorisation_widget.dart';
 
-
 import 'package:to_do_app/provider/task_provider.dart';
 
 Future<void> main() async {
@@ -13,11 +12,16 @@ Future<void> main() async {
   await Firebase.initializeApp();
   runApp(ChangeNotifierProvider(
     create: (BuildContext context) => AddTask(),
-    child: MaterialApp(debugShowCheckedModeBanner: false,
-      theme:
-          ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber)),
-          home: const AuthtorisationWidget(),
-          
+    child: MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+          appBarTheme: const AppBarTheme(
+              titleTextStyle: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey)),textTheme: TextTheme()),
+      home: const AuthtorisationWidget(),
     ),
   ));
 }

@@ -8,6 +8,7 @@ import 'package:to_do_app/provider/task_provider.dart';
 import 'package:to_do_app/sevices/auth.dart';
 import 'package:to_do_app/sevices/firestore.dart';
 import 'package:to_do_app/presentation/to_do_dialog_widget.dart';
+import 'package:to_do_app/theme/custom_box_decoration.dart';
 
 
 class TaskListWidget extends StatelessWidget {
@@ -28,7 +29,7 @@ class TaskListWidget extends StatelessWidget {
               icon: const Icon(Icons.exit_to_app))
         ],
         centerTitle: true,
-        title: const Text('To Do', style: appBarTextStyle),
+        title: const Text('To Do',),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Consumer<AddTask>(
@@ -53,7 +54,7 @@ class TaskListWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Container(
-                      decoration: containerDecoration,
+                      decoration: CustomBoxDecoration.containerDecoration,
                       child: ListTile(
                           onTap: () {
                             bool newCompleteTodo = !toDo[index].isComplete;

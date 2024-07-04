@@ -3,17 +3,13 @@ import 'package:to_do_app/presentation/password_reset.dart';
 import 'package:to_do_app/presentation/registration_screen.dart';
 
 import 'package:to_do_app/sevices/auth.dart';
+import 'package:to_do_app/theme/custom_box_decoration.dart';
+import 'package:to_do_app/theme/custom_text_style.dart';
 
-const hintTextStyle =
-    TextStyle(fontWeight: FontWeight.w400, color: Colors.blueGrey);
 
-final containerDecoration = BoxDecoration(boxShadow: const [
-  BoxShadow(
-      color: Colors.brown, blurRadius: 5, spreadRadius: 2, offset: Offset(0, 3))
-], borderRadius: BorderRadius.circular(20), color: Colors.amber.shade100);
 
-const appBarTextStyle = TextStyle(
-    fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blueGrey);
+
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -38,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Please Sign in or Register', style: appBarTextStyle),
+        title: const Text('Please Sign in or Register'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
@@ -46,14 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             Container(
-                decoration: containerDecoration,
+                decoration: CustomBoxDecoration.containerDecoration,
                 child: TextFormField(
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
                   controller: _emailAdressController,
                   decoration: InputDecoration(
                     hintText: 'Enter your email adress',
-                    hintStyle: hintTextStyle,
+                    hintStyle: CustomTextStyle.hintStyle,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                   ),
@@ -62,14 +58,14 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 25,
             ),
             Container(
-                decoration: containerDecoration,
+                decoration: CustomBoxDecoration.containerDecoration,
                 child: TextFormField(
                   textInputAction: TextInputAction.done,
                   controller: _passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Enter your password',
-                    hintStyle: hintTextStyle,
+                    hintStyle: CustomTextStyle.hintStyle,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                   ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/presentation/login_screen.dart';
+
 import 'package:to_do_app/sevices/auth.dart';
+import 'package:to_do_app/theme/custom_box_decoration.dart';
+import 'package:to_do_app/theme/custom_text_style.dart';
 
 class PasswordReset extends StatefulWidget {
   const PasswordReset({super.key});
@@ -17,7 +19,7 @@ class _PasswordResetState extends State<PasswordReset> {
       appBar: AppBar(
         title: const Text(
           'Reset your password',
-          style: appBarTextStyle,
+         
         ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         centerTitle: true,
@@ -26,14 +28,14 @@ class _PasswordResetState extends State<PasswordReset> {
         padding: const EdgeInsets.all(20),
         child: Column(children: [
           Container(
-              decoration: containerDecoration,
+              decoration: CustomBoxDecoration.containerDecoration,
               child: TextFormField(
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 controller: _emailAdressController,
                 decoration: InputDecoration(
                   hintText: 'Enter your email adress',
-                  hintStyle: hintTextStyle,
+                  hintStyle: CustomTextStyle.hintStyle,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
