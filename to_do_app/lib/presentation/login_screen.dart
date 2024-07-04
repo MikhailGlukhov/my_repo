@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:to_do_app/presentation/password_reset.dart';
 import 'package:to_do_app/presentation/registration_screen.dart';
 
 import 'package:to_do_app/sevices/auth.dart';
 import 'package:to_do_app/theme/custom_box_decoration.dart';
 import 'package:to_do_app/theme/custom_text_style.dart';
-
-
-
-
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -70,17 +66,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(20)),
                   ),
                 )),
-            
             const SizedBox(
               height: 25,
             ),
             ElevatedButton(
                 onPressed: () {
-                  Auth().signInWithEmailAndPassword(
+                  
+                    Auth().signInWithEmailAndPassword(
                       email: _emailAdressController.text,
-                      password: _passwordController.text, context: context,
-                     );
-                      
+                      password: _passwordController.text,
+                      context: context,
+                    );
+                 
                 },
                 child: const Text(
                   'Enter',

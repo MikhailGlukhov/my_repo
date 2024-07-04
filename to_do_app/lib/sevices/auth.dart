@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:to_do_app/presentation/email_verification.dart';
 import 'package:to_do_app/presentation/task_list_widget.dart';
 
 class Auth {
@@ -20,12 +21,17 @@ class Auth {
       await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
-      );
+      ); if(currentUser!.emailVerified){
        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => const TaskListWidget(),
-          ));
+          ));} else {
+             Fluttertoast.showToast(
+          msg: 'Verificate your email please',
+          gravity: ToastGravity.SNACKBAR,
+          toastLength: Toast.LENGTH_LONG);
+          }
       
     } on FirebaseAuthException catch (e) {
       String message = '';
@@ -55,7 +61,7 @@ class Auth {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const TaskListWidget(),
+            builder: (context) => const EmailVerification(),
           ));
     } on FirebaseAuthException catch (e) {
       String message = '';
@@ -80,6 +86,16 @@ class Auth {
         gravity: ToastGravity.CENTER,
         toastLength: Toast.LENGTH_LONG);
   }
+
+  Future<void> emailVerification() async{
+    await _firebaseAuth.currentUser?.sendEmailVerification();
+    Fluttertoast.showToast(
+        msg: 'We send you email. Please check your mail',
+        gravity: ToastGravity.CENTER,
+        toastLength: Toast.LENGTH_LONG);
+  }
+
+
 
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
