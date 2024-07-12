@@ -13,7 +13,8 @@ class TimerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider =  Provider.of<TimeServise>(context);
-    return SizedBox(
+    final isFinish = provider.currentRound == provider.selectedRounds && provider.currentDurationRound == 0;
+    return !isFinish ? SizedBox(
       height: 200,
       width: 200,
       child: Stack(
@@ -33,6 +34,6 @@ class TimerWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ) :  Text(provider.currentState = 'FINISH');
   }
 }

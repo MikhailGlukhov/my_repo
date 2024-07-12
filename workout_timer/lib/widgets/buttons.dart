@@ -27,7 +27,7 @@ class Buttons extends StatelessWidget {
                               : const Text('Resume')),
                       ElevatedButton(
                           onPressed: () {
-                            provider.stopTimer();
+                            provider.reset();
                           },
                           child: const Text('Cancel')),
                     ],

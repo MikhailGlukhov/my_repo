@@ -26,7 +26,7 @@ class TimeServise extends ChangeNotifier {
 
   void selectRound(int rounds) {
     selectedRounds = rounds;
-    currentRound = rounds;
+   
     notifyListeners();
   }
 
@@ -60,6 +60,15 @@ class TimeServise extends ChangeNotifier {
     notifyListeners();
   }
 
+  void reset(){
+    timer?.cancel();
+    currentState = 'WORKOUT';
+    currentDurationRound = selectedTimeRound;
+    currentRound = 0;
+    notifyListeners();
+
+  }
+
   void moveToNextRound(){
     if(currentState == 'WORKOUT'){
       currentState = 'REST';
@@ -70,14 +79,18 @@ class TimeServise extends ChangeNotifier {
       currentState = 'WORKOUT';
       currentDurationRound = selectedTimeRound;
      // selectedTimeRound =selectedTimeRest;
-    } else if (currentState == 'WORKOUT' && currentRound == 2){
+    } /*else if (currentState == 'WORKOUT' && currentRound == selectedRounds){
       currentState = 'FINISH';
       currentDurationRound = currentDurationRound;
       currentRound++;
+     
     } else if(currentState == 'FINISH'){
       currentState = 'WORKOUT';
       currentDurationRound = currentDurationRound;
       currentRound = 0;
+    }*/ else if(currentState == 'FINISH'){
+      timer?.cancel();
+      
     }
     notifyListeners();
   }
