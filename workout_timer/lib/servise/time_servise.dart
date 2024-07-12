@@ -73,22 +73,14 @@ class TimeServise extends ChangeNotifier {
     if(currentState == 'WORKOUT'){
       currentState = 'REST';
       currentDurationRound = selectedTimeRest;
-     // currentDurationRound = currentDurationRest ;
+    
       currentRound++;
     } else if (currentState == 'REST'){
       currentState = 'WORKOUT';
       currentDurationRound = selectedTimeRound;
-     // selectedTimeRound =selectedTimeRest;
-    } /*else if (currentState == 'WORKOUT' && currentRound == selectedRounds){
-      currentState = 'FINISH';
-      currentDurationRound = currentDurationRound;
-      currentRound++;
      
-    } else if(currentState == 'FINISH'){
-      currentState = 'WORKOUT';
-      currentDurationRound = currentDurationRound;
-      currentRound = 0;
-    }*/ else if(currentState == 'FINISH'){
+    } 
+     else if(currentState == 'FINISH'){
       timer?.cancel();
       
     }
