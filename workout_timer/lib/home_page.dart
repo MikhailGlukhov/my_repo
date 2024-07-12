@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:workout_timer/servise/time_servise.dart';
 import 'package:workout_timer/widgets/buttons.dart';
 import 'package:workout_timer/widgets/rounds.dart';
 import 'package:workout_timer/widgets/time_rest.dart';
@@ -12,34 +14,37 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- 
-    return const Scaffold(
+  final provider =  Provider.of<TimeServise>(context);
+  
+    return  Scaffold(
       body: Center(
           child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TimerWidget(),
-            SizedBox(
+          children: [Text(provider.currentState,
+           style: const TextStyle(fontSize: 25),),
+          const SizedBox(height: 25,),
+            const TimerWidget(),
+            const SizedBox(
               height: 25,
-            ), Buttons(),
+            ), const Buttons(),
            
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text('Rounds time in minute'),
-            TimeRound(),
-            SizedBox(
+            const Text('Rounds time in minute'),
+            const TimeRound(),
+            const SizedBox(
               height: 20,
             ),
-            Text('Rest time in seconds'),
-            TimeRest(),
-            SizedBox(
+            const Text('Rest time in seconds'),
+            const TimeRest(),
+            const SizedBox(
               height: 20,
             ),
-            Text('Rounds'),
-            Rounds()
+            const Text('Rounds'),
+            const Rounds()
           ],
         ),
       )),

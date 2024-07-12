@@ -15,7 +15,7 @@ class TimeRest extends StatelessWidget {
       child: Row(
         children: secondsRest.map((time) {
           return InkWell(
-            onTap: () => provider.selectTimeRest(int.parse(time)),
+            onTap: () => provider.selectTimeRest(double.parse(time)),
             child: Container(
               margin: const EdgeInsets.only(left: 12),
               width: 70,

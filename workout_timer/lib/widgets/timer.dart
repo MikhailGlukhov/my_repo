@@ -20,9 +20,9 @@ class TimerWidget extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           CircularProgressIndicator(
-            value: provider.currentDurationRound / provider.selectedTimeRound,
+            value: provider.currentState == 'WORKOUT' ? provider.currentDurationRound / provider.selectedTimeRound : provider.currentDurationRound/provider.selectedTimeRest,
             strokeWidth: 10,
-            color: Colors.red,
+            color: provider.currentState == 'WORKOUT' ? Colors.red : Colors.green,
             backgroundColor: Colors.white,
           ),
           Center(
