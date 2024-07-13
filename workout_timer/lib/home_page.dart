@@ -13,6 +13,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TimeServise>(context);
+    final isRunning = provider.timer == null ? false : provider.timer?.isActive;
 
     return Scaffold(
       body: Center(
@@ -36,22 +37,34 @@ class MyHomePage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Text('Rounds time in minute'),
-            const TimeRound(),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text('Rest time in seconds'),
-            const TimeRest(),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text('Rounds'),
-            const Rounds(),
-            Text(
-              '${provider.currentRound} / ${provider.selectedRounds}',
-              style: const TextStyle(fontSize: 25),
-            )
+            !isRunning! && provider.currentState != 'FINISH'
+                ? Column(
+                    children: [
+                      const Text('Rounds time in minute'),
+                      const TimeRound(),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text('Rest time in seconds'),
+                      const TimeRest(),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text('Rounds'),
+                      const Rounds(),
+                      Text(
+                        '${provider.currentRound} / ${provider.selectedRounds}',
+                        style: const TextStyle(fontSize: 25),
+                      )
+                    ],
+                  )
+                : Container(padding: EdgeInsets.only(top: 80),
+                    child: Text(
+                      '${provider.currentRound} / ${provider.selectedRounds}',
+                      style: const TextStyle(
+                          fontSize: 60, fontWeight: FontWeight.bold),
+                    ),
+                  ),
           ],
         ),
       )),
