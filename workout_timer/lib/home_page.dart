@@ -58,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                       )
                     ],
                   )
-                : Container(padding: EdgeInsets.only(top: 80),
+                : Container(padding: const EdgeInsets.only(top: 80),
                     child: Text(
                       '${provider.currentRound} / ${provider.selectedRounds}',
                       style: const TextStyle(
