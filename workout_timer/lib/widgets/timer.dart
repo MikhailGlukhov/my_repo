@@ -28,7 +28,7 @@ class TimerWidget extends StatelessWidget {
           ),
           Center(
             child: Text(
-              '${provider.currentDurationRound}',
+              '${provider.currentDurationRound.toInt()}',
               style: const TextStyle(fontSize: 40),
             ),
           ),
