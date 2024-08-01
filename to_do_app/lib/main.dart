@@ -20,7 +20,7 @@ Future<void> main() async {
               titleTextStyle: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey)),textTheme: TextTheme()),
+                  color: Colors.blueGrey)),textTheme: const TextTheme()),
       home: const AuthtorisationWidget(),
     ),
   ));

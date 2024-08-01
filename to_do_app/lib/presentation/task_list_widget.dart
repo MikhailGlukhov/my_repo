@@ -51,37 +51,34 @@ class TaskListWidget extends StatelessWidget {
                     context.read<AddTask>().deleteTask(toDo[index].uid);
                     
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Container(
-                      decoration: CustomBoxDecoration.containerDecoration,
-                      child: ListTile(
-                          onTap: () {
-                            bool newCompleteTodo = !toDo[index].isComplete;
-                            context.read<AddTask>().checkTask(toDo[index].uid, newCompleteTodo);
-                          },
-                          trailing: Container(                            
-                            color: Colors.blueAccent,
-                            height: 20,
-                            width: 20,
-                            child: toDo[index].isComplete
-                                ? const Icon(Icons.check)
-                                : Container(
-                                    height: 20,
-                                    width: 20,
-                                    color: Colors.blueAccent,
-                                  ),
+                  child: Container(margin:const EdgeInsets.all(10.0),
+                    decoration: CustomBoxDecoration.containerDecoration,
+                    child: ListTile(
+                        onTap: () {
+                          bool newCompleteTodo = !toDo[index].isComplete;
+                          context.read<AddTask>().checkTask(toDo[index].uid, newCompleteTodo);
+                        },
+                        trailing: Container(                            
+                          color: Colors.blueAccent,
+                          height: 20,
+                          width: 20,
+                          child: toDo[index].isComplete
+                              ? const Icon(Icons.check)
+                              : Container(
+                                  height: 20,
+                                  width: 20,
+                                  color: Colors.blueAccent,
+                                ),
+                        ),
+                        title: Text(
+                         toDo[index].title,  
+                          style: TextStyle(
+                            fontSize: 20,
+                            decoration: toDo[index].isComplete
+                                ? TextDecoration.lineThrough
+                                : TextDecoration.none,
                           ),
-                          title: Text(
-                           toDo[index].title,  
-                            style: TextStyle(
-                              fontSize: 20,
-                              decoration: toDo[index].isComplete
-                                  ? TextDecoration.lineThrough
-                                  : TextDecoration.none,
-                            ),
-                          )),
-                    ),
+                        )),
                   ),
                 );
               });
