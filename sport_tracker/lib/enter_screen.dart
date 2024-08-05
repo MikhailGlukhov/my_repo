@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sport_tracker/log_in/log_in_widget.dart';
+import 'package:sport_tracker/registration/registration_widget.dart';
 import 'package:sport_tracker/settings/settings_widget.dart';
 
 class EnterScreen extends StatelessWidget {
@@ -24,11 +25,9 @@ class EnterScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-          child: Column(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 100,
-          ),
+         
           ElevatedButton(
               onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));},
               child: const Text(
@@ -39,7 +38,7 @@ class EnterScreen extends StatelessWidget {
             height: 24,
           ),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const RegistrationWidget()));},
               child: const Text(
                 'Registration',
                 style: TextStyle(fontSize: 22),

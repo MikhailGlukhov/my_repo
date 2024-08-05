@@ -1,38 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:sport_tracker/reset_password/reset_password_widget.dart';
-import 'package:sport_tracker/tracker_list/traker_list_widget.dart';
 
-class LogInWidget extends StatefulWidget {
-  const LogInWidget({super.key});
+class RegistrationWidget extends StatefulWidget {
+  const RegistrationWidget({super.key});
 
   @override
-  State<LogInWidget> createState() => _LogInWidgetState();
+  State<RegistrationWidget> createState() => _RegistrationWidgetState();
 }
 
-class _LogInWidgetState extends State<LogInWidget> {
+class _RegistrationWidgetState extends State<RegistrationWidget> {
   final _phoneNumberController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _codeController = TextEditingController();
 
   @override
   void dispose() {
     super.dispose();
-    _passwordController.dispose();
     _phoneNumberController.dispose();
+    _passwordController.dispose();
+    _codeController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Log In',
-        ),
         centerTitle: true,
+        title: const Text(
+          'Registration',
+         
+        ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            
             Container(
               width: double.infinity,
               height: 40,
@@ -77,27 +78,31 @@ class _LogInWidgetState extends State<LogInWidget> {
                 ),
               ),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const TrakerListWidget()));
-                },
-                child: const Text(
-                  '   Log In   ',
-                  style: TextStyle(fontSize: 22),
-                )),
-            const SizedBox(
-              height: 25,
+            Container(
+              width: double.infinity,
+              height: 40,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: const Color.fromARGB(82, 0, 0, 0))),
+              margin: const EdgeInsets.all(20),
+              child: TextFormField(
+                autofocus: true,
+                textInputAction: TextInputAction.done,
+                controller: _codeController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: 'Enter code from message',
+                  hintStyle: const TextStyle(fontSize: 16),
+                  prefixIcon: const Icon(Icons.password),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+              ),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ResetPasswordWidget()));
-                },
-                child: const Text(
-                  'Reset passowrd',
+            ElevatedButton(onPressed: (){}, child:const Text(
+                  'Registration',
                   style: TextStyle(fontSize: 22),
-                ))
+                ) ),
           ],
         ),
       ),

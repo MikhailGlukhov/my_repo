@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:sport_tracker/settings/settings_switch.dart';
@@ -10,9 +9,8 @@ class SettingsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
+        title: const Text(
           'Settings',
-          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
@@ -37,4 +35,3 @@ class SettingsWidget extends StatelessWidget {
     );
   }
 }
-
