@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "214968875672",
+    "project_id": "my-sport-tracker",
+    "storage_bucket": "my-sport-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214968875672:android:5d7e3140e7a2dcacdc2eed",
+        "android_client_info": {
+          "package_name": "com.example.sporttracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD31Dxi4uop5ifdxJhhHfDUUR1f_QaMB4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

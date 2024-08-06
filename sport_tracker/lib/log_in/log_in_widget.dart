@@ -47,10 +47,10 @@ class _LogInWidgetState extends State<LogInWidget> {
                 obscureText: false,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                  hintText: 'Enter your phone number',
-                  prefixText: '+7',
+                  hintText: 'Enter your email address',
+            
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: const Icon(Icons.phone_iphone),
+                  prefixIcon: const Icon(Icons.mail),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),

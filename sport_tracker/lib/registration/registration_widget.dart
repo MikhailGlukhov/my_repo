@@ -78,27 +78,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 40,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: const Color.fromARGB(82, 0, 0, 0))),
-              margin: const EdgeInsets.all(20),
-              child: TextFormField(
-                autofocus: true,
-                textInputAction: TextInputAction.done,
-                controller: _codeController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Enter code from message',
-                  hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: const Icon(Icons.password),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                ),
-              ),
-            ),
+           
             ElevatedButton(onPressed: (){}, child:const Text(
                   'Registration',
                   style: TextStyle(fontSize: 22),
