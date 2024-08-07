@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_tracker/enter_screen.dart';
+import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
+import 'package:sport_tracker/settings/settings_widget.dart';
 import 'package:sport_tracker/timer/timer_widget.dart';
 
 class TrakerListWidget extends StatelessWidget {
@@ -8,6 +12,21 @@ class TrakerListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.read<SignInBloc>().add(const SigInEvent.logOut());
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const EnterScreen()));
+              },
+              icon: const Icon(Icons.exit_to_app)),
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SettingsWidget()));
+              },
+              icon: const Icon(Icons.settings))
+        ],
         centerTitle: true,
         title: const Text('Sport Tracker'),
       ),

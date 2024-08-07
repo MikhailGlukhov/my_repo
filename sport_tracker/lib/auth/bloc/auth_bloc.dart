@@ -3,22 +3,25 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_tracker/auth/auth_repository.dart';
-import 'package:sport_tracker/auth/bloc/auth_events.dart';
-import 'package:sport_tracker/auth/bloc/auth_state.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
+part 'auth_event.dart';
+part 'auth_state.dart';
+part 'auth_bloc.freezed.dart';
+
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
   late final StreamSubscription<User?> _userSubscription;
-  AuthBloc({required this.authRepository}) : super(AuthState.unknown()) {
+  AuthBloc({required this.authRepository}) : super(const AuthState.loading()) {
     _userSubscription = authRepository.user.listen((authUser){
-      add(AuthUserChanged(authUser));
+      add(AuthEvent.userChanging(authUser));
     });
-    on<AuthUserChanged>((event, emit)  {
+    on<AuthEventsUserChangingEvent>((event, emit)  {
       
         if(event.user != null){
-          emit(AuthState.aunteficated(event.user!));
+          emit(AuthState.auteficated(event.user!));
         }else{
-          emit(AuthState.unaunteficated());
+          emit(const AuthState.unauteficated());
                   }
       
     });
