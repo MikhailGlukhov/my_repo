@@ -18,7 +18,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
     on<AuthEventsUserChangingEvent>((event, emit)  {
       
-        if(event.user != null){
+        
+        if(event.user != null && event.user!.emailVerified){
           emit(AuthState.auteficated(event.user!));
         }else{
           emit(const AuthState.unauteficated());

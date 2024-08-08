@@ -18,11 +18,18 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       try {
         await authRepository.signUp(email: event.email, password: event.password);
         authRepository.currentUser;
+       
         emit(const SignUpState.sucess());
       } catch (e) {
         log(e.toString());
         emit(SignUpState.error(e.toString()));
       }
     });
+    on<SingUpVerificatingEmailEvent>((event, emit) async{
+      authRepository.currentUser;
+      await authRepository.sendEmailVerification();
+      emit(const SignUpState.sucess());
+    });
+    
   }
 }

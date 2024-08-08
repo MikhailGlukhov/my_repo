@@ -16,43 +16,44 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SignUpEvent {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) registrating,
+    required TResult Function() verificatingEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? registrating,
+    TResult? Function()? verificatingEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? registrating,
+    TResult Function()? verificatingEmail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SingUpRegistratingEvent value) registrating,
+    required TResult Function(SingUpVerificatingEmailEvent value)
+        verificatingEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SingUpRegistratingEvent value)? registrating,
+    TResult? Function(SingUpVerificatingEmailEvent value)? verificatingEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SingUpRegistratingEvent value)? registrating,
+    TResult Function(SingUpVerificatingEmailEvent value)? verificatingEmail,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SignUpEventCopyWith<SignUpEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,8 +62,6 @@ abstract class $SignUpEventCopyWith<$Res> {
   factory $SignUpEventCopyWith(
           SignUpEvent value, $Res Function(SignUpEvent) then) =
       _$SignUpEventCopyWithImpl<$Res, SignUpEvent>;
-  @useResult
-  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -74,34 +73,14 @@ class _$SignUpEventCopyWithImpl<$Res, $Val extends SignUpEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SingUpRegistratingEventImplCopyWith<$Res>
-    implements $SignUpEventCopyWith<$Res> {
+abstract class _$$SingUpRegistratingEventImplCopyWith<$Res> {
   factory _$$SingUpRegistratingEventImplCopyWith(
           _$SingUpRegistratingEventImpl value,
           $Res Function(_$SingUpRegistratingEventImpl) then) =
       __$$SingUpRegistratingEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String email, String password});
 }
@@ -174,6 +153,7 @@ class _$SingUpRegistratingEventImpl implements SingUpRegistratingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) registrating,
+    required TResult Function() verificatingEmail,
   }) {
     return registrating(email, password);
   }
@@ -182,6 +162,7 @@ class _$SingUpRegistratingEventImpl implements SingUpRegistratingEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? registrating,
+    TResult? Function()? verificatingEmail,
   }) {
     return registrating?.call(email, password);
   }
@@ -190,6 +171,7 @@ class _$SingUpRegistratingEventImpl implements SingUpRegistratingEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? registrating,
+    TResult Function()? verificatingEmail,
     required TResult orElse(),
   }) {
     if (registrating != null) {
@@ -202,6 +184,8 @@ class _$SingUpRegistratingEventImpl implements SingUpRegistratingEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SingUpRegistratingEvent value) registrating,
+    required TResult Function(SingUpVerificatingEmailEvent value)
+        verificatingEmail,
   }) {
     return registrating(this);
   }
@@ -210,6 +194,7 @@ class _$SingUpRegistratingEventImpl implements SingUpRegistratingEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SingUpRegistratingEvent value)? registrating,
+    TResult? Function(SingUpVerificatingEmailEvent value)? verificatingEmail,
   }) {
     return registrating?.call(this);
   }
@@ -218,6 +203,7 @@ class _$SingUpRegistratingEventImpl implements SingUpRegistratingEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SingUpRegistratingEvent value)? registrating,
+    TResult Function(SingUpVerificatingEmailEvent value)? verificatingEmail,
     required TResult orElse(),
   }) {
     if (registrating != null) {
@@ -232,14 +218,119 @@ abstract class SingUpRegistratingEvent implements SignUpEvent {
       {required final String email,
       required final String password}) = _$SingUpRegistratingEventImpl;
 
-  @override
   String get email;
-  @override
   String get password;
-  @override
   @JsonKey(ignore: true)
   _$$SingUpRegistratingEventImplCopyWith<_$SingUpRegistratingEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SingUpVerificatingEmailEventImplCopyWith<$Res> {
+  factory _$$SingUpVerificatingEmailEventImplCopyWith(
+          _$SingUpVerificatingEmailEventImpl value,
+          $Res Function(_$SingUpVerificatingEmailEventImpl) then) =
+      __$$SingUpVerificatingEmailEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SingUpVerificatingEmailEventImplCopyWithImpl<$Res>
+    extends _$SignUpEventCopyWithImpl<$Res, _$SingUpVerificatingEmailEventImpl>
+    implements _$$SingUpVerificatingEmailEventImplCopyWith<$Res> {
+  __$$SingUpVerificatingEmailEventImplCopyWithImpl(
+      _$SingUpVerificatingEmailEventImpl _value,
+      $Res Function(_$SingUpVerificatingEmailEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SingUpVerificatingEmailEventImpl
+    implements SingUpVerificatingEmailEvent {
+  const _$SingUpVerificatingEmailEventImpl();
+
+  @override
+  String toString() {
+    return 'SignUpEvent.verificatingEmail()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SingUpVerificatingEmailEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) registrating,
+    required TResult Function() verificatingEmail,
+  }) {
+    return verificatingEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? registrating,
+    TResult? Function()? verificatingEmail,
+  }) {
+    return verificatingEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? registrating,
+    TResult Function()? verificatingEmail,
+    required TResult orElse(),
+  }) {
+    if (verificatingEmail != null) {
+      return verificatingEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SingUpRegistratingEvent value) registrating,
+    required TResult Function(SingUpVerificatingEmailEvent value)
+        verificatingEmail,
+  }) {
+    return verificatingEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SingUpRegistratingEvent value)? registrating,
+    TResult? Function(SingUpVerificatingEmailEvent value)? verificatingEmail,
+  }) {
+    return verificatingEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SingUpRegistratingEvent value)? registrating,
+    TResult Function(SingUpVerificatingEmailEvent value)? verificatingEmail,
+    required TResult orElse(),
+  }) {
+    if (verificatingEmail != null) {
+      return verificatingEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SingUpVerificatingEmailEvent implements SignUpEvent {
+  const factory SingUpVerificatingEmailEvent() =
+      _$SingUpVerificatingEmailEventImpl;
 }
 
 /// @nodoc

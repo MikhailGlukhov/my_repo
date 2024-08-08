@@ -50,8 +50,9 @@ class AuthRepository {
     await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> emailVerification({required String ema}) async {
-    await _firebaseAuth.currentUser!.sendEmailVerification();
+  Future<void> sendEmailVerification() async {
+    
+    await _firebaseAuth.currentUser?.sendEmailVerification();
   }
 
   Future<void> signOut() async {

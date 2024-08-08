@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_tracker/auth/auth_repository.dart';
+import 'package:sport_tracker/email_verification/email_verification_widget.dart';
 import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
-import 'package:sport_tracker/tracker_list/traker_list_widget.dart';
+import 'package:sport_tracker/sport_tracker.dart';
+
 
 class RegistrationWidget extends StatefulWidget {
   const RegistrationWidget({super.key});
@@ -36,7 +39,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
             initial: () => const CircularProgressIndicator(),
             inProgress: () => const CircularProgressIndicator(),
             sucess: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const TrakerListWidget())),
+                builder: (context) =>  const EmailVerificationWidget())),
             error: (_) => const CircularProgressIndicator(),
           );
         },
@@ -61,7 +64,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                   decoration: InputDecoration(
                     hintText: 'Enter your email',
                     hintStyle: const TextStyle(fontSize: 16),
-                    prefixIcon: const Icon(Icons.phone_iphone),
+                    prefixIcon: const Icon(Icons.email),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                   ),
@@ -94,6 +97,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     context.read<SignUpBloc>().add(SignUpEvent.registrating(
                         email: _emailController.text,
                         password: _passwordController.text));
+                        
+                   
+                          
                   },
                   child: const Text(
                     'Registration',
