@@ -4,7 +4,7 @@ import 'package:sport_tracker/auth/auth_widget.dart';
 
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/reset_password/reset_password_widget.dart';
-import 'package:sport_tracker/sport_tracker.dart';
+
 
 class LogInWidget extends StatefulWidget {
   const LogInWidget({super.key});

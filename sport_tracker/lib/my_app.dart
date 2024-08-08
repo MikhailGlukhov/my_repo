@@ -5,6 +5,7 @@ import 'package:sport_tracker/auth/bloc/auth_bloc.dart';
 import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
+import 'package:sport_tracker/reset_password/bloc/reset_bloc.dart';
 import 'package:sport_tracker/sport_tracker.dart';
 
 class MyApp extends StatelessWidget {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       RepositoryProvider<AuthBloc>(create: (_) => AuthBloc(authRepository: authRepository)),
       BlocProvider(create: (_) => SignUpBloc(authRepository)),
       BlocProvider(create: (_) => SignInBloc(authRepository)),
-     BlocProvider(create: (_) => VerificationBloc(authRepository))
+      BlocProvider(create: (_) => VerificationBloc(authRepository)),
+      BlocProvider(create: (_) => ResetBloc(authRepository))
     ],
     child: const SportTracker());
   }

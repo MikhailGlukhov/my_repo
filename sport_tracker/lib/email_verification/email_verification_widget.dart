@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:sport_tracker/auth/auth_repository.dart';
+
 import 'package:sport_tracker/auth/auth_widget.dart';
 import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
 import 'package:sport_tracker/sport_tracker.dart';

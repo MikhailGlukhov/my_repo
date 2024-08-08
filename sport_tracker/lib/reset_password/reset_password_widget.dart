@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_tracker/auth/auth_widget.dart';
+import 'package:sport_tracker/reset_password/bloc/reset_bloc.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
   const ResetPasswordWidget({super.key});
@@ -8,7 +11,14 @@ class ResetPasswordWidget extends StatefulWidget {
 }
 
 class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
-  final _phoneNumberController = TextEditingController();
+  final _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +26,6 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
         centerTitle: true,
         title: const Text(
           'Reset Password',
-          
         ),
       ),
       body: Center(
@@ -33,12 +42,11 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
               child: TextFormField(
                 autofocus: true,
                 textInputAction: TextInputAction.next,
-                controller: _phoneNumberController,
+                controller: _emailController,
                 obscureText: false,
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   hintText: 'Enter your email address',
-                 
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.mail),
                   border: OutlineInputBorder(
@@ -46,12 +54,25 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                 ),
               ),
             ),
-            ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Reset password',
-                  style: TextStyle(fontSize: 22),
-                ))
+            BlocListener<ResetBloc, ResetState>(
+              listener: (context, state) {
+                state.when(
+                    initial: () => const AuthWidget(),
+                    succes: () => const AuthWidget());
+              },
+              child: ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read<ResetBloc>()
+                        .add(ResetEvent.sendingEmail(_emailController.text));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const AuthWidget()));
+                  },
+                  child: const Text(
+                    'Reset password',
+                    style: TextStyle(fontSize: 22),
+                  )),
+            )
           ],
         ),
       ),

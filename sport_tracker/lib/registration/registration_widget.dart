@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sport_tracker/auth/auth_repository.dart';
+
 import 'package:sport_tracker/email_verification/email_verification_widget.dart';
 import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
-import 'package:sport_tracker/sport_tracker.dart';
+
 
 
 class RegistrationWidget extends StatefulWidget {
