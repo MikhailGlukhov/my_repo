@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       RepositoryProvider<AuthBloc>(create: (_) => AuthBloc(authRepository: authRepository)),
       BlocProvider(create: (_) => SignUpBloc(authRepository)),
       BlocProvider(create: (_) => SignInBloc(authRepository)),
-      // BlocProvider(create: (_) => VerificationBloc(authRepository))
+     BlocProvider(create: (_) => VerificationBloc(authRepository))
     ],
     child: const SportTracker());
   }

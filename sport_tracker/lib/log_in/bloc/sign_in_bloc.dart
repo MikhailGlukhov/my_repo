@@ -19,10 +19,10 @@ class SignInBloc extends Bloc<SigInEvent, SignInState> {
     
     on<SignInLoginEvent>((event, emit) async{
       emit(const SignInState.inProcess());
-      try {
+      try { 
         await authRepository.signIn(email: event.email, password: event.password);
-       
         emit(const SignInState.sucess());
+       
       } catch (e) {
         // SnackBar(content: Text(e.toString()),);
         log(e.toString());

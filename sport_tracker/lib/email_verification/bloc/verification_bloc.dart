@@ -12,8 +12,8 @@ class VerificationBloc extends Bloc<VerificationEvent, VerificationState> {
   VerificationBloc(this.authRepository) : super(const VerificationState.initial()) {
     on<VerificationSentEmailEvent>((event, emit)  async{
       emit(const VerificationState.inProcess());
-      if(authRepository.currentUser?.email !=null){
-      await authRepository.currentUser?.sendEmailVerification();}
+      
+      await authRepository.sendEmailVerification();
       
   
       emit(const VerificationState.sentEmail());

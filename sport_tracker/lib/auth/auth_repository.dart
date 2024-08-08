@@ -7,11 +7,12 @@ class AuthRepository {
 
   User? get currentUser => _firebaseAuth.currentUser;
 
-  Stream<User?> get user =>
-      _firebaseAuth.authStateChanges().map((firebaseUser) {
-        final user = firebaseUser;
-        return user;
-      });
+  // Stream<User?> get user =>
+  //     _firebaseAuth.authStateChanges().map((firebaseUser) {
+  //       final user = firebaseUser;
+  //       return user;
+  //     });
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   Future<void> signUp({required String email, required String password}) async {
     try {

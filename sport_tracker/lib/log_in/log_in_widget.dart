@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_tracker/auth/auth_widget.dart';
 
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/reset_password/reset_password_widget.dart';
 import 'package:sport_tracker/sport_tracker.dart';
-
 
 class LogInWidget extends StatefulWidget {
   const LogInWidget({super.key});
@@ -38,7 +38,10 @@ class _LogInWidgetState extends State<LogInWidget> {
           state.when(
               initial: () => const CircularProgressIndicator(),
               inProcess: () => const CircularProgressIndicator(),
-              sucess: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SportTracker())),
+              sucess:
+                  () => /*Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SportTracker())),*/
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const AuthWidget())),
               error: (_) => const CircularProgressIndicator());
         },
         child: Center(
