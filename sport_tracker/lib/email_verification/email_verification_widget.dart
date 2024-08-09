@@ -20,14 +20,14 @@ class EmailVerificationWidget extends StatelessWidget {
             state.when(
                 initial: () => const CircularProgressIndicator(),
                 inProcess: () => const CircularProgressIndicator(),
-                sentEmail: () => const SportTracker());
+                sentEmail: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthWidget())));
           },
           child: ElevatedButton(
               onPressed: () {
                 context
                     .read<VerificationBloc>()
                     .add(const VerificationEvent.sendEmailVerification());
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthWidget()));
+                    
               },
               child: const Row(
                 children: [Icon(Icons.email), Text('Verificate your email')],

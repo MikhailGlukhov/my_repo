@@ -1,8 +1,7 @@
 
-import 'dart:developer';
 
 
-import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:sport_tracker/auth/auth_repository.dart';
@@ -25,7 +24,7 @@ class SignInBloc extends Bloc<SigInEvent, SignInState> {
        
       } catch (e) {
         // SnackBar(content: Text(e.toString()),);
-        log(e.toString());
+        // log(e.toString());
         emit(SignInState.error(e.toString()));
       }
     });
