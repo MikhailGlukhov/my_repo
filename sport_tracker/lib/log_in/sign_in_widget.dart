@@ -96,8 +96,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     context.read<SignInBloc>().add(SigInEvent.logIn(
                         email: _emailController.text,
                         password: _passwordController.text));
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => const TrakerListWidget()));
+                   
                   },
                   child: const Text(
                     '   Log In   ',

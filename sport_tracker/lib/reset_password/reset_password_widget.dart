@@ -58,15 +58,15 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
               listener: (context, state) {
                 state.when(
                     initial: () => const AuthWidget(),
-                    succes: () => const AuthWidget());
+                    succes: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const AuthWidget())));
               },
               child: ElevatedButton(
                   onPressed: () {
                     context
                         .read<ResetBloc>()
                         .add(ResetEvent.sendingEmail(_emailController.text));
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const AuthWidget()));
+                    
                   },
                   child: const Text(
                     'Reset password',

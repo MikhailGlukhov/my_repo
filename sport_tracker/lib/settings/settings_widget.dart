@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:sport_tracker/settings/settings_switch.dart';
 
@@ -8,7 +9,7 @@ class SettingsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(//leading: IconButton(onPressed: () {Navigator.of(context).pop();}, icon: const Icon(Icons.exit_to_app)),
         title: const Text(
           'Settings',
         ),

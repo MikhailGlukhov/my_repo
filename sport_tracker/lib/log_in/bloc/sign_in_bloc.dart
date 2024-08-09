@@ -14,7 +14,7 @@ part 'sign_in_bloc.freezed.dart';
 class SignInBloc extends Bloc<SigInEvent, SignInState> {
   final AuthRepository authRepository;
   
-  SignInBloc(this.authRepository) : super(const SignInState.initial()) {
+  SignInBloc(this.authRepository, ) : super(const SignInState.initial()) {
     
     on<SignInLoginEvent>((event, emit) async{
       emit(const SignInState.inProcess());

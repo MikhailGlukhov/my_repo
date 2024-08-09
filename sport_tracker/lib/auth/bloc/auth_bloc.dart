@@ -1,5 +1,7 @@
 
 
+
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_tracker/auth/auth_repository.dart';
@@ -11,10 +13,10 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
-  //late final StreamSubscription<User?> _userSubscription;
+  // late final StreamSubscription<User?> _userSubscription;
   AuthBloc({required this.authRepository}) : super(const AuthState.loading()) {
-    // _userSubscription = authRepository.user.listen((authUser){
-    //   add(AuthEvent.userChanging(authUser));
+    // _userSubscription = authRepository.user.listen((user){
+    //   add(AuthEvent.userChanging(user));
     // });
     on<AuthEventsUserChangingEvent>((event, emit)  {
       // if(event.user != null){
@@ -28,17 +30,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       // }
       
         
-        if(event.user != null && event.user!.emailVerified){
+        if(event.user!.emailVerified){
           emit(AuthState.auteficated(event.user!));
         }else{
           emit(const AuthState.unauteficated());
                   }
       
     });
-  }}
+  }
+  
+  //  @override
+  // Future<void> close(){
+  //   _userSubscription.cancel();
+  //   return super.close();
+  // }
+  }
 
-  // @override
-  // // Future<void> close(){
-  // //   _userSubscription.cancel();
-  // //   return super.close();
-  // // }
+ 
