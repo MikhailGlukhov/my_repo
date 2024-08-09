@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ErrorDialogWidget extends StatelessWidget {
   final String error;
@@ -17,7 +18,7 @@ class ErrorDialogWidget extends StatelessWidget {
             Center(child: Text(error)),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  context.pop();
                 },
                 child: const Text('OK'))
           ],

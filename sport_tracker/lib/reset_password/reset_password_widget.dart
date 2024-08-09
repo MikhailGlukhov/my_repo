@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/auth/auth_widget.dart';
 import 'package:sport_tracker/reset_password/bloc/reset_bloc.dart';
+import 'package:sport_tracker/routes/routes_name.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
   const ResetPasswordWidget({super.key});
@@ -58,8 +60,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
               listener: (context, state) {
                 state.when(
                     initial: () => const AuthWidget(),
-                    succes: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const AuthWidget())));
+                    succes: () => context.pushNamed(RoutesName.homeScreenName));
               },
               child: ElevatedButton(
                   onPressed: () {

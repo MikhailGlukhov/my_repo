@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/auth/auth_widget.dart';
-import 'package:sport_tracker/builder_app_widget.dart';
+
 import 'package:sport_tracker/email_verification/email_verification_widget.dart';
 import 'package:sport_tracker/enter_screen.dart';
 import 'package:sport_tracker/error_widget.dart';
@@ -76,7 +76,8 @@ class Routes{
     GoRoute(
       name: RoutesName.errorScreenName,
       path: '/error',
-      builder: (context,  state) => const ErrorDialogWidget(error: '',),
+      builder: (context,  state) =>  ErrorDialogWidget(error: state.error.toString() ),
+
         
     ),
   ],

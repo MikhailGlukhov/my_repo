@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 
-import 'package:sport_tracker/auth/auth_widget.dart';
+
 import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
+import 'package:sport_tracker/routes/routes_name.dart';
 
 
 class EmailVerificationWidget extends StatelessWidget {
@@ -20,7 +22,7 @@ class EmailVerificationWidget extends StatelessWidget {
             state.when(
                 initial: () => const CircularProgressIndicator(),
                 inProcess: () => const CircularProgressIndicator(),
-                sentEmail: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthWidget())));
+                sentEmail: () => context.pushNamed(RoutesName.homeScreenName));
           },
           child: ElevatedButton(
               onPressed: () {

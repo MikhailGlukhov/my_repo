@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:sport_tracker/email_verification/email_verification_widget.dart';
-import 'package:sport_tracker/error_widget.dart';
+
 import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
+import 'package:sport_tracker/routes/routes_name.dart';
 
 class SignUpWidget extends StatefulWidget {
   const SignUpWidget({super.key});
@@ -84,12 +85,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 state.when(
                   initial: () => const CircularProgressIndicator(),
                   inProgress: () => const CircularProgressIndicator(),
-                  sucess: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EmailVerificationWidget())),
-                  error: (error) => Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              ErrorDialogWidget(error: error!))),
+                  sucess: () => context.pushNamed(RoutesName.verificationScreenName),
+                  error: (error) => context.pushNamed(RoutesName.errorScreenName),
                 );
               },
               child: ElevatedButton(

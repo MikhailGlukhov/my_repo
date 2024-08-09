@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/auth/auth_repository.dart';
-import 'package:sport_tracker/enter_screen.dart';
+
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
-import 'package:sport_tracker/settings/settings_widget.dart';
-import 'package:sport_tracker/timer/timer_widget.dart';
+import 'package:sport_tracker/routes/routes_name.dart';
+
 
 class TrakerListWidget extends StatelessWidget {
   const TrakerListWidget({super.key});
@@ -18,15 +19,13 @@ class TrakerListWidget extends StatelessWidget {
               onPressed: () {
                 AuthRepository().signOut();
                 context.read<SignInBloc>().add(const SigInEvent.logOut());
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const EnterScreen()));
+                context.pushNamed(RoutesName.enterScreenName);
                     
               },
               icon: const Icon(Icons.exit_to_app)),
           IconButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const SettingsWidget()));
+                context.pushNamed(RoutesName.settingsScreenName);
               },
               icon: const Icon(Icons.settings))
         ],
@@ -60,8 +59,7 @@ class TrakerListWidget extends StatelessWidget {
                       ],
                     ),
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const TimerWidget()));
+                     context.pushNamed(RoutesName.timerScreenName);
                     },
                   ));
             }),

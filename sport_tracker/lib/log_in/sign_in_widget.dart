@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:sport_tracker/auth/auth_widget.dart';
-import 'package:sport_tracker/error_widget.dart';
+
 
 
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/reset_password/reset_password_widget.dart';
+import 'package:sport_tracker/routes/routes_name.dart';
 
 class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});
@@ -89,7 +91,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     inProcess: () => const CircularProgressIndicator(),
                     sucess:  () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const AuthWidget())),
-                    error: (error) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ErrorDialogWidget(error: error!) )));
+                    error: (error) => context.pushNamed(RoutesName.errorScreenName,));
               },
               child: ElevatedButton(
                   onPressed: () {
