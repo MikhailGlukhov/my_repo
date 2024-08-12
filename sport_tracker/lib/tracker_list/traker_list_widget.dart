@@ -5,7 +5,7 @@ import 'package:sport_tracker/auth/auth_repository.dart';
 
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
-
+import 'package:sport_tracker/track_dialog_widget.dart';
 
 class TrakerListWidget extends StatelessWidget {
   const TrakerListWidget({super.key});
@@ -20,7 +20,6 @@ class TrakerListWidget extends StatelessWidget {
                 AuthRepository().signOut();
                 context.read<SignInBloc>().add(const SigInEvent.logOut());
                 context.pushNamed(RoutesName.enterScreenName);
-                    
               },
               icon: const Icon(Icons.exit_to_app)),
           IconButton(
@@ -59,11 +58,16 @@ class TrakerListWidget extends StatelessWidget {
                       ],
                     ),
                     onTap: () {
-                     context.pushNamed(RoutesName.timerScreenName);
+                      context.pushNamed(RoutesName.timerScreenName);
                     },
                   ));
             }),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {showDialog(context: context, builder: (context) => const TrackDialogWidget());
+            
+          },
+          child: const Icon(Icons.add)),
     );
   }
 }

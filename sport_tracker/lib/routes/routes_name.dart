@@ -9,5 +9,6 @@ class RoutesName {
   static const String trackerScreenName = 'traker';
   static const String timerScreenName = 'timer';
   static const String errorScreenName = 'error';
+  static const String trackDialogName = 'dialog';
 
 }
