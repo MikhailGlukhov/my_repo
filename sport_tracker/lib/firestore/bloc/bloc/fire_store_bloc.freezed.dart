@@ -21,6 +21,7 @@ mixin _$FireStoreEvent {
     required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
+    required TResult Function(String uid, bool isCompleted) update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$FireStoreEvent {
     TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
+    TResult? Function(String uid, bool isCompleted)? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$FireStoreEvent {
     TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
+    TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$FireStoreEvent {
     required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
+    required TResult Function(FireStoreUpdateEvent value) update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$FireStoreEvent {
     TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
+    TResult? Function(FireStoreUpdateEvent value)? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$FireStoreEvent {
     TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
+    TResult Function(FireStoreUpdateEvent value)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
     required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
+    required TResult Function(String uid, bool isCompleted) update,
   }) {
     return load();
   }
@@ -131,6 +138,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
     TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
+    TResult? Function(String uid, bool isCompleted)? update,
   }) {
     return load?.call();
   }
@@ -141,6 +149,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
     TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
+    TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -155,6 +164,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
     required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
+    required TResult Function(FireStoreUpdateEvent value) update,
   }) {
     return load(this);
   }
@@ -165,6 +175,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
     TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
+    TResult? Function(FireStoreUpdateEvent value)? update,
   }) {
     return load?.call(this);
   }
@@ -175,6 +186,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
     TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
+    TResult Function(FireStoreUpdateEvent value)? update,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -256,6 +268,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
+    required TResult Function(String uid, bool isCompleted) update,
   }) {
     return save(title);
   }
@@ -266,6 +279,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
+    TResult? Function(String uid, bool isCompleted)? update,
   }) {
     return save?.call(title);
   }
@@ -276,6 +290,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
+    TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
   }) {
     if (save != null) {
@@ -290,6 +305,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
+    required TResult Function(FireStoreUpdateEvent value) update,
   }) {
     return save(this);
   }
@@ -300,6 +316,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
+    TResult? Function(FireStoreUpdateEvent value)? update,
   }) {
     return save?.call(this);
   }
@@ -310,6 +327,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
+    TResult Function(FireStoreUpdateEvent value)? update,
     required TResult orElse(),
   }) {
     if (save != null) {
@@ -398,6 +416,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
     required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
+    required TResult Function(String uid, bool isCompleted) update,
   }) {
     return delete(uid);
   }
@@ -408,6 +427,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
     TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
+    TResult? Function(String uid, bool isCompleted)? update,
   }) {
     return delete?.call(uid);
   }
@@ -418,6 +438,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
     TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
+    TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -432,6 +453,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
     required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
+    required TResult Function(FireStoreUpdateEvent value) update,
   }) {
     return delete(this);
   }
@@ -442,6 +464,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
     TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
+    TResult? Function(FireStoreUpdateEvent value)? update,
   }) {
     return delete?.call(this);
   }
@@ -452,6 +475,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
     TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
+    TResult Function(FireStoreUpdateEvent value)? update,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -468,6 +492,164 @@ abstract class FireStoreDeleteEvent implements FireStoreEvent {
   String get uid;
   @JsonKey(ignore: true)
   _$$FireStoreDeleteEventImplCopyWith<_$FireStoreDeleteEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FireStoreUpdateEventImplCopyWith<$Res> {
+  factory _$$FireStoreUpdateEventImplCopyWith(_$FireStoreUpdateEventImpl value,
+          $Res Function(_$FireStoreUpdateEventImpl) then) =
+      __$$FireStoreUpdateEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uid, bool isCompleted});
+}
+
+/// @nodoc
+class __$$FireStoreUpdateEventImplCopyWithImpl<$Res>
+    extends _$FireStoreEventCopyWithImpl<$Res, _$FireStoreUpdateEventImpl>
+    implements _$$FireStoreUpdateEventImplCopyWith<$Res> {
+  __$$FireStoreUpdateEventImplCopyWithImpl(_$FireStoreUpdateEventImpl _value,
+      $Res Function(_$FireStoreUpdateEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uid = null,
+    Object? isCompleted = null,
+  }) {
+    return _then(_$FireStoreUpdateEventImpl(
+      null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FireStoreUpdateEventImpl implements FireStoreUpdateEvent {
+  const _$FireStoreUpdateEventImpl(this.uid, this.isCompleted);
+
+  @override
+  final String uid;
+  @override
+  final bool isCompleted;
+
+  @override
+  String toString() {
+    return 'FireStoreEvent.update(uid: $uid, isCompleted: $isCompleted)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FireStoreUpdateEventImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uid, isCompleted);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FireStoreUpdateEventImplCopyWith<_$FireStoreUpdateEventImpl>
+      get copyWith =>
+          __$$FireStoreUpdateEventImplCopyWithImpl<_$FireStoreUpdateEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String title) save,
+    required TResult Function(String uid) delete,
+    required TResult Function(String uid, bool isCompleted) update,
+  }) {
+    return update(uid, isCompleted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String title)? save,
+    TResult? Function(String uid)? delete,
+    TResult? Function(String uid, bool isCompleted)? update,
+  }) {
+    return update?.call(uid, isCompleted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String title)? save,
+    TResult Function(String uid)? delete,
+    TResult Function(String uid, bool isCompleted)? update,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(uid, isCompleted);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreLoadEvent value) load,
+    required TResult Function(FireStoreSaveEvent value) save,
+    required TResult Function(FireStoreDeleteEvent value) delete,
+    required TResult Function(FireStoreUpdateEvent value) update,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreLoadEvent value)? load,
+    TResult? Function(FireStoreSaveEvent value)? save,
+    TResult? Function(FireStoreDeleteEvent value)? delete,
+    TResult? Function(FireStoreUpdateEvent value)? update,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreLoadEvent value)? load,
+    TResult Function(FireStoreSaveEvent value)? save,
+    TResult Function(FireStoreDeleteEvent value)? delete,
+    TResult Function(FireStoreUpdateEvent value)? update,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FireStoreUpdateEvent implements FireStoreEvent {
+  const factory FireStoreUpdateEvent(final String uid, final bool isCompleted) =
+      _$FireStoreUpdateEventImpl;
+
+  String get uid;
+  bool get isCompleted;
+  @JsonKey(ignore: true)
+  _$$FireStoreUpdateEventImplCopyWith<_$FireStoreUpdateEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

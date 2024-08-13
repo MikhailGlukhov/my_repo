@@ -18,13 +18,21 @@ final FirestoreRepository firestore;
       
       emit(const FireStoreLoadingState());
       await FirestoreRepository().listSportTrack().first;
+      
       emit( const FireStoreSavedState( ));
+    });
+
+    on<FireStoreUpdateEvent>((event, emit) async {
+      
+      
+      await FirestoreRepository().upDateDb(event.uid, event.isCompleted);
+     emit( const FireStoreSuccessState());
     });
 
 
     on<FireStoreSaveEvent>((event, emit) async {
       emit(const FireStoreLoadingState());
-      await FirestoreRepository().addToDb(event.title);
+      await FirestoreRepository().addToDb(event.title, false);
       emit( const FireStoreSuccessState());
     });
 

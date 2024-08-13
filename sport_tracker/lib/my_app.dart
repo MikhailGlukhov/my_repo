@@ -6,7 +6,7 @@ import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
 import 'package:sport_tracker/firestore/firestore.dart';
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
-import 'package:sport_tracker/models/sport_track.dart';
+
 import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
 import 'package:sport_tracker/reset_password/bloc/reset_bloc.dart';
 import 'package:sport_tracker/sport_tracker.dart';

@@ -36,78 +36,70 @@ class TrakerListWidget extends StatelessWidget {
       ),
       body: BlocBuilder<FireStoreBloc, FireStoreState>(
         builder: (context, state) {
-          if(state is FireStoreLoadingState){
-            return const Center(child: CircularProgressIndicator(),);
+          if (state is FireStoreLoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           } else {
-            return StreamBuilder<List<SportTrack>>(stream: FirestoreRepository().listSportTrack(), builder: (context, snapshot){
-              List<SportTrack>? tracks = snapshot.data;
-              if(tracks == null){
-                return const Center(child: CircularProgressIndicator(),);
-              }
-              return ListView.builder(
-              itemCount: tracks.length,
-              itemBuilder: (context, index) {
-                return Container(
-                    margin: const EdgeInsets.all(10),
-                    height: 70,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(
-                            color: const Color.fromARGB(82, 0, 0, 0))),
-                    child: ListTile(
-                      title: Text(tracks[index].title),
-                      trailing: Container(
-                        height: 15,
-                        width: 15,
-                        child: Icon(Icons.check_box),
-                      ),
-                      subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(tracks[index].title),
-                          Text(tracks[index].title),
-                          Text(tracks[index].title)
-                        ],
-                      ),
-                      onTap: () {
-                        context.pushNamed(RoutesName.timerScreenName);
-                      },
-                    ));
-              }); 
-            });
-           /* final track = state.tracks;
-            return ListView.builder(
-              itemCount: track.length,
-              itemBuilder: (context, index) {
-                return Container(
-                    margin: const EdgeInsets.all(10),
-                    height: 70,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(
-                            color: const Color.fromARGB(82, 0, 0, 0))),
-                    child: ListTile(
-                      title: Text(track[index].title),
-                      trailing: Container(
-                        height: 15,
-                        width: 15,
-                        child: Icon(Icons.check_box),
-                      ),
-                      subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(track[index].title),
-                          Text(track[index].title),
-                          Text(track[index].title)
-                        ],
-                      ),
-                      onTap: () {
-                        context.pushNamed(RoutesName.timerScreenName);
-                      },
-                    ));
-              });*/
+            return StreamBuilder<List<SportTrack>>(
+                stream: FirestoreRepository().listSportTrack(),
+                builder: (context, snapshot) {
+                  List<SportTrack>? tracks = snapshot.data;
+                  if (tracks == null) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  return ListView.builder(
+                      itemCount: tracks.length,
+                      itemBuilder: (context, index) {
+                        return Dismissible(
+                          key: UniqueKey(),
+                          onDismissed: (DismissDirection decoration) {
+                            (context)
+                                .read<FireStoreBloc>()
+                                .add(FireStoreEvent.delete(tracks[index].uid));
+                          },
+                          child: Container(
+                              margin: const EdgeInsets.all(10),
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(
+                                      color:
+                                          const Color.fromARGB(82, 0, 0, 0))),
+                              child: ListTile(
+                                title: Text(tracks[index].title),
+                                trailing: Container(
+                                    height: 15,
+                                    width: 15,
+                                    child: tracks[index].isCompleted
+                                        ? const Icon(Icons.check_box)
+                                        : Container(
+                                            height: 15,
+                                            width: 15,
+                                            color: Colors.black,
+                                          )),
+                                subtitle: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('Round time: ${tracks[index].title}'),
+                                    Text('Rouns : ${tracks[index].title}'),
+                                    Text('Total time: ${tracks[index].title}')
+                                  ],
+                                ),
+                                onTap: () {
+                                 
+                                  bool newCompletedTrack = !tracks[index].isCompleted;
+                                  (context).read<FireStoreBloc>().add(FireStoreEvent.update(tracks[index].uid, newCompletedTrack));
+                                },
+                              )),
+                        );
+                      });
+                });
+         
           }
-          return Container();
         },
       ),
       floatingActionButton: FloatingActionButton(

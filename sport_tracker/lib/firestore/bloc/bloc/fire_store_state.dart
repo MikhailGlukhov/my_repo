@@ -7,5 +7,6 @@ class FireStoreState with _$FireStoreState {
   const factory FireStoreState.success() = FireStoreSuccessState;
   const factory FireStoreState.saved() = FireStoreSavedState;
 
+
  
 }
