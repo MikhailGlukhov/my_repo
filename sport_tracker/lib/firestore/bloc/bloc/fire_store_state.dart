@@ -2,7 +2,10 @@ part of 'fire_store_bloc.dart';
 
 @freezed
 class FireStoreState with _$FireStoreState {
-  const factory FireStoreState.initial() = _FireStoreInitialState;
-  const factory FireStoreState.saved() = _FireStoreSavedState;
-  const factory FireStoreState.delited() = _FireStoreDelitedState;
+  const factory FireStoreState.initial() = FireStoreInitialState;
+  const factory FireStoreState.loading() = FireStoreLoadingState;
+  const factory FireStoreState.success() = FireStoreSuccessState;
+  const factory FireStoreState.saved() = FireStoreSavedState;
+
+ 
 }

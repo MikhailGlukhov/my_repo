@@ -18,18 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FireStoreEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
     required TResult orElse(),
@@ -37,18 +40,21 @@ mixin _$FireStoreEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
     required TResult orElse(),
@@ -72,6 +78,114 @@ class _$FireStoreEventCopyWithImpl<$Res, $Val extends FireStoreEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$FireStoreLoadEventImplCopyWith<$Res> {
+  factory _$$FireStoreLoadEventImplCopyWith(_$FireStoreLoadEventImpl value,
+          $Res Function(_$FireStoreLoadEventImpl) then) =
+      __$$FireStoreLoadEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FireStoreLoadEventImplCopyWithImpl<$Res>
+    extends _$FireStoreEventCopyWithImpl<$Res, _$FireStoreLoadEventImpl>
+    implements _$$FireStoreLoadEventImplCopyWith<$Res> {
+  __$$FireStoreLoadEventImplCopyWithImpl(_$FireStoreLoadEventImpl _value,
+      $Res Function(_$FireStoreLoadEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
+  const _$FireStoreLoadEventImpl();
+
+  @override
+  String toString() {
+    return 'FireStoreEvent.load()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FireStoreLoadEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String title) save,
+    required TResult Function(String uid) delete,
+  }) {
+    return load();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String title)? save,
+    TResult? Function(String uid)? delete,
+  }) {
+    return load?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String title)? save,
+    TResult Function(String uid)? delete,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreLoadEvent value) load,
+    required TResult Function(FireStoreSaveEvent value) save,
+    required TResult Function(FireStoreDeleteEvent value) delete,
+  }) {
+    return load(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreLoadEvent value)? load,
+    TResult? Function(FireStoreSaveEvent value)? save,
+    TResult? Function(FireStoreDeleteEvent value)? delete,
+  }) {
+    return load?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreLoadEvent value)? load,
+    TResult Function(FireStoreSaveEvent value)? save,
+    TResult Function(FireStoreDeleteEvent value)? delete,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FireStoreLoadEvent implements FireStoreEvent {
+  const factory FireStoreLoadEvent() = _$FireStoreLoadEventImpl;
 }
 
 /// @nodoc
@@ -139,6 +253,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
   }) {
@@ -148,6 +263,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
   }) {
@@ -157,6 +273,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
     required TResult orElse(),
@@ -170,6 +287,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
   }) {
@@ -179,6 +297,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
   }) {
@@ -188,6 +307,7 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
     required TResult orElse(),
@@ -275,6 +395,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() load,
     required TResult Function(String title) save,
     required TResult Function(String uid) delete,
   }) {
@@ -284,6 +405,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
     TResult? Function(String title)? save,
     TResult? Function(String uid)? delete,
   }) {
@@ -293,6 +415,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
     TResult Function(String title)? save,
     TResult Function(String uid)? delete,
     required TResult orElse(),
@@ -306,6 +429,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreLoadEvent value) load,
     required TResult Function(FireStoreSaveEvent value) save,
     required TResult Function(FireStoreDeleteEvent value) delete,
   }) {
@@ -315,6 +439,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreLoadEvent value)? load,
     TResult? Function(FireStoreSaveEvent value)? save,
     TResult? Function(FireStoreDeleteEvent value)? delete,
   }) {
@@ -324,6 +449,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreLoadEvent value)? load,
     TResult Function(FireStoreSaveEvent value)? save,
     TResult Function(FireStoreDeleteEvent value)? delete,
     required TResult orElse(),
@@ -350,44 +476,50 @@ mixin _$FireStoreState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
     required TResult Function() saved,
-    required TResult Function() delited,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
     TResult? Function()? saved,
-    TResult? Function()? delited,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
     TResult Function()? saved,
-    TResult Function()? delited,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FireStoreInitialState value) initial,
-    required TResult Function(_FireStoreSavedState value) saved,
-    required TResult Function(_FireStoreDelitedState value) delited,
+    required TResult Function(FireStoreInitialState value) initial,
+    required TResult Function(FireStoreLoadingState value) loading,
+    required TResult Function(FireStoreSuccessState value) success,
+    required TResult Function(FireStoreSavedState value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FireStoreInitialState value)? initial,
-    TResult? Function(_FireStoreSavedState value)? saved,
-    TResult? Function(_FireStoreDelitedState value)? delited,
+    TResult? Function(FireStoreInitialState value)? initial,
+    TResult? Function(FireStoreLoadingState value)? loading,
+    TResult? Function(FireStoreSuccessState value)? success,
+    TResult? Function(FireStoreSavedState value)? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FireStoreInitialState value)? initial,
-    TResult Function(_FireStoreSavedState value)? saved,
-    TResult Function(_FireStoreDelitedState value)? delited,
+    TResult Function(FireStoreInitialState value)? initial,
+    TResult Function(FireStoreLoadingState value)? loading,
+    TResult Function(FireStoreSuccessState value)? success,
+    TResult Function(FireStoreSavedState value)? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -430,7 +562,7 @@ class __$$FireStoreInitialStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
+class _$FireStoreInitialStateImpl implements FireStoreInitialState {
   const _$FireStoreInitialStateImpl();
 
   @override
@@ -452,8 +584,9 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
     required TResult Function() saved,
-    required TResult Function() delited,
   }) {
     return initial();
   }
@@ -462,8 +595,9 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
     TResult? Function()? saved,
-    TResult? Function()? delited,
   }) {
     return initial?.call();
   }
@@ -472,8 +606,9 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
     TResult Function()? saved,
-    TResult Function()? delited,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -485,9 +620,10 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FireStoreInitialState value) initial,
-    required TResult Function(_FireStoreSavedState value) saved,
-    required TResult Function(_FireStoreDelitedState value) delited,
+    required TResult Function(FireStoreInitialState value) initial,
+    required TResult Function(FireStoreLoadingState value) loading,
+    required TResult Function(FireStoreSuccessState value) success,
+    required TResult Function(FireStoreSavedState value) saved,
   }) {
     return initial(this);
   }
@@ -495,9 +631,10 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FireStoreInitialState value)? initial,
-    TResult? Function(_FireStoreSavedState value)? saved,
-    TResult? Function(_FireStoreDelitedState value)? delited,
+    TResult? Function(FireStoreInitialState value)? initial,
+    TResult? Function(FireStoreLoadingState value)? loading,
+    TResult? Function(FireStoreSuccessState value)? success,
+    TResult? Function(FireStoreSavedState value)? saved,
   }) {
     return initial?.call(this);
   }
@@ -505,9 +642,10 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FireStoreInitialState value)? initial,
-    TResult Function(_FireStoreSavedState value)? saved,
-    TResult Function(_FireStoreDelitedState value)? delited,
+    TResult Function(FireStoreInitialState value)? initial,
+    TResult Function(FireStoreLoadingState value)? loading,
+    TResult Function(FireStoreSuccessState value)? success,
+    TResult Function(FireStoreSavedState value)? saved,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -517,8 +655,240 @@ class _$FireStoreInitialStateImpl implements _FireStoreInitialState {
   }
 }
 
-abstract class _FireStoreInitialState implements FireStoreState {
-  const factory _FireStoreInitialState() = _$FireStoreInitialStateImpl;
+abstract class FireStoreInitialState implements FireStoreState {
+  const factory FireStoreInitialState() = _$FireStoreInitialStateImpl;
+}
+
+/// @nodoc
+abstract class _$$FireStoreLoadingStateImplCopyWith<$Res> {
+  factory _$$FireStoreLoadingStateImplCopyWith(
+          _$FireStoreLoadingStateImpl value,
+          $Res Function(_$FireStoreLoadingStateImpl) then) =
+      __$$FireStoreLoadingStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FireStoreLoadingStateImplCopyWithImpl<$Res>
+    extends _$FireStoreStateCopyWithImpl<$Res, _$FireStoreLoadingStateImpl>
+    implements _$$FireStoreLoadingStateImplCopyWith<$Res> {
+  __$$FireStoreLoadingStateImplCopyWithImpl(_$FireStoreLoadingStateImpl _value,
+      $Res Function(_$FireStoreLoadingStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FireStoreLoadingStateImpl implements FireStoreLoadingState {
+  const _$FireStoreLoadingStateImpl();
+
+  @override
+  String toString() {
+    return 'FireStoreState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FireStoreLoadingStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() saved,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? saved,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreInitialState value) initial,
+    required TResult Function(FireStoreLoadingState value) loading,
+    required TResult Function(FireStoreSuccessState value) success,
+    required TResult Function(FireStoreSavedState value) saved,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreInitialState value)? initial,
+    TResult? Function(FireStoreLoadingState value)? loading,
+    TResult? Function(FireStoreSuccessState value)? success,
+    TResult? Function(FireStoreSavedState value)? saved,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreInitialState value)? initial,
+    TResult Function(FireStoreLoadingState value)? loading,
+    TResult Function(FireStoreSuccessState value)? success,
+    TResult Function(FireStoreSavedState value)? saved,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FireStoreLoadingState implements FireStoreState {
+  const factory FireStoreLoadingState() = _$FireStoreLoadingStateImpl;
+}
+
+/// @nodoc
+abstract class _$$FireStoreSuccessStateImplCopyWith<$Res> {
+  factory _$$FireStoreSuccessStateImplCopyWith(
+          _$FireStoreSuccessStateImpl value,
+          $Res Function(_$FireStoreSuccessStateImpl) then) =
+      __$$FireStoreSuccessStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FireStoreSuccessStateImplCopyWithImpl<$Res>
+    extends _$FireStoreStateCopyWithImpl<$Res, _$FireStoreSuccessStateImpl>
+    implements _$$FireStoreSuccessStateImplCopyWith<$Res> {
+  __$$FireStoreSuccessStateImplCopyWithImpl(_$FireStoreSuccessStateImpl _value,
+      $Res Function(_$FireStoreSuccessStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FireStoreSuccessStateImpl implements FireStoreSuccessState {
+  const _$FireStoreSuccessStateImpl();
+
+  @override
+  String toString() {
+    return 'FireStoreState.success()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FireStoreSuccessStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() saved,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? saved,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FireStoreInitialState value) initial,
+    required TResult Function(FireStoreLoadingState value) loading,
+    required TResult Function(FireStoreSuccessState value) success,
+    required TResult Function(FireStoreSavedState value) saved,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FireStoreInitialState value)? initial,
+    TResult? Function(FireStoreLoadingState value)? loading,
+    TResult? Function(FireStoreSuccessState value)? success,
+    TResult? Function(FireStoreSavedState value)? saved,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FireStoreInitialState value)? initial,
+    TResult Function(FireStoreLoadingState value)? loading,
+    TResult Function(FireStoreSuccessState value)? success,
+    TResult Function(FireStoreSavedState value)? saved,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FireStoreSuccessState implements FireStoreState {
+  const factory FireStoreSuccessState() = _$FireStoreSuccessStateImpl;
 }
 
 /// @nodoc
@@ -539,7 +909,7 @@ class __$$FireStoreSavedStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
+class _$FireStoreSavedStateImpl implements FireStoreSavedState {
   const _$FireStoreSavedStateImpl();
 
   @override
@@ -561,8 +931,9 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
     required TResult Function() saved,
-    required TResult Function() delited,
   }) {
     return saved();
   }
@@ -571,8 +942,9 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
     TResult? Function()? saved,
-    TResult? Function()? delited,
   }) {
     return saved?.call();
   }
@@ -581,8 +953,9 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
     TResult Function()? saved,
-    TResult Function()? delited,
     required TResult orElse(),
   }) {
     if (saved != null) {
@@ -594,9 +967,10 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FireStoreInitialState value) initial,
-    required TResult Function(_FireStoreSavedState value) saved,
-    required TResult Function(_FireStoreDelitedState value) delited,
+    required TResult Function(FireStoreInitialState value) initial,
+    required TResult Function(FireStoreLoadingState value) loading,
+    required TResult Function(FireStoreSuccessState value) success,
+    required TResult Function(FireStoreSavedState value) saved,
   }) {
     return saved(this);
   }
@@ -604,9 +978,10 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FireStoreInitialState value)? initial,
-    TResult? Function(_FireStoreSavedState value)? saved,
-    TResult? Function(_FireStoreDelitedState value)? delited,
+    TResult? Function(FireStoreInitialState value)? initial,
+    TResult? Function(FireStoreLoadingState value)? loading,
+    TResult? Function(FireStoreSuccessState value)? success,
+    TResult? Function(FireStoreSavedState value)? saved,
   }) {
     return saved?.call(this);
   }
@@ -614,9 +989,10 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FireStoreInitialState value)? initial,
-    TResult Function(_FireStoreSavedState value)? saved,
-    TResult Function(_FireStoreDelitedState value)? delited,
+    TResult Function(FireStoreInitialState value)? initial,
+    TResult Function(FireStoreLoadingState value)? loading,
+    TResult Function(FireStoreSuccessState value)? success,
+    TResult Function(FireStoreSavedState value)? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
@@ -626,116 +1002,6 @@ class _$FireStoreSavedStateImpl implements _FireStoreSavedState {
   }
 }
 
-abstract class _FireStoreSavedState implements FireStoreState {
-  const factory _FireStoreSavedState() = _$FireStoreSavedStateImpl;
-}
-
-/// @nodoc
-abstract class _$$FireStoreDelitedStateImplCopyWith<$Res> {
-  factory _$$FireStoreDelitedStateImplCopyWith(
-          _$FireStoreDelitedStateImpl value,
-          $Res Function(_$FireStoreDelitedStateImpl) then) =
-      __$$FireStoreDelitedStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FireStoreDelitedStateImplCopyWithImpl<$Res>
-    extends _$FireStoreStateCopyWithImpl<$Res, _$FireStoreDelitedStateImpl>
-    implements _$$FireStoreDelitedStateImplCopyWith<$Res> {
-  __$$FireStoreDelitedStateImplCopyWithImpl(_$FireStoreDelitedStateImpl _value,
-      $Res Function(_$FireStoreDelitedStateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FireStoreDelitedStateImpl implements _FireStoreDelitedState {
-  const _$FireStoreDelitedStateImpl();
-
-  @override
-  String toString() {
-    return 'FireStoreState.delited()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FireStoreDelitedStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() saved,
-    required TResult Function() delited,
-  }) {
-    return delited();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? saved,
-    TResult? Function()? delited,
-  }) {
-    return delited?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? saved,
-    TResult Function()? delited,
-    required TResult orElse(),
-  }) {
-    if (delited != null) {
-      return delited();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FireStoreInitialState value) initial,
-    required TResult Function(_FireStoreSavedState value) saved,
-    required TResult Function(_FireStoreDelitedState value) delited,
-  }) {
-    return delited(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FireStoreInitialState value)? initial,
-    TResult? Function(_FireStoreSavedState value)? saved,
-    TResult? Function(_FireStoreDelitedState value)? delited,
-  }) {
-    return delited?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FireStoreInitialState value)? initial,
-    TResult Function(_FireStoreSavedState value)? saved,
-    TResult Function(_FireStoreDelitedState value)? delited,
-    required TResult orElse(),
-  }) {
-    if (delited != null) {
-      return delited(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FireStoreDelitedState implements FireStoreState {
-  const factory _FireStoreDelitedState() = _$FireStoreDelitedStateImpl;
+abstract class FireStoreSavedState implements FireStoreState {
+  const factory FireStoreSavedState() = _$FireStoreSavedStateImpl;
 }
