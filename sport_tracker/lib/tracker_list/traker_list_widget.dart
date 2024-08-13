@@ -84,9 +84,10 @@ class TrakerListWidget extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('Round time: ${tracks[index].title}'),
-                                    Text('Rouns : ${tracks[index].title}'),
-                                    Text('Total time: ${tracks[index].title}')
+                                    Text('Round time: ${tracks[index].roundTime}'),
+                                    Text('Rounds : ${tracks[index].title}'),
+                                    Text('Total time: ${tracks[index].title}'),
+                                    //Text('Rest time: 30')
                                   ],
                                 ),
                                 onTap: () {

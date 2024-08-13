@@ -19,7 +19,7 @@ mixin _$FireStoreEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String title) save,
+    required TResult Function(String title, int roundTime) save,
     required TResult Function(String uid) delete,
     required TResult Function(String uid, bool isCompleted) update,
   }) =>
@@ -27,7 +27,7 @@ mixin _$FireStoreEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String title)? save,
+    TResult? Function(String title, int roundTime)? save,
     TResult? Function(String uid)? delete,
     TResult? Function(String uid, bool isCompleted)? update,
   }) =>
@@ -35,7 +35,7 @@ mixin _$FireStoreEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String title)? save,
+    TResult Function(String title, int roundTime)? save,
     TResult Function(String uid)? delete,
     TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
@@ -125,7 +125,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String title) save,
+    required TResult Function(String title, int roundTime) save,
     required TResult Function(String uid) delete,
     required TResult Function(String uid, bool isCompleted) update,
   }) {
@@ -136,7 +136,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String title)? save,
+    TResult? Function(String title, int roundTime)? save,
     TResult? Function(String uid)? delete,
     TResult? Function(String uid, bool isCompleted)? update,
   }) {
@@ -147,7 +147,7 @@ class _$FireStoreLoadEventImpl implements FireStoreLoadEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String title)? save,
+    TResult Function(String title, int roundTime)? save,
     TResult Function(String uid)? delete,
     TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
@@ -206,7 +206,7 @@ abstract class _$$FireStoreSaveEventImplCopyWith<$Res> {
           $Res Function(_$FireStoreSaveEventImpl) then) =
       __$$FireStoreSaveEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String title});
+  $Res call({String title, int roundTime});
 }
 
 /// @nodoc
@@ -221,12 +221,17 @@ class __$$FireStoreSaveEventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = null,
+    Object? roundTime = null,
   }) {
     return _then(_$FireStoreSaveEventImpl(
       null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      null == roundTime
+          ? _value.roundTime
+          : roundTime // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -234,14 +239,16 @@ class __$$FireStoreSaveEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
-  const _$FireStoreSaveEventImpl(this.title);
+  const _$FireStoreSaveEventImpl(this.title, this.roundTime);
 
   @override
   final String title;
+  @override
+  final int roundTime;
 
   @override
   String toString() {
-    return 'FireStoreEvent.save(title: $title)';
+    return 'FireStoreEvent.save(title: $title, roundTime: $roundTime)';
   }
 
   @override
@@ -249,11 +256,13 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FireStoreSaveEventImpl &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.roundTime, roundTime) ||
+                other.roundTime == roundTime));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title);
+  int get hashCode => Object.hash(runtimeType, title, roundTime);
 
   @JsonKey(ignore: true)
   @override
@@ -266,35 +275,35 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String title) save,
+    required TResult Function(String title, int roundTime) save,
     required TResult Function(String uid) delete,
     required TResult Function(String uid, bool isCompleted) update,
   }) {
-    return save(title);
+    return save(title, roundTime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String title)? save,
+    TResult? Function(String title, int roundTime)? save,
     TResult? Function(String uid)? delete,
     TResult? Function(String uid, bool isCompleted)? update,
   }) {
-    return save?.call(title);
+    return save?.call(title, roundTime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String title)? save,
+    TResult Function(String title, int roundTime)? save,
     TResult Function(String uid)? delete,
     TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
   }) {
     if (save != null) {
-      return save(title);
+      return save(title, roundTime);
     }
     return orElse();
   }
@@ -338,10 +347,11 @@ class _$FireStoreSaveEventImpl implements FireStoreSaveEvent {
 }
 
 abstract class FireStoreSaveEvent implements FireStoreEvent {
-  const factory FireStoreSaveEvent(final String title) =
+  const factory FireStoreSaveEvent(final String title, final int roundTime) =
       _$FireStoreSaveEventImpl;
 
   String get title;
+  int get roundTime;
   @JsonKey(ignore: true)
   _$$FireStoreSaveEventImplCopyWith<_$FireStoreSaveEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -414,7 +424,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String title) save,
+    required TResult Function(String title, int roundTime) save,
     required TResult Function(String uid) delete,
     required TResult Function(String uid, bool isCompleted) update,
   }) {
@@ -425,7 +435,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String title)? save,
+    TResult? Function(String title, int roundTime)? save,
     TResult? Function(String uid)? delete,
     TResult? Function(String uid, bool isCompleted)? update,
   }) {
@@ -436,7 +446,7 @@ class _$FireStoreDeleteEventImpl implements FireStoreDeleteEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String title)? save,
+    TResult Function(String title, int roundTime)? save,
     TResult Function(String uid)? delete,
     TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),
@@ -571,7 +581,7 @@ class _$FireStoreUpdateEventImpl implements FireStoreUpdateEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
-    required TResult Function(String title) save,
+    required TResult Function(String title, int roundTime) save,
     required TResult Function(String uid) delete,
     required TResult Function(String uid, bool isCompleted) update,
   }) {
@@ -582,7 +592,7 @@ class _$FireStoreUpdateEventImpl implements FireStoreUpdateEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
-    TResult? Function(String title)? save,
+    TResult? Function(String title, int roundTime)? save,
     TResult? Function(String uid)? delete,
     TResult? Function(String uid, bool isCompleted)? update,
   }) {
@@ -593,7 +603,7 @@ class _$FireStoreUpdateEventImpl implements FireStoreUpdateEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
-    TResult Function(String title)? save,
+    TResult Function(String title, int roundTime)? save,
     TResult Function(String uid)? delete,
     TResult Function(String uid, bool isCompleted)? update,
     required TResult orElse(),

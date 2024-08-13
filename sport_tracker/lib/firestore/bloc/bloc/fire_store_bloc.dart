@@ -32,7 +32,7 @@ final FirestoreRepository firestore;
 
     on<FireStoreSaveEvent>((event, emit) async {
       emit(const FireStoreLoadingState());
-      await FirestoreRepository().addToDb(event.title, false);
+      await FirestoreRepository().addToDb(event.title,false, event.roundTime);
       emit( const FireStoreSuccessState());
     });
 

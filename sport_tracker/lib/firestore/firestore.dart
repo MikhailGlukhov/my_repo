@@ -13,7 +13,7 @@ class FirestoreRepository{
  List<SportTrack> trackFromFirestore(QuerySnapshot snapshot){
   return snapshot.docs.map((e) {
     Map<String, dynamic>? data = e.data() as Map<String, dynamic>?;
-    return SportTrack(uid: e.id, title: data?['title'] ?? '', isCompleted: data?['isCompleted'] ?? true);
+    return SportTrack(uid: e.id, title: data?['title'] ?? '', isCompleted: data?['isCompleted'] ?? true, roundTime: data?['roundTime'] ?? 0);
   }).toList();
  }
 
@@ -25,8 +25,8 @@ Future<void> upDateDb(String uid, bool newComplete) async{
   await collection.doc(uid).update({'isCompleted': newComplete});
 }
 
-Future<void> addToDb(String title, bool isCompleted) async{
- await collection.add({'title' : title,'isCompleted': false,'Time': FieldValue.serverTimestamp()});
+Future<void> addToDb(String title, bool isCompleted, int roundTime) async{
+ await collection.add({'title' : title,'isCompleted': false,'roundTime' : roundTime,'Time': FieldValue.serverTimestamp()});
 }
 
 Future<void> deleteFromDb(String uid) async{
