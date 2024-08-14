@@ -9,12 +9,28 @@ part 'timer_bloc_bloc.freezed.dart';
 class TimerBloc extends Bloc<TimerBlocEvent, TimerState> {
   final TimerService time;
   TimerBloc(this.time) : super(const Initial()) {
-    on<TimerSelectEvent>((event, emit) {
+    on<TimerRoundTimeSelectEvent>((event, emit) {
       time.selectedTimeRound = event.value;
       TimerService().selectTimeRound(event.value);
       
       
-      emit(const Selected());
+      emit(const TumerSelectedState());
+    });
+
+    on<TimerRestTimeSelectEvent>((event, emit) {
+      time.selectedTimeRest = event.value;
+      TimerService().selectTimeRest(event.value);
+      
+      
+      emit(const TumerSelectedState());
+    });
+
+    on<TimerRoundsSelectEvent>((event, emit) {
+      time.selectedRound = event.value;
+      TimerService().selectRound(event.value);
+      
+      
+      emit(const TumerSelectedState());
     });
      
   }

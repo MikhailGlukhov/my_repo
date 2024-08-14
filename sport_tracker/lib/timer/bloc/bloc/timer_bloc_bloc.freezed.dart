@@ -19,33 +19,45 @@ mixin _$TimerBlocEvent {
   int get value => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int value) select,
+    required TResult Function(int value) selecteTimeRound,
+    required TResult Function(int value) selecteTimeRest,
+    required TResult Function(int value) selecteRounds,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int value)? select,
+    TResult? Function(int value)? selecteTimeRound,
+    TResult? Function(int value)? selecteTimeRest,
+    TResult? Function(int value)? selecteRounds,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int value)? select,
+    TResult Function(int value)? selecteTimeRound,
+    TResult Function(int value)? selecteTimeRest,
+    TResult Function(int value)? selecteRounds,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(TimerSelectEvent value) select,
+    required TResult Function(TimerRoundTimeSelectEvent value) selecteTimeRound,
+    required TResult Function(TimerRestTimeSelectEvent value) selecteTimeRest,
+    required TResult Function(TimerRoundsSelectEvent value) selecteRounds,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(TimerSelectEvent value)? select,
+    TResult? Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult? Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult? Function(TimerRoundsSelectEvent value)? selecteRounds,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(TimerSelectEvent value)? select,
+    TResult Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult Function(TimerRoundsSelectEvent value)? selecteRounds,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,22 +101,24 @@ class _$TimerBlocEventCopyWithImpl<$Res, $Val extends TimerBlocEvent>
 }
 
 /// @nodoc
-abstract class _$$TimerSelectEventImplCopyWith<$Res>
+abstract class _$$TimerRoundTimeSelectEventImplCopyWith<$Res>
     implements $TimerBlocEventCopyWith<$Res> {
-  factory _$$TimerSelectEventImplCopyWith(_$TimerSelectEventImpl value,
-          $Res Function(_$TimerSelectEventImpl) then) =
-      __$$TimerSelectEventImplCopyWithImpl<$Res>;
+  factory _$$TimerRoundTimeSelectEventImplCopyWith(
+          _$TimerRoundTimeSelectEventImpl value,
+          $Res Function(_$TimerRoundTimeSelectEventImpl) then) =
+      __$$TimerRoundTimeSelectEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$TimerSelectEventImplCopyWithImpl<$Res>
-    extends _$TimerBlocEventCopyWithImpl<$Res, _$TimerSelectEventImpl>
-    implements _$$TimerSelectEventImplCopyWith<$Res> {
-  __$$TimerSelectEventImplCopyWithImpl(_$TimerSelectEventImpl _value,
-      $Res Function(_$TimerSelectEventImpl) _then)
+class __$$TimerRoundTimeSelectEventImplCopyWithImpl<$Res>
+    extends _$TimerBlocEventCopyWithImpl<$Res, _$TimerRoundTimeSelectEventImpl>
+    implements _$$TimerRoundTimeSelectEventImplCopyWith<$Res> {
+  __$$TimerRoundTimeSelectEventImplCopyWithImpl(
+      _$TimerRoundTimeSelectEventImpl _value,
+      $Res Function(_$TimerRoundTimeSelectEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +126,7 @@ class __$$TimerSelectEventImplCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$TimerSelectEventImpl(
+    return _then(_$TimerRoundTimeSelectEventImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -123,22 +137,22 @@ class __$$TimerSelectEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TimerSelectEventImpl implements TimerSelectEvent {
-  const _$TimerSelectEventImpl(this.value);
+class _$TimerRoundTimeSelectEventImpl implements TimerRoundTimeSelectEvent {
+  const _$TimerRoundTimeSelectEventImpl(this.value);
 
   @override
   final int value;
 
   @override
   String toString() {
-    return 'TimerBlocEvent.select(value: $value)';
+    return 'TimerBlocEvent.selecteTimeRound(value: $value)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TimerSelectEventImpl &&
+            other is _$TimerRoundTimeSelectEventImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -148,34 +162,40 @@ class _$TimerSelectEventImpl implements TimerSelectEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TimerSelectEventImplCopyWith<_$TimerSelectEventImpl> get copyWith =>
-      __$$TimerSelectEventImplCopyWithImpl<_$TimerSelectEventImpl>(
-          this, _$identity);
+  _$$TimerRoundTimeSelectEventImplCopyWith<_$TimerRoundTimeSelectEventImpl>
+      get copyWith => __$$TimerRoundTimeSelectEventImplCopyWithImpl<
+          _$TimerRoundTimeSelectEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int value) select,
+    required TResult Function(int value) selecteTimeRound,
+    required TResult Function(int value) selecteTimeRest,
+    required TResult Function(int value) selecteRounds,
   }) {
-    return select(value);
+    return selecteTimeRound(value);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int value)? select,
+    TResult? Function(int value)? selecteTimeRound,
+    TResult? Function(int value)? selecteTimeRest,
+    TResult? Function(int value)? selecteRounds,
   }) {
-    return select?.call(value);
+    return selecteTimeRound?.call(value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int value)? select,
+    TResult Function(int value)? selecteTimeRound,
+    TResult Function(int value)? selecteTimeRest,
+    TResult Function(int value)? selecteRounds,
     required TResult orElse(),
   }) {
-    if (select != null) {
-      return select(value);
+    if (selecteTimeRound != null) {
+      return selecteTimeRound(value);
     }
     return orElse();
   }
@@ -183,41 +203,342 @@ class _$TimerSelectEventImpl implements TimerSelectEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(TimerSelectEvent value) select,
+    required TResult Function(TimerRoundTimeSelectEvent value) selecteTimeRound,
+    required TResult Function(TimerRestTimeSelectEvent value) selecteTimeRest,
+    required TResult Function(TimerRoundsSelectEvent value) selecteRounds,
   }) {
-    return select(this);
+    return selecteTimeRound(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(TimerSelectEvent value)? select,
+    TResult? Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult? Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult? Function(TimerRoundsSelectEvent value)? selecteRounds,
   }) {
-    return select?.call(this);
+    return selecteTimeRound?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(TimerSelectEvent value)? select,
+    TResult Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult Function(TimerRoundsSelectEvent value)? selecteRounds,
     required TResult orElse(),
   }) {
-    if (select != null) {
-      return select(this);
+    if (selecteTimeRound != null) {
+      return selecteTimeRound(this);
     }
     return orElse();
   }
 }
 
-abstract class TimerSelectEvent implements TimerBlocEvent {
-  const factory TimerSelectEvent(final int value) = _$TimerSelectEventImpl;
+abstract class TimerRoundTimeSelectEvent implements TimerBlocEvent {
+  const factory TimerRoundTimeSelectEvent(final int value) =
+      _$TimerRoundTimeSelectEventImpl;
 
   @override
   int get value;
   @override
   @JsonKey(ignore: true)
-  _$$TimerSelectEventImplCopyWith<_$TimerSelectEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TimerRoundTimeSelectEventImplCopyWith<_$TimerRoundTimeSelectEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TimerRestTimeSelectEventImplCopyWith<$Res>
+    implements $TimerBlocEventCopyWith<$Res> {
+  factory _$$TimerRestTimeSelectEventImplCopyWith(
+          _$TimerRestTimeSelectEventImpl value,
+          $Res Function(_$TimerRestTimeSelectEventImpl) then) =
+      __$$TimerRestTimeSelectEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$TimerRestTimeSelectEventImplCopyWithImpl<$Res>
+    extends _$TimerBlocEventCopyWithImpl<$Res, _$TimerRestTimeSelectEventImpl>
+    implements _$$TimerRestTimeSelectEventImplCopyWith<$Res> {
+  __$$TimerRestTimeSelectEventImplCopyWithImpl(
+      _$TimerRestTimeSelectEventImpl _value,
+      $Res Function(_$TimerRestTimeSelectEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$TimerRestTimeSelectEventImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TimerRestTimeSelectEventImpl implements TimerRestTimeSelectEvent {
+  const _$TimerRestTimeSelectEventImpl(this.value);
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'TimerBlocEvent.selecteTimeRest(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TimerRestTimeSelectEventImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TimerRestTimeSelectEventImplCopyWith<_$TimerRestTimeSelectEventImpl>
+      get copyWith => __$$TimerRestTimeSelectEventImplCopyWithImpl<
+          _$TimerRestTimeSelectEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int value) selecteTimeRound,
+    required TResult Function(int value) selecteTimeRest,
+    required TResult Function(int value) selecteRounds,
+  }) {
+    return selecteTimeRest(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int value)? selecteTimeRound,
+    TResult? Function(int value)? selecteTimeRest,
+    TResult? Function(int value)? selecteRounds,
+  }) {
+    return selecteTimeRest?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int value)? selecteTimeRound,
+    TResult Function(int value)? selecteTimeRest,
+    TResult Function(int value)? selecteRounds,
+    required TResult orElse(),
+  }) {
+    if (selecteTimeRest != null) {
+      return selecteTimeRest(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimerRoundTimeSelectEvent value) selecteTimeRound,
+    required TResult Function(TimerRestTimeSelectEvent value) selecteTimeRest,
+    required TResult Function(TimerRoundsSelectEvent value) selecteRounds,
+  }) {
+    return selecteTimeRest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult? Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult? Function(TimerRoundsSelectEvent value)? selecteRounds,
+  }) {
+    return selecteTimeRest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult Function(TimerRoundsSelectEvent value)? selecteRounds,
+    required TResult orElse(),
+  }) {
+    if (selecteTimeRest != null) {
+      return selecteTimeRest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TimerRestTimeSelectEvent implements TimerBlocEvent {
+  const factory TimerRestTimeSelectEvent(final int value) =
+      _$TimerRestTimeSelectEventImpl;
+
+  @override
+  int get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$TimerRestTimeSelectEventImplCopyWith<_$TimerRestTimeSelectEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TimerRoundsSelectEventImplCopyWith<$Res>
+    implements $TimerBlocEventCopyWith<$Res> {
+  factory _$$TimerRoundsSelectEventImplCopyWith(
+          _$TimerRoundsSelectEventImpl value,
+          $Res Function(_$TimerRoundsSelectEventImpl) then) =
+      __$$TimerRoundsSelectEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$TimerRoundsSelectEventImplCopyWithImpl<$Res>
+    extends _$TimerBlocEventCopyWithImpl<$Res, _$TimerRoundsSelectEventImpl>
+    implements _$$TimerRoundsSelectEventImplCopyWith<$Res> {
+  __$$TimerRoundsSelectEventImplCopyWithImpl(
+      _$TimerRoundsSelectEventImpl _value,
+      $Res Function(_$TimerRoundsSelectEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$TimerRoundsSelectEventImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TimerRoundsSelectEventImpl implements TimerRoundsSelectEvent {
+  const _$TimerRoundsSelectEventImpl(this.value);
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'TimerBlocEvent.selecteRounds(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TimerRoundsSelectEventImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TimerRoundsSelectEventImplCopyWith<_$TimerRoundsSelectEventImpl>
+      get copyWith => __$$TimerRoundsSelectEventImplCopyWithImpl<
+          _$TimerRoundsSelectEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int value) selecteTimeRound,
+    required TResult Function(int value) selecteTimeRest,
+    required TResult Function(int value) selecteRounds,
+  }) {
+    return selecteRounds(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int value)? selecteTimeRound,
+    TResult? Function(int value)? selecteTimeRest,
+    TResult? Function(int value)? selecteRounds,
+  }) {
+    return selecteRounds?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int value)? selecteTimeRound,
+    TResult Function(int value)? selecteTimeRest,
+    TResult Function(int value)? selecteRounds,
+    required TResult orElse(),
+  }) {
+    if (selecteRounds != null) {
+      return selecteRounds(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimerRoundTimeSelectEvent value) selecteTimeRound,
+    required TResult Function(TimerRestTimeSelectEvent value) selecteTimeRest,
+    required TResult Function(TimerRoundsSelectEvent value) selecteRounds,
+  }) {
+    return selecteRounds(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult? Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult? Function(TimerRoundsSelectEvent value)? selecteRounds,
+  }) {
+    return selecteRounds?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimerRoundTimeSelectEvent value)? selecteTimeRound,
+    TResult Function(TimerRestTimeSelectEvent value)? selecteTimeRest,
+    TResult Function(TimerRoundsSelectEvent value)? selecteRounds,
+    required TResult orElse(),
+  }) {
+    if (selecteRounds != null) {
+      return selecteRounds(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TimerRoundsSelectEvent implements TimerBlocEvent {
+  const factory TimerRoundsSelectEvent(final int value) =
+      _$TimerRoundsSelectEventImpl;
+
+  @override
+  int get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$TimerRoundsSelectEventImplCopyWith<_$TimerRoundsSelectEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -244,19 +565,19 @@ mixin _$TimerState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Selected value) selected,
+    required TResult Function(TumerSelectedState value) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Selected value)? selected,
+    TResult? Function(TumerSelectedState value)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Selected value)? selected,
+    TResult Function(TumerSelectedState value)? selected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -350,7 +671,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Selected value) selected,
+    required TResult Function(TumerSelectedState value) selected,
   }) {
     return initial(this);
   }
@@ -359,7 +680,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Selected value)? selected,
+    TResult? Function(TumerSelectedState value)? selected,
   }) {
     return initial?.call(this);
   }
@@ -368,7 +689,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Selected value)? selected,
+    TResult Function(TumerSelectedState value)? selected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -383,25 +704,25 @@ abstract class Initial implements TimerState {
 }
 
 /// @nodoc
-abstract class _$$SelectedImplCopyWith<$Res> {
-  factory _$$SelectedImplCopyWith(
-          _$SelectedImpl value, $Res Function(_$SelectedImpl) then) =
-      __$$SelectedImplCopyWithImpl<$Res>;
+abstract class _$$TumerSelectedStateImplCopyWith<$Res> {
+  factory _$$TumerSelectedStateImplCopyWith(_$TumerSelectedStateImpl value,
+          $Res Function(_$TumerSelectedStateImpl) then) =
+      __$$TumerSelectedStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SelectedImplCopyWithImpl<$Res>
-    extends _$TimerStateCopyWithImpl<$Res, _$SelectedImpl>
-    implements _$$SelectedImplCopyWith<$Res> {
-  __$$SelectedImplCopyWithImpl(
-      _$SelectedImpl _value, $Res Function(_$SelectedImpl) _then)
+class __$$TumerSelectedStateImplCopyWithImpl<$Res>
+    extends _$TimerStateCopyWithImpl<$Res, _$TumerSelectedStateImpl>
+    implements _$$TumerSelectedStateImplCopyWith<$Res> {
+  __$$TumerSelectedStateImplCopyWithImpl(_$TumerSelectedStateImpl _value,
+      $Res Function(_$TumerSelectedStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$SelectedImpl implements Selected {
-  const _$SelectedImpl();
+class _$TumerSelectedStateImpl implements TumerSelectedState {
+  const _$TumerSelectedStateImpl();
 
   @override
   String toString() {
@@ -411,7 +732,7 @@ class _$SelectedImpl implements Selected {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SelectedImpl);
+        (other.runtimeType == runtimeType && other is _$TumerSelectedStateImpl);
   }
 
   @override
@@ -452,7 +773,7 @@ class _$SelectedImpl implements Selected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Selected value) selected,
+    required TResult Function(TumerSelectedState value) selected,
   }) {
     return selected(this);
   }
@@ -461,7 +782,7 @@ class _$SelectedImpl implements Selected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Selected value)? selected,
+    TResult? Function(TumerSelectedState value)? selected,
   }) {
     return selected?.call(this);
   }
@@ -470,7 +791,7 @@ class _$SelectedImpl implements Selected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Selected value)? selected,
+    TResult Function(TumerSelectedState value)? selected,
     required TResult orElse(),
   }) {
     if (selected != null) {
@@ -480,6 +801,6 @@ class _$SelectedImpl implements Selected {
   }
 }
 
-abstract class Selected implements TimerState {
-  const factory Selected() = _$SelectedImpl;
+abstract class TumerSelectedState implements TimerState {
+  const factory TumerSelectedState() = _$TumerSelectedStateImpl;
 }

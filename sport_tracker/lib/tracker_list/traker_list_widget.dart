@@ -84,22 +84,32 @@ class TrakerListWidget extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('Round time: ${tracks[index].roundTime}'),
-                                    Text('Rounds : ${tracks[index].title}'),
-                                    Text('Total time: ${tracks[index].title}'),
+                                    tracks[index].roundTime > 10
+                                        ? Text(
+                                            'Round : ${tracks[index].roundTime} sek')
+                                        : Text(
+                                            'Round : ${tracks[index].roundTime} min'),
+                                    tracks[index].restTime > 10
+                                        ? Text(
+                                            'Rest : ${tracks[index].restTime} sek')
+                                        : Text(
+                                            'Rest : ${tracks[index].restTime} min'),
+                                    Text('Rounds : ${tracks[index].rounds}'),
+
                                     //Text('Rest time: 30')
                                   ],
                                 ),
                                 onTap: () {
-                                 
-                                  bool newCompletedTrack = !tracks[index].isCompleted;
-                                  (context).read<FireStoreBloc>().add(FireStoreEvent.update(tracks[index].uid, newCompletedTrack));
+                                  bool newCompletedTrack =
+                                      !tracks[index].isCompleted;
+                                  (context).read<FireStoreBloc>().add(
+                                      FireStoreEvent.update(tracks[index].uid,
+                                          newCompletedTrack));
                                 },
                               )),
                         );
                       });
                 });
-         
           }
         },
       ),
