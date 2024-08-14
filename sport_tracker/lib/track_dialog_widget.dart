@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
-import 'package:sport_tracker/timer/bloc/bloc/timer_bloc_bloc.dart';
+import 'package:sport_tracker/timer_select/bloc/bloc/timer_select_bloc_bloc.dart';
 
-import 'package:sport_tracker/timer/timer_chose.dart';
+import 'package:sport_tracker/timer_select/timer_chose.dart';
 
 class TrackDialogWidget extends StatefulWidget {
   const TrackDialogWidget({super.key});
@@ -51,12 +51,12 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
               return InkWell(
                 onTap: () => setState(() {
                   context
-                      .read<TimerBloc>()
-                      .add(TimerBlocEvent.selecteTimeRound(int.parse(time)));
+                      .read<TimerSelectBloc>()
+                      .add(TimerSelectEvent.selecteTimeRound(int.parse(time)));
                 }),
                 child: Container(
                   decoration: int.parse(time) ==
-                          context.read<TimerBloc>().time.selectedTimeRound
+                          context.read<TimerSelectBloc>().time.selectedTimeRound
                       ? BoxDecoration(
                           color: Colors.red,
                           border: Border.all(color: Colors.black),
@@ -88,13 +88,13 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
               return InkWell(
                 onTap: () => setState(() {
                   context
-                    .read<TimerBloc>()
-                    .add(TimerBlocEvent.selecteTimeRest(int.parse(time)));
+                    .read<TimerSelectBloc>()
+                    .add(TimerSelectEvent.selecteTimeRest(int.parse(time)));
                 }),
                 
                 child: Container(
                   decoration: int.parse(time) ==
-                          context.read<TimerBloc>().time.selectedTimeRest
+                          context.read<TimerSelectBloc>().time.selectedTimeRest
                       ? BoxDecoration(
                           color: Colors.green,
                           border: Border.all(color: Colors.black),
@@ -126,12 +126,12 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
               return InkWell(
                 onTap: () => setState(() {
                   context
-                    .read<TimerBloc>()
-                    .add(TimerBlocEvent.selecteRounds(int.parse(round)));
+                    .read<TimerSelectBloc>()
+                    .add(TimerSelectEvent.selecteRounds(int.parse(round)));
                 }),
                 child: Container(
                   decoration: int.parse(round) ==
-                          context.read<TimerBloc>().time.selectedRound
+                          context.read<TimerSelectBloc>().time.selectedRound
                       ? BoxDecoration(color: Colors.yellow,
                           border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(5))
@@ -159,9 +159,9 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
                 onPressed: () {
                   context.read<FireStoreBloc>().add(FireStoreEvent.save(
                       _trackController.text,
-                      context.read<TimerBloc>().time.selectedTimeRound,
-                      context.read<TimerBloc>().time.selectedTimeRest,
-                      context.read<TimerBloc>().time.selectedRound));
+                      context.read<TimerSelectBloc>().time.selectedTimeRound,
+                      context.read<TimerSelectBloc>().time.selectedTimeRest,
+                      context.read<TimerSelectBloc>().time.selectedRound));
                   context.pushNamed(RoutesName.timerScreenName);
                 },
                 child: const Text('ADD')),

@@ -6,7 +6,7 @@ import 'package:sport_tracker/firestore/firestore.dart';
 
 
 import 'package:sport_tracker/my_app.dart';
-import 'package:sport_tracker/timer/timer_service.dart';
+import 'package:sport_tracker/timer_select/timer_service.dart';
 
 
 Future<void> main() async {
