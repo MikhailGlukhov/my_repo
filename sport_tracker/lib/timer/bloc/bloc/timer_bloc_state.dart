@@ -4,4 +4,5 @@ part of 'timer_bloc_bloc.dart';
 class TimerState with _$TimerState {
   const factory TimerState.initial() = Initial;
   const factory TimerState.selected() = TumerSelectedState;
+  
 }
