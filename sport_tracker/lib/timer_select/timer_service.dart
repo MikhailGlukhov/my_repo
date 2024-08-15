@@ -1,6 +1,8 @@
 import 'dart:async';
 
-class TimerService {
+import 'package:flutter/material.dart';
+
+class TimerService  extends ChangeNotifier{
   Timer? timer;
   int currentDurationRound = 120;
   int selectedTimeRound = 2;
@@ -13,19 +15,23 @@ class TimerService {
   void selectTimeRound(int seconds) {
     selectedTimeRound = seconds;
     currentDurationRound = seconds;
+    notifyListeners();
   }
 
   void selectTimeRest(int seconds) {
     selectedTimeRest = seconds;
     currentDurationRest = seconds;
+    notifyListeners();
   }
 
   void selectRound(int round) {
     selectedRound = round;
+    notifyListeners();
   }
 
   void resetTimerRound() {
     selectedTimeRound = currentDurationRound;
+    notifyListeners();
     
   }
 
@@ -39,7 +45,9 @@ class TimerService {
       } else {
         currentDurationRound--;
       }
+      notifyListeners();
     });
+    
   }
 
   void stopTimer({bool reset = true}) {
@@ -48,6 +56,7 @@ class TimerService {
     }
 
     timer?.cancel();
+    notifyListeners();
   }
 
   void reset() {
@@ -55,6 +64,7 @@ class TimerService {
     currentState = 'WORKOUT';
     currentDurationRound = selectedTimeRound;
     currentRound = 0;
+    notifyListeners();
   }
 
   void moveToNextRound() {
@@ -68,6 +78,8 @@ class TimerService {
       currentDurationRound = selectedTimeRound;
     } else if (currentState == 'FINISH') {
       timer?.cancel();
+      stopTimer();
     }
+    notifyListeners();
   }
 }

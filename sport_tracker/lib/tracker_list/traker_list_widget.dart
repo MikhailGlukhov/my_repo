@@ -84,16 +84,14 @@ class TrakerListWidget extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    tracks[index].roundTime > 10
-                                        ? Text(
+                                    
+                                         Text(
                                             'Round : ${tracks[index].roundTime} sek')
-                                        : Text(
-                                            'Round : ${tracks[index].roundTime} min'),
-                                    tracks[index].restTime > 10
-                                        ? Text(
-                                            'Rest : ${tracks[index].restTime} sek')
-                                        : Text(
-                                            'Rest : ${tracks[index].restTime} min'),
+                                        ,
+                                    
+                                         Text(
+                                            'Rest : ${tracks[index].restTime} sek'),
+                                        
                                     Text('Rounds : ${tracks[index].rounds}'),
 
                                     //Text('Rest time: 30')

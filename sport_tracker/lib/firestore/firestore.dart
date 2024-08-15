@@ -5,7 +5,7 @@ import 'package:sport_tracker/models/sport_track.dart';
 class FirestoreRepository {
   var collection = FirebaseFirestore.instance
       .collection('user')
-      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .doc(FirebaseAuth.instance.currentUser?.uid)
       .collection('tracks');
 
   List<SportTrack> trackFromFirestore(QuerySnapshot snapshot) {

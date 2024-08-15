@@ -1,141 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sport_tracker/timer/bloc/timer_bloc.dart';
-import 'package:sport_tracker/timer_select/bloc/bloc/timer_select_bloc_bloc.dart';
+import 'package:provider/provider.dart';
 
-class TimerWidget extends StatefulWidget {
+import 'package:sport_tracker/timer_select/timer_service.dart';
+
+
+
+class TimerWidget extends StatelessWidget {
   const TimerWidget({super.key});
 
   @override
-  State<TimerWidget> createState() => _TimerWidgetState();
-}
-
-class _TimerWidgetState extends State<TimerWidget> {
-  @override
-  void didChangeDependencies() {
-    context.read<TimerBloc>().timerService.currentDurationRound;
-    super.didChangeDependencies();
-  }
-  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TimerService>(context);
+    final bool isFinished =
+        provider.currentRound == provider.selectedRound &&
+            provider.currentDurationRound == 0;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Timer'),
-      ),
-      body: BlocBuilder<TimerBloc, TimerState>(
-        buildWhen: (prev, state) => prev.runtimeType != state.runtimeType,
-        builder: (context, state) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 200,
-                width: 200,
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    CircularProgressIndicator(),
-                    Center(
-                        child: Text(
-                     // '${context.read<TimerBloc>().timerService.currentDurationRound.}',
-                      context.select((TimerBloc bloc) => bloc.timerService.currentDurationRound.floor().toString()),
-                      style: TextStyle(fontSize: 40),
-                    ))
+        appBar: AppBar(
+         
+        ),
+        body: !isFinished
+            ? Center(
+                child: Column( 
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text(provider.currentState, style: const TextStyle(fontSize: 35),),
+                  const SizedBox(height: 30,),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CircularProgressIndicator(
+                            value: provider.currentState ==
+                                    'WORKOUT'
+                                ? provider.currentDurationRound /
+                                    provider.selectedTimeRound
+                                : provider.currentDurationRound/
+                                    provider.selectedTimeRest,
+                            strokeWidth: 10,
+                            color:
+                                provider.currentState == 'WORKOUT'
+                                    ? Colors.red
+                                    : Colors.green,
+                          ),
+                          Center(
+                              child: Text(
+                            '${provider.currentDurationRound}',
+                            style: const TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.w600),
+                          )),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    ButtonsWidget(),
+                    const SizedBox(height: 25,),
+                    Text('${provider.currentRound}/${provider.selectedRound}', style: const TextStyle(fontSize: 35),)
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        context
-                            .read<TimerBloc>()
-                            .add(const TimerEvent.started());
-                      },
-                      child: Text('Start')),
-                  ElevatedButton(
-                      onPressed: () {
-                        context
-                            .read<TimerBloc>()
-                            .add(const TimerEvent.pause());
-                      },
-                      child: Text('Pause'))
-                ],
               )
-            ],
-          );
-        },
-      ),
-    );
-  }
-}
-
-/*class TimerWidget extends StatelessWidget {
-  const TimerWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final _timerBloc = context.read<TimerBloc>();
-    final bool isFinished =
-        _timerBloc.time.currentRound == _timerBloc.time.selectedRound &&
-            _timerBloc.time.currentDurationRound == 0;
-
-    return BlocListener<TimerBloc, TimerState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
-      child: Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: _timerBloc.time.currentState == 'WORKOUT'
-                ? const Text('WORKOUT')
-                : const Text('REST'),
-          ),
-          body: !isFinished
-              ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: Stack(
-                          fit: StackFit.expand,
-                          children: [
-                            CircularProgressIndicator(
-                              value: _timerBloc.time.currentState ==
-                                      'WORKOUT'
-                                  ? _timerBloc.time.currentDurationRound /
-                                      _timerBloc.time.selectedTimeRound
-                                  : _timerBloc.time.currentDurationRound /
-                                      _timerBloc.time.selectedTimeRest,
-                              strokeWidth: 10,
-                              color:
-                                  _timerBloc.time.currentState == 'WORKOUT'
-                                      ? Colors.red
-                                      : Colors.green,
-                            ),
-                            Center(
-                                child: Text(
-                              '${_timerBloc.time.currentDurationRound}',
-                              style: const TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w600),
-                            )),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      ButtonsWidget()
-                    ],
-                  ),
-                )
-              : const Center(child: Text('FINISH'))),
-    );
+            : const Center(child: Text('FINISH')));
   }
 }
 
@@ -151,33 +78,33 @@ class ButtonsWidget extends StatefulWidget {
 class _ButtonsWidgetState extends State<ButtonsWidget> {
   @override
   Widget build(BuildContext context) {
-    final _timerBloc = context.read<TimerBloc>();
-    final bool isCompleted = _timerBloc.time.currentDurationRound ==
-            _timerBloc.time.selectedTimeRound ||
-        _timerBloc.time.selectedTimeRound == 0;
+    final provider = Provider.of<TimerService>(context);
+    final bool isCompleted = provider.currentDurationRound ==
+            provider.selectedTimeRound ||
+        provider.selectedTimeRound == 0;
     final isStarted =
-        _timerBloc.time.timer == null ? false : _timerBloc.time.timer?.isActive;
+        provider.timer == null ? false : provider.timer?.isActive;
     return isStarted! || !isCompleted
         ? Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
                   onPressed: () {
-                    setState(() {
+                    
                       if (isStarted) {
-                        _timerBloc.add(const TimerBlocEvent.stopTimer(false));
+                        provider.stopTimer(reset: false);
                       } else {
-                        _timerBloc.add(const TimerBlocEvent.startTimer(false));
+                        provider.startTimerRound(reset: false);
                       }
-                    });
+                    
                   },
                   child:
                       isStarted ? const Text('Pause') : const Text('Resume')),
               ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      _timerBloc.add(const TimerBlocEvent.resetTimer());
-                    });
+                    
+                      provider.reset();
+                   
                   },
                   child: const Text('Cancel'))
             ],
@@ -185,9 +112,9 @@ class _ButtonsWidgetState extends State<ButtonsWidget> {
         : ElevatedButton(
             onPressed: () {
               
-                _timerBloc.add(const TimerBlocEvent.startTimer(false));
+                provider.startTimerRound();
               
             },
             child: const Text('Start Workout'));
   }
-}*/
+}

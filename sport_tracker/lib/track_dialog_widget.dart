@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
-import 'package:sport_tracker/timer_select/bloc/bloc/timer_select_bloc_bloc.dart';
-
 import 'package:sport_tracker/timer_select/timer_chose.dart';
+import 'package:sport_tracker/timer_select/timer_service.dart';
 
 class TrackDialogWidget extends StatefulWidget {
   const TrackDialogWidget({super.key});
@@ -25,6 +25,7 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TimerService>(context);
     return SimpleDialog(
       children: [
         const Center(
@@ -49,14 +50,10 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
           child: Row(
             children: timeRound.map((time) {
               return InkWell(
-                onTap: () => setState(() {
-                  context
-                      .read<TimerSelectBloc>()
-                      .add(TimerSelectEvent.selecteTimeRound(int.parse(time)));
-                }),
+                onTap: () =>provider.selectTimeRound(int.parse(time)),
                 child: Container(
                   decoration: int.parse(time) ==
-                          context.read<TimerSelectBloc>().time.selectedTimeRound
+                          provider.selectedTimeRound
                       ? BoxDecoration(
                           color: Colors.red,
                           border: Border.all(color: Colors.black),
@@ -86,15 +83,11 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
           child: Row(
             children: timeRest.map((time) {
               return InkWell(
-                onTap: () => setState(() {
-                  context
-                    .read<TimerSelectBloc>()
-                    .add(TimerSelectEvent.selecteTimeRest(int.parse(time)));
-                }),
+                onTap: () => provider.selectTimeRest(int.parse(time)),
                 
                 child: Container(
                   decoration: int.parse(time) ==
-                          context.read<TimerSelectBloc>().time.selectedTimeRest
+                          provider.selectedTimeRest
                       ? BoxDecoration(
                           color: Colors.green,
                           border: Border.all(color: Colors.black),
@@ -124,14 +117,10 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
           child: Row(
             children: roundCount.map((round) {
               return InkWell(
-                onTap: () => setState(() {
-                  context
-                    .read<TimerSelectBloc>()
-                    .add(TimerSelectEvent.selecteRounds(int.parse(round)));
-                }),
+                onTap: () => provider.selectRound(int.parse(round)),
                 child: Container(
                   decoration: int.parse(round) ==
-                          context.read<TimerSelectBloc>().time.selectedRound
+                          provider.selectedRound
                       ? BoxDecoration(color: Colors.yellow,
                           border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(5))
@@ -159,9 +148,9 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
                 onPressed: () {
                   context.read<FireStoreBloc>().add(FireStoreEvent.save(
                       _trackController.text,
-                      context.read<TimerSelectBloc>().time.selectedTimeRound,
-                      context.read<TimerSelectBloc>().time.selectedTimeRest,
-                      context.read<TimerSelectBloc>().time.selectedRound));
+                      provider.selectedTimeRound,
+                      provider.selectedTimeRest,
+                      provider.selectedRound));
                   context.pushNamed(RoutesName.timerScreenName);
                 },
                 child: const Text('ADD')),
