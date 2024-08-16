@@ -78,8 +78,11 @@ class TimerService  extends ChangeNotifier{
       currentDurationRound = selectedTimeRound;
     } else if (currentState == 'FINISH') {
       timer?.cancel();
+      
       stopTimer();
     }
     notifyListeners();
   }
+
+ 
 }

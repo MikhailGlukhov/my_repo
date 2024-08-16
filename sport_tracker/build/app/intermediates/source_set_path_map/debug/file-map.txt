@@ -18,5 +18,6 @@ com.example.sport_tracker.app-rs-16 C:\Users\user\Desktop\myrep\sport_tracker\bu
 com.example.sport_tracker.app-mergeDebugResources-17 C:\Users\user\Desktop\myrep\sport_tracker\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
 com.example.sport_tracker.app-mergeDebugResources-18 C:\Users\user\Desktop\myrep\sport_tracker\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
 com.example.sport_tracker.app-merged_res-19 C:\Users\user\Desktop\myrep\sport_tracker\build\app\intermediates\merged_res\debug
-com.example.sport_tracker.app-packaged_res-20 C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\packaged_res\debug
-com.example.sport_tracker.app-packaged_res-21 C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\packaged_res\debug
+com.example.sport_tracker.app-packaged_res-20 C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\packaged_res\debug
+com.example.sport_tracker.app-packaged_res-21 C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\packaged_res\debug
+com.example.sport_tracker.app-packaged_res-22 C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\packaged_res\debug
