@@ -52,6 +52,7 @@ MERGED from C:\Users\user\Desktop\myrep\sport_tracker\android\app\src\main\Andro
 MERGED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:path_provider_android] C:\Users\user\Desktop\myrep\sport_tracker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\user\.gradle\caches\transforms-3\385e60e1c81cd166a8ad3c908ae54a0f\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\user\.gradle\caches\transforms-3\041468c8c194628df920c596386b43ec\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
@@ -133,6 +134,8 @@ MERGED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\fir
 MERGED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] C:\Users\user\Desktop\myrep\sport_tracker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] C:\Users\user\Desktop\myrep\sport_tracker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:21:5-23:151
 MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:21:5-23:151
 MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\user\.gradle\caches\transforms-3\385e60e1c81cd166a8ad3c908ae54a0f\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:6:5-44

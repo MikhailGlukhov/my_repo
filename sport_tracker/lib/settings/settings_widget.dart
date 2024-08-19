@@ -1,52 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:sport_tracker/routes/routes_name.dart';
-import 'package:sport_tracker/settings/bloc/settings_bloc.dart';
+import 'package:sport_tracker/settings/cubit/settings_cubit.dart';
+
 
 import 'package:sport_tracker/settings/settings_switch.dart';
 
-class SettingsWidget extends StatefulWidget {
+class SettingsWidget extends StatelessWidget {
   const SettingsWidget({super.key});
 
   @override
-  State<SettingsWidget> createState() => _SettingsWidgetState();
-}
-
-class _SettingsWidgetState extends State<SettingsWidget> {
-  @override
   Widget build(BuildContext context) {
-    final brightness = context.watch<SettingsBloc>().state.brightness;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Settings',
-        ),
-        centerTitle: true,
-      ),
-      body: Center(
-          child: Column(
-        children: [
-          const SizedBox(
-            height: 50,
+     final brightness = context.watch<SettingsCubit>().state.brightness;
+    return BlocBuilder<SettingsCubit, SettingsState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              'Settings',
+            ),
+            centerTitle: true,
           ),
-          SettingsSwitch(
-            title: 'Dark Theme',
-            value: brightness == Brightness.dark,
-            onChanged: (value) { setState(() {
-              context.read<SettingsBloc>().add(SettingsEvent.setBrightness(
-                  value ? Brightness.dark : Brightness.light));
-            });
-              
-            },
-          ),
-          SettingsSwitch(
-            title: 'Ru Local',
-            value: false,
-            onChanged: (v) {},
-          ),
-        ],
-      )),
+          body: Center(
+              child: Column(
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              SettingsSwitch(
+                title: 'Dark Theme',
+                value: brightness == Brightness.dark,
+                onChanged: (value) {
+                  context.read<SettingsCubit>().setBrightnessTheme(value ? Brightness.dark : Brightness.light);
+                                  
+                  
+                },
+              ),
+              SettingsSwitch(
+                title: 'Ru Local',
+                value: false,
+                onChanged: (v) {},
+              ),
+            ],
+          )),
+        );
+      },
     );
   }
 }
