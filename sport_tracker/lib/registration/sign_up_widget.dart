@@ -51,7 +51,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 obscureText: false,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  hintText: 'Enter your email',
+                  hintText: 'Enter your email address',
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.email),
                   border: OutlineInputBorder(
