@@ -12,6 +12,7 @@ import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
 import 'package:sport_tracker/reset_password/bloc/reset_bloc.dart';
 
 import 'package:sport_tracker/settings/cubit/settings_cubit.dart';
+import 'package:sport_tracker/settings/service/settings_service.dart';
 import 'package:sport_tracker/sport_tracker.dart';
 
 import 'package:sport_tracker/timer_select/timer_service.dart';
@@ -20,10 +21,12 @@ class MyApp extends StatelessWidget {
   final AuthRepository authRepository;
   final FirestoreRepository firestore;
   final TimerService time;
+  final SettingsService service;
   const MyApp(
     this.authRepository,
     this.firestore,
     this.time,
+    this.service,
      {
     super.key,  
   });
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
           RepositoryProvider<FireStoreBloc>(
               create: (_) => FireStoreBloc(firestore)),
           ChangeNotifierProvider(create: (context) => TimerService()),
-          BlocProvider(create: (context) => SettingsCubit())
+          BlocProvider(create: (context) => SettingsCubit(service))
         ],
         child: const SportTracker());
   }

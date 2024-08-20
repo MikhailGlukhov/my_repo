@@ -1,13 +1,30 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'settings_state.dart';
+import 'package:sport_tracker/settings/service/settings_service.dart';
+
 part 'settings_cubit.freezed.dart';
+part 'settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
-  SettingsCubit() : super(const SettingsState.brightness(Brightness.light));
+  SettingsService service;
+  SettingsCubit(
+    this.service,
+  ) : super(const SettingsState.brightness(Brightness.light)){
+    checkCurrentTheme();
+  }
 
-  void setBrightnessTheme(Brightness brightness) => emit( SettingsState.brightness(brightness));
+  Future<void> setBrightnessTheme(Brightness brightness) async{
+     emit( SettingsState.brightness(brightness));
+     await service.setValue(brightness ==Brightness.dark );
+     }
+
+  Future<void> checkCurrentTheme()async {
+    final brightness = await service.isDarkModelSelected()
+    ? Brightness.dark : Brightness.light;
+    emit(SettingsState.brightness(brightness));
+  }
 
 }
