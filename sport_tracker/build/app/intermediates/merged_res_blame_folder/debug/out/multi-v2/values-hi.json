@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sport_tracker.app-mergeDebugResources-17:/values-hi/values-hi.xml",
+            "outputFile": "com.example.sport_tracker.app-mergeDebugResources-19:/values-hi/values-hi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\41f44ee4d75bd62ccf77f2bb4d70f6c0\\transformed\\browser-1.4.0\\res\\values-hi\\values-hi.xml",

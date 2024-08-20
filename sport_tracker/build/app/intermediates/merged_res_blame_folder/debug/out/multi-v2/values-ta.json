@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sport_tracker.app-mergeDebugResources-17:/values-ta/values-ta.xml",
+            "outputFile": "com.example.sport_tracker.app-mergeDebugResources-19:/values-ta/values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\1227bb32d338e358eff4c5bf5b08270c\\transformed\\core-1.6.0\\res\\values-ta\\values-ta.xml",

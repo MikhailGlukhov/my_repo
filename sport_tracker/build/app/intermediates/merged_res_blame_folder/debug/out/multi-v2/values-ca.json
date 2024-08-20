@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sport_tracker.app-mergeDebugResources-17:/values-ca/values-ca.xml",
+            "outputFile": "com.example.sport_tracker.app-mergeDebugResources-19:/values-ca/values-ca.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\83bd7fcc26403a15e00188c3570da0fa\\transformed\\jetified-play-services-base-18.0.1\\res\\values-ca\\values.xml",
