@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -80,7 +81,7 @@ class TimerWidget extends StatelessWidget {
                             provider.stopTimer();
                             context.pushReplacementNamed(RoutesName.trackerScreenName);
                           },
-                          child: const Text('Close'))
+                          child:  Text('Close'.tr()))
                     ]),
             ));
   }
@@ -104,7 +105,7 @@ class _ButtonsWidgetState extends State<ButtonsWidget> {
             provider.selectedTimeRound == 0;
     final isStarted = provider.timer == null ? false : provider.timer?.isActive;
     final finished = provider.selectedRound == provider.currentRound;
-    return  finished ? ElevatedButton(onPressed: (){provider.reset();}, child: Text('Restart')) :
+    return  finished ? ElevatedButton(onPressed: (){provider.reset();}, child: Text('Restart'.tr())) :
     isStarted! || !isCompleted
         ? Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -118,18 +119,18 @@ class _ButtonsWidgetState extends State<ButtonsWidget> {
                     }
                   },
                   child:
-                      isStarted ? const Text('Pause') : const Text('Resume')),
+                      isStarted ?  Text('Pause'.tr()) :  Text('Resume'.tr())),
               ElevatedButton(
                   onPressed: () {
                     provider.reset();
                   },
-                  child: const Text('Cancel'))
+                  child:  Text('Cancel'.tr()))
             ],
           )
         : ElevatedButton(
             onPressed: () {
               provider.startTimerRound();
             },
-            child: const Text('Start Workout'));
+            child:  Text('Start Workout'.tr()));
   }
 }

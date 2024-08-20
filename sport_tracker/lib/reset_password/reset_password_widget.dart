@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -26,8 +27,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Reset Password',
+        title:  Text(
+          'Reset Password'.tr(),
         ),
       ),
       body: Center(
@@ -48,7 +49,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                 obscureText: false,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  hintText: 'Enter your email address',
+                  hintText: 'Enter your email address'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.mail),
                   border: OutlineInputBorder(
@@ -69,9 +70,9 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                         .add(ResetEvent.sendingEmail(_emailController.text));
                     
                   },
-                  child: const Text(
-                    'Reset password',
-                    style: TextStyle(fontSize: 22),
+                  child:  Text(
+                    'Reset password'.tr(),
+                    style: const TextStyle(fontSize: 22),
                   )),
             )
           ],

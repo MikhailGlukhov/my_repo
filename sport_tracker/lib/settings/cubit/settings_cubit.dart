@@ -26,5 +26,5 @@ class SettingsCubit extends Cubit<SettingsState> {
     ? Brightness.dark : Brightness.light;
     emit(SettingsState.brightness(brightness));
   }
-
+  
 }

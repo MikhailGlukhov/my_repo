@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -31,8 +32,8 @@ class EmailVerificationWidget extends StatelessWidget {
                     .add(const VerificationEvent.sendEmailVerification());
                     
               },
-              child: const Row(
-                children: [Icon(Icons.email), Text('Verificate your email')],
+              child:  Row(
+                children: [const Icon(Icons.email), Text('Verificate your email'.tr())],
               )),
         ),
       ),

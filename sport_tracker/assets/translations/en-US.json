@@ -1,6 +1,6 @@
 {
     "Verificate your email": "Verificate your email",
-    "Log In": "Log In",
+    "    Log In    ": "Log In",
     "Enter your email address" : "Enter your email address",
     "Enter your password": "Enter your password",
     "Reset passowrd": "Reset passowrd",
@@ -24,6 +24,7 @@
     "ADD": "ADD",
     "Rest Time": "Rest Time",
     "Rounds Time": "Rounds Time",
-    "Add new exercise": "Add new exercise"
+    "Add new exercise": "Add new exercise",
+    "Localization": "Localization"
     
 }

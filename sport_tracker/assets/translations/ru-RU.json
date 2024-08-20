@@ -1,6 +1,6 @@
 {
     "Verificate your email": "Подтвердите адрес электронной почты",
-    "Log In": "Войти",
+    "    Log In    ": "Войти",
     "Enter your email address" : "Введите адрес электронной почты",
     "Enter your password": "Введите пароль",
     "Reset passowrd": "Сбросить пароль",
@@ -24,6 +24,7 @@
     "ADD": "Добавить",
     "Rest Time": "Время отдыха",
     "Rounds Time": "Время Раунда",
-    "Add new exercise": "Добавить новое упражнение"
+    "Add new exercise": "Добавить новое упражнение",
+    "Localization": "Локализация"
     
 }

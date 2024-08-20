@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -29,8 +30,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Registration',
+        title:  Text(
+          'Registration'.tr(),
         ),
       ),
       body: Center(
@@ -51,7 +52,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 obscureText: false,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  hintText: 'Enter your email address',
+                  hintText: 'Enter your email address'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.email),
                   border: OutlineInputBorder(
@@ -72,7 +73,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Enter your password',
+                  hintText: 'Enter your password'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.password),
                   border: OutlineInputBorder(
@@ -95,9 +96,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         email: _emailController.text,
                         password: _passwordController.text));
                   },
-                  child: const Text(
-                    'Registration',
-                    style: TextStyle(fontSize: 22),
+                  child:  Text(
+                    'Registration'.tr(),
+                    style: const TextStyle(fontSize: 22),
                   )),
             ),
           ],

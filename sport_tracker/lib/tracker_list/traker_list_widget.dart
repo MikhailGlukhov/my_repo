@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -32,7 +33,7 @@ class TrakerListWidget extends StatelessWidget {
               icon: const Icon(Icons.settings))
         ],
         centerTitle: true,
-        title: const Text('Sport Tracker'),
+        title:  Text('Sport Tracker'.tr()),
       ),
       body: BlocBuilder<FireStoreBloc, FireStoreState>(
         builder: (context, state) {
@@ -86,13 +87,13 @@ class TrakerListWidget extends StatelessWidget {
                                   children: [
                                     
                                          Text(
-                                            'Round : ${tracks[index].roundTime} sek')
+                                            'Round : ${tracks[index].roundTime} sek'.tr())
                                         ,
                                     
                                          Text(
-                                            'Rest : ${tracks[index].restTime} sek'),
+                                            'Rest : ${tracks[index].restTime} sek'.tr()),
                                         
-                                    Text('Rounds : ${tracks[index].rounds}'),
+                                    Text('Rounds : ${tracks[index].rounds}'.tr()),
 
                                     //Text('Rest time: 30')
                                   ],

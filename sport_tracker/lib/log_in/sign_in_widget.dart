@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -32,8 +33,8 @@ class _SignInWidgetState extends State<SignInWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Log In',
+        title:  Text(
+          'Log In'.tr(),
         ),
         centerTitle: true,
       ),
@@ -55,7 +56,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 obscureText: false,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  hintText: 'Enter your email address',
+                  hintText: 'Enter your email address'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.mail),
                   border: OutlineInputBorder(
@@ -76,7 +77,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Enter your password',
+                  hintText: 'Enter your password'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
                   prefixIcon: const Icon(Icons.password),
                   border: OutlineInputBorder(
@@ -100,8 +101,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                         password: _passwordController.text));
                    
                   },
-                  child: const Text(
-                    '   Log In   ',
+                  child:  Text(
+                    '    Log In    '.tr(),
                     style: TextStyle(fontSize: 22),
                   )),
             ),
@@ -113,9 +114,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ResetPasswordWidget()));
                 },
-                child: const Text(
-                  'Reset passowrd',
-                  style: TextStyle(fontSize: 22),
+                child:  Text(
+                  'Reset passowrd'.tr(),
+                  style:const TextStyle(fontSize: 22),
                 ))
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,7 +13,7 @@ class EnterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title:  Text(
-          'Sport Tracker',
+          'Sport Tracker'.tr(),
           style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
@@ -31,18 +32,18 @@ class EnterScreen extends StatelessWidget {
          
           ElevatedButton(
               onPressed: () {context.pushNamed(RoutesName.signInScreenName);},
-              child: const Text(
-                '    Log In    ',
-                style: TextStyle(fontSize: 22),
+              child:  Text(
+                '    Log In    '.tr(),
+                style: const TextStyle(fontSize: 22),
               )),
           const SizedBox(
             height: 24,
           ),
           ElevatedButton(
               onPressed: () {context.pushNamed(RoutesName.signUpScreenName);},
-              child: const Text(
-                'Registration',
-                style: TextStyle(fontSize: 22),
+              child:  Text(
+                'Registration'.tr(),
+                style: const TextStyle(fontSize: 22),
               )),
         ],
       )),

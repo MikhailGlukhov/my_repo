@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -28,10 +29,10 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
     final provider = Provider.of<TimerService>(context);
     return SimpleDialog(
       children: [
-        const Center(
+         Center(
             child: Text(
-          'Add new exercise',
-          style: TextStyle(fontSize: 18),
+          'Add new exercise'.tr(),
+          style: const TextStyle(fontSize: 18),
         )),
         Padding(
           padding: const EdgeInsets.all(15.0),
@@ -42,8 +43,8 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
         const SizedBox(
           height: 10,
         ),
-        const Center(
-          child: Text('Rounds Time'),
+         Center(
+          child: Text('Rounds Time'.tr()),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -75,8 +76,8 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
         const SizedBox(
           height: 10,
         ),
-        const Center(
-          child: Text('Rest Time'),
+         Center(
+          child: Text('Rest Time'.tr()),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -109,8 +110,8 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
         const SizedBox(
           height: 10,
         ),
-        const Center(
-          child: Text('Rounds'),
+         Center(
+          child: Text('Rounds'.tr()),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -153,12 +154,12 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
                       provider.selectedRound));
                   context.pushNamed(RoutesName.timerScreenName);
                 },
-                child: const Text('ADD')),
+                child:  Text('ADD'.tr())),
             ElevatedButton(
                 onPressed: () {
                   context.pop();
                 },
-                child: const Text('Cancel')),
+                child:  Text('Cancel'.tr())),
           ],
         ),
       ],
