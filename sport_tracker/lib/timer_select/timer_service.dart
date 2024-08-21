@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class TimerService  extends ChangeNotifier{
   Timer? timer;
@@ -11,6 +12,7 @@ class TimerService  extends ChangeNotifier{
   int selectedRound = 3;
   int currentRound = 0;
   String currentState = 'WORKOUT';
+  final player = AudioPlayer();
 
   void selectTimeRound(int seconds) {
     selectedTimeRound = seconds;
@@ -41,6 +43,7 @@ class TimerService  extends ChangeNotifier{
     }
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (currentDurationRound == 0.0) {
+        playSound();
         moveToNextRound();
       } else {
         currentDurationRound--;
@@ -82,6 +85,11 @@ class TimerService  extends ChangeNotifier{
       stopTimer();
     }
     notifyListeners();
+  }
+
+  Future<void> playSound() async{
+    String audioPath = 'audio/ring.mp3';
+  await player.play(AssetSource(audioPath));
   }
 
  

@@ -45,6 +45,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   easy_localization: ^3.0.7
+  audioplayers: ^6.0.0
 
  
  
@@ -80,6 +81,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/translations/
+    - assets/audio/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -87,13 +87,13 @@ class TrakerListWidget extends StatelessWidget {
                                   children: [
                                     
                                          Text(
-                                            'Round : ${tracks[index].roundTime} sek'.tr())
+                                            'Round'.tr() + ': ${tracks[index].roundTime}' +'sek'.tr())
                                         ,
                                     
                                          Text(
-                                            'Rest : ${tracks[index].restTime} sek'.tr()),
+                                            'Rest'.tr() +' : ${tracks[index].restTime}'+'sek'.tr()),
                                         
-                                    Text('Rounds : ${tracks[index].rounds}'.tr()),
+                                    Text('Rounds'.tr() +': ${tracks[index].rounds}'),
 
                                     //Text('Rest time: 30')
                                   ],

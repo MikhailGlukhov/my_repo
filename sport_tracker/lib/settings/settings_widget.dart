@@ -37,6 +37,7 @@ class SettingsWidget extends StatelessWidget {
                   
                 },
               ),
+             
              const  SizedBox(height: 20,),
               Text('Localization'.tr()),
              const SizedBox(height: 20,),

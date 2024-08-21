@@ -10,6 +10,7 @@ import 'package:sport_tracker/firestore/firestore.dart';
 
 
 import 'package:sport_tracker/my_app.dart';
+
 import 'package:sport_tracker/settings/service/settings_service.dart';
 
 
@@ -26,5 +27,5 @@ Future<void> main() async {
   runApp( EasyLocalization(supportedLocales: const [Locale('en', 'US'), Locale('ru', 'RU')],
   path: 'assets/translations',
   fallbackLocale: const Locale('en', 'US'),
-  child: MyApp(AuthRepository(),FirestoreRepository(),TimerService(), SettingsService())));
+  child: MyApp(AuthRepository(),FirestoreRepository(),TimerService(), SettingsService(), )));
 }
