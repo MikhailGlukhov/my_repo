@@ -51,8 +51,10 @@ INJECTED from C:\Users\user\Desktop\myrep\sport_tracker\android\app\src\main\And
 MERGED from C:\Users\user\Desktop\myrep\sport_tracker\android\app\src\main\AndroidManifest.xml:1:1-45:12
 MERGED from [:audioplayers_android] C:\Users\user\Desktop\myrep\sport_tracker\build\audioplayers_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:fluttertoast] C:\Users\user\Desktop\myrep\sport_tracker\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] C:\Users\user\Desktop\myrep\sport_tracker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:shared_preferences_android] C:\Users\user\Desktop\myrep\sport_tracker\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:17:1-75:12
@@ -137,10 +139,14 @@ MERGED from [:audioplayers_android] C:\Users\user\Desktop\myrep\sport_tracker\bu
 MERGED from [:audioplayers_android] C:\Users\user\Desktop\myrep\sport_tracker\build\audioplayers_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Users\user\Desktop\myrep\sport_tracker\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Users\user\Desktop\myrep\sport_tracker\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Users\user\Desktop\myrep\sport_tracker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Users\user\Desktop\myrep\sport_tracker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:shared_preferences_android] C:\Users\user\Desktop\myrep\sport_tracker\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -283,6 +289,18 @@ ADDED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cl
 		ADDED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [:cloud_firestore] C:\Users\user\Desktop\myrep\sport_tracker\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\user\.gradle\caches\transforms-3\385e60e1c81cd166a8ad3c908ae54a0f\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\user\.gradle\caches\transforms-3\385e60e1c81cd166a8ad3c908ae54a0f\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\user\.gradle\caches\transforms-3\bfa7e487ada9a2c293b34333c2be31be\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\user\.gradle\caches\transforms-3\bfa7e487ada9a2c293b34333c2be31be\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\user\.gradle\caches\transforms-3\78e9b1198ca2628c08b158f33faf066f\transformed\jetified-grpc-android-1.57.2\AndroidManifest.xml:7:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\user\.gradle\caches\transforms-3\78e9b1198ca2628c08b158f33faf066f\transformed\jetified-grpc-android-1.57.2\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar
 ADDED from [:firebase_auth] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 	android:value
@@ -295,16 +313,6 @@ ADDED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\fire
 		ADDED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\user\Desktop\myrep\sport_tracker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\user\.gradle\caches\transforms-3\385e60e1c81cd166a8ad3c908ae54a0f\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\user\.gradle\caches\transforms-3\385e60e1c81cd166a8ad3c908ae54a0f\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\user\.gradle\caches\transforms-3\bfa7e487ada9a2c293b34333c2be31be\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\user\.gradle\caches\transforms-3\bfa7e487ada9a2c293b34333c2be31be\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
-MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\user\.gradle\caches\transforms-3\78e9b1198ca2628c08b158f33faf066f\transformed\jetified-grpc-android-1.57.2\AndroidManifest.xml:7:5-79
-MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\user\.gradle\caches\transforms-3\78e9b1198ca2628c08b158f33faf066f\transformed\jetified-grpc-android-1.57.2\AndroidManifest.xml:7:5-79
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:22-76
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
 	android:excludeFromRecents

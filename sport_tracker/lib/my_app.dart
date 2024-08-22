@@ -1,9 +1,14 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:provider/provider.dart';
 import 'package:sport_tracker/auth/auth_repository.dart';
 import 'package:sport_tracker/auth/bloc/auth_bloc.dart';
+import 'package:sport_tracker/connectivity/cubit/connectivity_cubit.dart';
+
 import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
+
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
 import 'package:sport_tracker/firestore/firestore.dart';
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
@@ -23,17 +28,15 @@ class MyApp extends StatelessWidget {
   final FirestoreRepository firestore;
   final TimerService time;
   final SettingsService service;
+  final Connectivity connectivity;
 
- 
   const MyApp(
     this.authRepository,
     this.firestore,
     this.time,
     this.service,
-
-    
-     {
-    super.key,  
+    this.connectivity, {
+    super.key,
   });
 
   @override
@@ -49,7 +52,11 @@ class MyApp extends StatelessWidget {
           RepositoryProvider<FireStoreBloc>(
               create: (_) => FireStoreBloc(firestore)),
           ChangeNotifierProvider(create: (context) => TimerService()),
-          BlocProvider(create: (context) => SettingsCubit(service, ))
+          BlocProvider(
+              create: (context) => SettingsCubit(
+                    service,
+                  )),
+          BlocProvider(create: (_) => ConnectivityCubit())
         ],
         child: const SportTracker());
   }

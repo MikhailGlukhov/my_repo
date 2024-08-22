@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,5 +28,5 @@ Future<void> main() async {
   runApp( EasyLocalization(supportedLocales: const [Locale('en', 'US'), Locale('ru', 'RU')],
   path: 'assets/translations',
   fallbackLocale: const Locale('en', 'US'),
-  child: MyApp(AuthRepository(),FirestoreRepository(),TimerService(), SettingsService(), )));
+  child: MyApp(AuthRepository(),FirestoreRepository(),TimerService(), SettingsService(),Connectivity() )));
 }

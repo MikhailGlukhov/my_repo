@@ -37,8 +37,8 @@
 29    </queries>
 30
 31    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-31-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
-31-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\user\.gradle\caches\transforms-3\9cca69bc2a3cda63922adb371828b58b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:22-76
+31-->[:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+31-->[:connectivity_plus] C:\Users\user\Desktop\myrep\sport_tracker\build\connectivity_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
 32    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 32-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\user\.gradle\caches\transforms-3\bfa7e487ada9a2c293b34333c2be31be\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
 32-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\user\.gradle\caches\transforms-3\bfa7e487ada9a2c293b34333c2be31be\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95

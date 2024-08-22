@@ -1,6 +1,9 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:sport_tracker/settings/cubit/settings_cubit.dart';
 
 
@@ -8,6 +11,7 @@ import 'package:sport_tracker/settings/settings_switch.dart';
 
 class SettingsWidget extends StatelessWidget {
   const SettingsWidget({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +53,7 @@ class SettingsWidget extends StatelessWidget {
                 
                 EasyLocalization.of(context)!.setLocale(Locale('en', 'US'));
               }, child: Text('    EN    ')),],),
+        
              
               
             ],
