@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:sport_tracker/auth/auth_repository.dart';
 import 'package:sport_tracker/auth/bloc/auth_bloc.dart';
-import 'package:sport_tracker/connectivity/cubit/connectivity_cubit.dart';
+
 
 import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
 
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
               create: (context) => SettingsCubit(
                     service,
                   )),
-          BlocProvider(create: (_) => ConnectivityCubit())
+         
         ],
         child: const SportTracker());
   }
