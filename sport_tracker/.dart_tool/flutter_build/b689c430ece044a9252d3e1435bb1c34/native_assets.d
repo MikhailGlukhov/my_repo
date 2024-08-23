@@ -1,1 +1,0 @@
- C:\\Users\\user\\Desktop\\myrep\\sport_tracker\\.dart_tool\\flutter_build\\b689c430ece044a9252d3e1435bb1c34\\native_assets.yaml: 

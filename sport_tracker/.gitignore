@@ -30,6 +30,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+build/app/outputs/flutter-apk/app-debug.apk
+sport_tracker/build
 
 
 # Symbolication related
