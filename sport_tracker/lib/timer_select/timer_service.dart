@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 
 class TimerService  extends ChangeNotifier{
   Timer? timer;
@@ -88,8 +89,8 @@ class TimerService  extends ChangeNotifier{
   }
 
   Future<void> playSound() async{
-    String audioPath = 'audio/ring.mp3';
-  await player.play(AssetSource(audioPath));
+    // String audioPath = 'audio/ring.mp3';
+  await player.play(AssetSource(Assets.audio.ring));
   }
 
  

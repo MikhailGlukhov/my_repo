@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 
 import 'package:sport_tracker/settings/cubit/settings_cubit.dart';
 
@@ -48,11 +49,11 @@ class SettingsWidget extends StatelessWidget {
              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [ ElevatedButton(onPressed: (){
                 
                 EasyLocalization.of(context)!.setLocale(Locale('ru', 'RU'));
-              }, child: Text('    RU    ')),
+              }, child: Image.asset(Assets.icons.ru.path, height: 40,width: 40,)),
                ElevatedButton(onPressed: (){
                 
                 EasyLocalization.of(context)!.setLocale(Locale('en', 'US'));
-              }, child: Text('    EN    ')),],),
+              }, child: Image.asset(Assets.icons.en.path, height: 40,width: 40,)),],),
         
              
               

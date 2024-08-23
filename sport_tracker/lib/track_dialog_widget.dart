@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
 import 'package:sport_tracker/timer_select/timer_chose.dart';
 import 'package:sport_tracker/timer_select/timer_service.dart';
@@ -154,12 +155,20 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
                       provider.selectedRound));
                   context.pushNamed(RoutesName.timerScreenName);
                 },
-                child:  Text('ADD'.tr())),
+                child:  Row(
+                  children: [Image.asset(Assets.icons.add.path, height: 40,width: 40,),
+                    Text('ADD'.tr()),
+                  ],
+                )),
             ElevatedButton(
                 onPressed: () {
                   context.pop();
                 },
-                child:  Text('Cancel'.tr())),
+                child:  Row(
+                  children: [Image.asset(Assets.icons.cancel.path, height: 40,width: 40,),
+                    Text('Cancel'.tr()),
+                  ],
+                )),
           ],
         ),
       ],

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 
 import 'package:sport_tracker/email_verification/bloc/verification_bloc.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
 
 
@@ -32,8 +33,8 @@ class EmailVerificationWidget extends StatelessWidget {
                     .add(const VerificationEvent.sendEmailVerification());
                     
               },
-              child:  Row(
-                children: [const Icon(Icons.email), Text('Verificate your email'.tr())],
+              child:  Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [ ImageIcon(AssetImage(Assets.icons.mail.path), size: 40), Text('Verificate your email'.tr())],
               )),
         ),
       ),

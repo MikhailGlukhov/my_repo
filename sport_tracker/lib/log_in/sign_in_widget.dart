@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:sport_tracker/auth/auth_widget.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 
 
 
@@ -58,7 +59,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter your email address'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: const Icon(Icons.mail),
+                  prefixIcon: ImageIcon(AssetImage(Assets.icons.mail.path), size: 24,),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
@@ -79,7 +80,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter your password'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: const Icon(Icons.password),
+                  prefixIcon: ImageIcon(AssetImage(Assets.icons.pass.path), size: 24,),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),

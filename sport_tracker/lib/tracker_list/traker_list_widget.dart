@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/auth/auth_repository.dart';
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
 import 'package:sport_tracker/firestore/firestore.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/models/sport_track.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
@@ -68,7 +69,7 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
       _connectionStatus = result;
     });
     
-   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Connectivity changed: $_connectionStatus'), duration: const Duration(seconds: 2),));
+   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Connectivity changed: $_connectionStatus'), duration: const Duration(seconds: 1),));
   }
 
 
@@ -83,12 +84,12 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
                 context.read<SignInBloc>().add(const SigInEvent.logOut());
                 context.pushNamed(RoutesName.enterScreenName);
               },
-              icon: const Icon(Icons.exit_to_app)),
+              icon: Image.asset(Assets.icons.exit.path, height: 40,width: 40,),),
           IconButton(
               onPressed: () {
                 context.pushNamed(RoutesName.settingsScreenName);
               },
-              icon: const Icon(Icons.settings))
+              icon: Image.asset(Assets.icons.settings.path, height: 40,width: 40,))
         ],
         centerTitle: true,
         title: Text('Sport Tracker'.tr()),
@@ -178,7 +179,7 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
                 context: context,
                 builder: (context) => const TrackDialogWidget());
           },
-          child: const Icon(Icons.add)),
+          child: Image.asset(Assets.icons.muscle.path, height: 40,width: 40,)),
     );
   }
 }

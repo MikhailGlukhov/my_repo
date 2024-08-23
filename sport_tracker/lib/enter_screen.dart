@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sport_tracker/gen/assets.gen.dart';
 
 import 'package:sport_tracker/routes/routes_name.dart';
 
@@ -23,7 +24,7 @@ class EnterScreen extends StatelessWidget {
                 
                 context.pushNamed(RoutesName.settingsScreenName);
               },
-              icon: const Icon(Icons.settings))
+              icon: Image.asset(Assets.icons.settings.path, height: 40,width: 40,))
         ],
       ),
       body: Center(
