@@ -27,6 +27,10 @@
     "Add new exercise": "Add new exercise",
     "Localization": "Localization",
     "sek": "sek",
-    "Rest": "Rest"
+    "Rest": "Rest",
+    "Your connection now is mobile": "Your connection now is mobile",
+    "Your connection now is wifi": "Your connection now is wifi",
+    "You are now is offline": "You are now is offline",
+    "You are using vpn": "You are using vpn"
     
 }

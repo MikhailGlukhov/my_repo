@@ -27,6 +27,10 @@
     "Add new exercise": "Добавить новое упражнение",
     "Localization": "Локализация",
     "sek": "сек",
-    "Rest": "Отдых"
+    "Rest": "Отдых",
+    "Your connection now is mobile": "Вы исспользуете мобильную сеть",
+    "Your connection now is wifi": "Вы подключены к wi-fi",
+    "You are now is offline": "Интернет соединение отсутствует",
+    "You are using vpn":"Вы используете Vpn"
     
 }

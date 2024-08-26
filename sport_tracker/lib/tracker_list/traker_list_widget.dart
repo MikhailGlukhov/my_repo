@@ -24,7 +24,8 @@ class TrakerListWidget extends StatefulWidget {
 }
 
 class _TrakerListWidgetState extends State<TrakerListWidget> {
- List<ConnectivityResult> _connectionStatus = [ConnectivityResult.none];
+  var textmessage  = '';
+ List<ConnectivityResult> _connectionStatus = [];
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
 
@@ -60,16 +61,36 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
     if (!mounted) {
       return Future.value(null);
     }
+ 
 
     return _updateConnectionStatus(result);
-  }
+  } 
 
   Future<void> _updateConnectionStatus(List<ConnectivityResult> result) async {
+    
     setState(() {
       _connectionStatus = result;
+     
+     
     });
-    
-   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Connectivity changed: $_connectionStatus'), duration: const Duration(seconds: 1),));
+  switch (_connectionStatus) {
+    case [ConnectivityResult.mobile]:
+      textmessage = 'Your connection now is mobile'.tr();
+      break;
+     case [ConnectivityResult.wifi]:
+      textmessage = 'Your connection now is wifi'.tr();
+      break;
+     case [ConnectivityResult.none]:
+      textmessage = 'You are now is offline'.tr();
+      break;
+     case [ConnectivityResult.vpn]:
+      textmessage = 'You are using vpn'.tr();
+      break;
+   
+  }
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(textmessage), duration: const Duration(seconds: 3),));
+  
   }
 
 
