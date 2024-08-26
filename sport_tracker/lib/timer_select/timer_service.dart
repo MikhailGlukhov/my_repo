@@ -89,8 +89,8 @@ class TimerService  extends ChangeNotifier{
   }
 
   Future<void> playSound() async{
-    // String audioPath = 'audio/ring.mp3';
-  await player.play(AssetSource(Assets.audio.ring));
+     String audioPath = 'audio/ring.mp3';
+     await player.play(AssetSource(audioPath));
   }
 
  

@@ -12,10 +12,13 @@ import 'package:sport_tracker/settings/settings_widget.dart';
 import 'package:sport_tracker/timer/timer_widget.dart';
 import 'package:sport_tracker/track_dialog_widget.dart';
 import 'package:sport_tracker/tracker_list/traker_list_widget.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
+final talker = Talker();
 class Routes {
   static GoRouter returnRouter() {
     final GoRouter router = GoRouter(
+      observers: [TalkerRouteObserver(talker)] ,
       initialLocation: '/',
       routes: <RouteBase>[
         GoRoute(

@@ -16,10 +16,13 @@ import 'package:sport_tracker/settings/service/settings_service.dart';
 
 
 import 'package:sport_tracker/timer_select/timer_service.dart';
+import 'package:talker_flutter/talker_flutter.dart';
+
 
 
 
 Future<void> main() async {
+  TalkerFlutter.init();
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox('settings');

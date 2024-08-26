@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 *.apk filter=lfs diff=lfs merge=lfs -text
+=======
+ filter=lfs diff=lfs merge=lfs -text
+>>>>>>> ee55d3560799a6f5e794dc4d87ccabe34962aa4c
