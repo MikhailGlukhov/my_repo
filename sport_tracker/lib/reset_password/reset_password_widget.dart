@@ -61,8 +61,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
             BlocListener<ResetBloc, ResetState>(
               listener: (context, state) {
                 state.when(
-                    initial: () => const AuthWidget(),
-                    succes: () => context.pushNamed(RoutesName.homeScreenName));
+                    initial: () => context.pushReplacementNamed(RoutesName.homeScreenName),
+                    succes: () => context.pushReplacementNamed(RoutesName.homeScreenName));
               },
               child: ElevatedButton(
                   onPressed: () {

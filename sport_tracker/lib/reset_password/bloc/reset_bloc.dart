@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sport_tracker/auth/auth_repository.dart';
+import 'package:fireauth/fireauth.dart';
 
 part 'reset_event.dart';
 part 'reset_state.dart';

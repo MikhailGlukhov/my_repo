@@ -24,7 +24,7 @@ class EmailVerificationWidget extends StatelessWidget {
             state.when(
                 initial: () => const CircularProgressIndicator(),
                 inProcess: () => const CircularProgressIndicator(),
-                sentEmail: () => context.pushNamed(RoutesName.homeScreenName));
+                sentEmail: () => context.pushReplacementNamed(RoutesName.homeScreenName));
           },
           child: ElevatedButton(
               onPressed: () {

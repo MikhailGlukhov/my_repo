@@ -17,7 +17,7 @@ class TimerWidget extends StatelessWidget {
         
 
     return Scaffold(
-        appBar: AppBar(),
+        
         body: !isFinished
             ? Center(
                 child: Column(
@@ -69,7 +69,7 @@ class TimerWidget extends StatelessWidget {
                 ),
               )
             : Center(
-              child: Column(
+              child: Column(mainAxisAlignment: MainAxisAlignment.center,
                  
                   children: [
                       Text(provider.currentState = 'FINISH'),
@@ -123,6 +123,7 @@ class _ButtonsWidgetState extends State<ButtonsWidget> {
               ElevatedButton(
                   onPressed: () {
                     provider.reset();
+                    context.pushReplacementNamed(RoutesName.trackerScreenName);
                   },
                   child:  Text('Cancel'.tr()))
             ],

@@ -31,6 +31,7 @@
     "Your connection now is mobile": "Вы исспользуете мобильную сеть",
     "Your connection now is wifi": "Вы подключены к wi-fi",
     "You are now is offline": "Интернет соединение отсутствует",
-    "You are using vpn":"Вы используете Vpn"
+    "You are using vpn":"Вы используете Vpn",
+    "Log In": "Войти"
     
 }

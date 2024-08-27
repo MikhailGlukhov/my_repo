@@ -353,8 +353,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-  firebase_auth:
+  fireauth:
     dependency: "direct main"
+    description:
+      path: "package/fireauth"
+      relative: true
+    source: path
+    version: "0.0.1"
+  firebase_auth:
+    dependency: transitive
     description:
       name: firebase_auth
       sha256: b0dde65595b65c0c2c2c2127da0ce7772a375fcefbea8490c1563a4aecbd0195

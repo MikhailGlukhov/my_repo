@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sport_tracker/auth/auth_repository.dart';
+import 'package:fireauth/fireauth.dart';
 import 'package:sport_tracker/firestore/bloc/bloc/fire_store_bloc.dart';
 import 'package:sport_tracker/firestore/firestore.dart';
 import 'package:sport_tracker/gen/assets.gen.dart';
@@ -103,7 +103,7 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
               onPressed: () {
                 AuthRepository().signOut();
                 context.read<SignInBloc>().add(const SigInEvent.logOut());
-                context.pushNamed(RoutesName.enterScreenName);
+                context.pushReplacementNamed(RoutesName.enterScreenName);
               },
               icon: Image.asset(Assets.icons.exit.path, height: 40,width: 40,),),
           IconButton(

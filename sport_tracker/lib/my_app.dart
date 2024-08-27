@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:provider/provider.dart';
-import 'package:sport_tracker/auth/auth_repository.dart';
+import 'package:fireauth/fireauth.dart';
 import 'package:sport_tracker/auth/bloc/auth_bloc.dart';
 
 

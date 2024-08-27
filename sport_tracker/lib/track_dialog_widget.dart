@@ -153,7 +153,7 @@ class _TrackDialogWidgetState extends State<TrackDialogWidget> {
                       provider.selectedTimeRound,
                       provider.selectedTimeRest,
                       provider.selectedRound));
-                  context.pushNamed(RoutesName.timerScreenName);
+                  context.pushReplacementNamed(RoutesName.timerScreenName);
                 },
                 child:  Row(
                   children: [Image.asset(Assets.icons.add.path, height: 40,width: 40,),

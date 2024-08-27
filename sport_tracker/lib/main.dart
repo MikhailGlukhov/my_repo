@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 
-import 'package:sport_tracker/auth/auth_repository.dart';
+
 import 'package:sport_tracker/firestore/firestore.dart';
 
 
@@ -13,7 +13,7 @@ import 'package:sport_tracker/firestore/firestore.dart';
 import 'package:sport_tracker/my_app.dart';
 
 import 'package:sport_tracker/settings/service/settings_service.dart';
-
+import 'package:fireauth/fireauth.dart';
 
 import 'package:sport_tracker/timer_select/timer_service.dart';
 import 'package:talker_flutter/talker_flutter.dart';

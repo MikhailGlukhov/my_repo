@@ -91,8 +91,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 state.when(
                     initial: () => const CircularProgressIndicator(),
                     inProcess: () => const CircularProgressIndicator(),
-                    sucess:  () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const AuthWidget())),
+                    sucess:  () => context.pushReplacementNamed(RoutesName.homeScreenName),
                     error: (error) => context.pushNamed(RoutesName.errorScreenName,));
               },
               child: ElevatedButton(

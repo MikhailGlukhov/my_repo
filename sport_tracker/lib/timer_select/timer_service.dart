@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:sport_tracker/gen/assets.gen.dart';
+
 
 class TimerService  extends ChangeNotifier{
   Timer? timer;

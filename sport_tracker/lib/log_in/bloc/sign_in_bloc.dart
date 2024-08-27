@@ -4,7 +4,7 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:sport_tracker/auth/auth_repository.dart';
+import 'package:fireauth/fireauth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sign_in_event.dart';
