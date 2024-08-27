@@ -13,8 +13,8 @@ class TimerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<TimerService>(context);
     final bool isFinished = provider.currentRound == provider.selectedRound &&
-        provider.currentDurationRound == 0;
-        
+        provider.currentDurationRound == 0 ;
+   
 
     return Scaffold(
         
@@ -78,7 +78,8 @@ class TimerWidget extends StatelessWidget {
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            provider.stopTimer();
+                          provider.stopTimer();
+                           
                             context.pushReplacementNamed(RoutesName.trackerScreenName);
                           },
                           child:  Text('Close'.tr()))
@@ -104,8 +105,8 @@ class _ButtonsWidgetState extends State<ButtonsWidget> {
         provider.currentDurationRound == provider.selectedTimeRound ||
             provider.selectedTimeRound == 0;
     final isStarted = provider.timer == null ? false : provider.timer?.isActive;
-    final finished = provider.selectedRound == provider.currentRound;
-    return  finished ? ElevatedButton(onPressed: (){provider.reset();}, child: Text('Restart'.tr())) :
+    final finished = provider.currentRound > 0;
+    return  finished ? ElevatedButton(onPressed: (){provider.reset();}, child: Text('New training'.tr())) :
     isStarted! || !isCompleted
         ? Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
