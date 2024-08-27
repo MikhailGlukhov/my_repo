@@ -31,5 +31,5 @@ Future<void> main() async {
   runApp( EasyLocalization(supportedLocales: const [Locale('en', 'US'), Locale('ru', 'RU')],
   path: 'assets/translations',
   fallbackLocale: const Locale('en', 'US'),
-  child: MyApp(AuthRepository(),FirestoreRepository(),TimerService(), SettingsService(),Connectivity() )));
+  child: MyApp(AuthRepository(),FirestoreRepository(),TimerService(), SettingsService(),Connectivity()  )));
 }

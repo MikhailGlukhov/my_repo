@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,12 +31,13 @@ class MyApp extends StatelessWidget {
   final SettingsService service;
   final Connectivity connectivity;
 
+
   const MyApp(
     this.authRepository,
     this.firestore,
     this.time,
     this.service,
-    this.connectivity, {
+    this.connectivity,{
     super.key,
   });
 

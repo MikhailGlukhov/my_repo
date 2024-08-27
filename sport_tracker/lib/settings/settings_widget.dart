@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sport_tracker/gen/assets.gen.dart';
 
 import 'package:sport_tracker/settings/cubit/settings_cubit.dart';
@@ -46,12 +47,14 @@ class SettingsWidget extends StatelessWidget {
              const  SizedBox(height: 20,),
               Text('Localization'.tr()),
              const SizedBox(height: 20,),
-             Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [ ElevatedButton(onPressed: (){
-                
+             Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [ ElevatedButton(onPressed: () async{
+                final myBox = await Hive.openBox('settings');
+                myBox.put('locale', 'RU');
                 EasyLocalization.of(context)!.setLocale(Locale('ru', 'RU'));
               }, child: Image.asset(Assets.icons.ru.path, height: 40,width: 40,)),
-               ElevatedButton(onPressed: (){
-                
+               ElevatedButton(onPressed: () async{
+                 final myBox = await Hive.openBox('settings');
+                myBox.put('locale', 'EN');
                 EasyLocalization.of(context)!.setLocale(Locale('en', 'US'));
               }, child: Image.asset(Assets.icons.en.path, height: 40,width: 40,)),],),
         
