@@ -32,10 +32,10 @@ class EmailVerificationWidget extends StatelessWidget {
                     .read<VerificationBloc>()
                     .add(const VerificationEvent.sendEmailVerification());
                     
-              },
+              }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
               child:  Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [ ImageIcon(AssetImage(Assets.icons.mail.path), size: 40), Text('Verificate your email'.tr())],
-              )),
+              ),),
         ),
       ),
     ));

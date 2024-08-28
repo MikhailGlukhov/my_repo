@@ -34,9 +34,9 @@ class EnterScreen extends StatelessWidget {
           ElevatedButton(
               onPressed: () {context.pushNamed(RoutesName.signInScreenName);},
               child:  Text(
-                '    Log In    '.tr(),
+                'Log In'.tr(),
                 style: const TextStyle(fontSize: 22),
-              )),
+              ), style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40), side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),),
           const SizedBox(
             height: 24,
           ),
@@ -45,7 +45,7 @@ class EnterScreen extends StatelessWidget {
               child:  Text(
                 'Registration'.tr(),
                 style: const TextStyle(fontSize: 22),
-              )),
+              ), style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),),
         ],
       )),
     );

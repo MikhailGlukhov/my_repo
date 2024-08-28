@@ -100,7 +100,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                   child:  Text(
                     'Registration'.tr(),
                     style: const TextStyle(fontSize: 22),
-                  )),
+                  ), style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),),
             ),
           ],
         ),

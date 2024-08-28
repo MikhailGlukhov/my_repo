@@ -70,11 +70,11 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                         .read<ResetBloc>()
                         .add(ResetEvent.sendingEmail(_emailController.text));
                     
-                  },
+                  },style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
                   child:  Text(
                     'Reset password'.tr(),
                     style: const TextStyle(fontSize: 22),
-                  )),
+                  ),),
             )
           ],
         ),

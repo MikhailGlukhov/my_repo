@@ -100,11 +100,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                         email: _emailController.text,
                         password: _passwordController.text));
                    
-                  },
+                  }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
                   child:  Text(
                     '    Log In    '.tr(),
                     style: TextStyle(fontSize: 22),
-                  )),
+                  ),),
             ),
             const SizedBox(
               height: 25,
@@ -113,11 +113,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ResetPasswordWidget()));
-                },
+                }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
                 child:  Text(
                   'Reset passowrd'.tr(),
                   style:const TextStyle(fontSize: 22),
-                ))
+                ),)
           ],
         ),
       ),
