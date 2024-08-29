@@ -11,17 +11,3 @@ class SignUpEvent with _$SignUpEvent{
 
 
 
-
-
-
-
-// abstract class SignUpBlocEvent{
-
-// }
-// class SingUpRequired extends SignUpBlocEvent{
-//   final String email;
-//   final String password;
-
-//   SingUpRequired(this.email, this.password);
-  
-// }

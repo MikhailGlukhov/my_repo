@@ -17,16 +17,20 @@ class AuthRepository {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
+     
       if (e.code == 'weak-password') {
        
-        throw Exception('This password is too weak');
+         throw ('This password is too weak'.tr());
+       
       } else if (e.code == 'email-already-in-use') {
-        
-        throw Exception('This account alredy exist for this email');
+       
+        throw ('This account alredy exist for this email'.tr());
+         
       } else {
-        
-        throw Exception('Unknown error');
+       
+        throw ('Unknown error'.tr());
       }
+    
     }
   }
 
@@ -35,13 +39,17 @@ class AuthRepository {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
+   
       if (e.code == 'invalid-credential') {
       
-        throw Exception('Wrong password or eamil');
+        throw ('Wrong password or eamil'.tr());
+        
       } else {
         
-        throw Exception('User not found');
+        throw ('User not found'.tr());
+       
       }
+      
     }
   }
 

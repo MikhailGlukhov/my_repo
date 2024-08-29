@@ -26,16 +26,24 @@ class EmailVerificationWidget extends StatelessWidget {
                 inProcess: () => const CircularProgressIndicator(),
                 sentEmail: () => context.pushReplacementNamed(RoutesName.homeScreenName));
           },
-          child: ElevatedButton(
-              onPressed: () {
-                context
-                    .read<VerificationBloc>()
-                    .add(const VerificationEvent.sendEmailVerification());
-                    
-              }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
-              child:  Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [ ImageIcon(AssetImage(Assets.icons.mail.path), size: 40), Text('Verificate your email'.tr())],
-              ),),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read<VerificationBloc>()
+                        .add(const VerificationEvent.sendEmailVerification());
+                        
+                  }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
+                  child:  Row(mainAxisAlignment: MainAxisAlignment.center,
+                    children: [ ImageIcon(AssetImage(Assets.icons.mail.path), size: 40), Text('Verificate your email'.tr())],
+                  ),),
+                  const SizedBox(height: 25,),
+                  ElevatedButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, child: Text('Cancel'.tr()))
+            ],
+          ),
         ),
       ),
     ));

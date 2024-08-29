@@ -33,6 +33,12 @@
     "You are now is offline": "Интернет соединение отсутствует",
     "You are using vpn":"Вы используете Vpn",
     "Log In": "Войти",
-    "New training": "Новая Тренировка"
+    "New training": "Новая Тренировка",
+    "Wrong password or eamil": "Не правильный пароль или почта",
+    "User not found": "Пользователь не найден",
+    "This password is too weak": "Не надежный пароль",
+    "This account alredy exist for this email": "Пользователь уже сушествует",
+    "Unknown error": "Неизвестная ошибка",
+    "Email is not verificated": "Почта не подтверждена"
     
 }

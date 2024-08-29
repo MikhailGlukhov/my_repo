@@ -368,12 +368,6 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "fluttertoast",
-      "rootUri": "file:///C:/Users/user/AppData/Local/Pub/Cache/hosted/pub.dev/fluttertoast-8.2.8",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "freezed",
       "rootUri": "file:///C:/Users/user/AppData/Local/Pub/Cache/hosted/pub.dev/freezed-2.5.2",
       "packageUri": "lib/",
@@ -890,7 +884,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-08-29T03:31:59.187618Z",
+  "generated": "2024-08-29T05:05:03.360644Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///C:/flutter",

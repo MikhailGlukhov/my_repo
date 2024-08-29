@@ -33,6 +33,13 @@
     "You are now is offline": "You are now is offline",
     "You are using vpn": "You are using vpn",
     "Log In": "Log In",
-    "New training": "New training"
+    "New training": "New training",
+    "Wrong password or eamil": "Wrong password or eamil",
+    "User not found": "User not found",
+    "This password is too weak": "This password is too weak",
+    "This account alredy exist for this email": "This account alredy exist for this email",
+    "Unknown error": "Unknown error",
+    "Email is not verificated": "Email is not verificated"
+
     
 }
