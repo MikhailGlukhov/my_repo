@@ -154,10 +154,23 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
                         child: Container(
                             margin: const EdgeInsets.all(10),
                             height: 70,
-                            decoration: BoxDecoration(
-                                color: brightness == Brightness.dark
+                            decoration: tracks[index].isCompleted ? 
+                             BoxDecoration(
+                                color:                                
+                                 brightness == Brightness.dark
+                                    ? const Color.fromARGB(197, 34, 150, 79)
+                                    : const Color.fromARGB(197, 79, 241, 142),
+                               
+                                borderRadius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: const Color.fromARGB(82, 41, 14, 29),
+                                  width: 2,
+                                )) : BoxDecoration(
+                                color:                                
+                                 brightness == Brightness.dark
                                     ? const Color.fromARGB(82, 221, 165, 196)
-                                    : const Color.fromARGB(82, 252, 234, 244),
+                                    : const Color.fromARGB(82, 252, 234, 244),  
+                               
                                 borderRadius: BorderRadius.circular(18),
                                 border: Border.all(
                                   color: const Color.fromARGB(82, 41, 14, 29),

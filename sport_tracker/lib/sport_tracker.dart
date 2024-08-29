@@ -29,7 +29,7 @@ class SportTracker extends StatelessWidget {
                   textTheme: const TextTheme(
                       titleMedium: TextStyle(fontSize: 18),
                       titleLarge: TextStyle(
-                          fontSize: 36, fontWeight: FontWeight.w600))),
+                          fontSize: 28, fontWeight: FontWeight.w600))),
             );
           },
         );
