@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '214968875672',
     projectId: 'my-sport-tracker',
     storageBucket: 'my-sport-tracker.appspot.com',
-    iosBundleId: 'com.example.sportTracker',
+    iosBundleId: 'Mikhail_22alt.sportTracker',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '214968875672',
     projectId: 'my-sport-tracker',
     storageBucket: 'my-sport-tracker.appspot.com',
-    iosBundleId: 'com.example.sportTracker',
+    iosBundleId: 'Mikhail_22alt.sportTracker',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

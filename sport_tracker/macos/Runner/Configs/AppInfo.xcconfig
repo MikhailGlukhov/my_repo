@@ -8,7 +8,7 @@
 PRODUCT_NAME = sport_tracker
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.sportTracker
+PRODUCT_BUNDLE_IDENTIFIER = Mikhail_22alt.sportTracker
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 Mikhail_22alt. All rights reserved.
