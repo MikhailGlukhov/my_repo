@@ -13,19 +13,16 @@ class ErrorDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SimpleDialog(
+    return  SimpleDialog(
           children: [
             Center(child: Text(error)),
-            ElevatedButton(
+            TextButton(
                 onPressed: () {
                   context.pushReplacementNamed(RoutesName.enterScreenName);
                 },
                 child:  Text('OK'.tr()))
           ],
-        ),
-      ),
-    );
+        );
+    
   }
 }

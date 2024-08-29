@@ -26,7 +26,7 @@ class AuthWidget extends StatelessWidget {
               if (user.emailVerified) {
                 return const TrakerListWidget();
               } else {
-                return  ErrorDialogWidget(error: 'Email is not verificated'.tr(),);
+                return  Scaffold(body: ErrorDialogWidget(error: 'Email is not verificated'.tr(),));
               }
             },
           ),

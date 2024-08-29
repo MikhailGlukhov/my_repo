@@ -10,7 +10,7 @@ part 'fire_store_bloc.freezed.dart';
 class FireStoreBloc extends Bloc<FireStoreEvent, FireStoreState> {
   
 final FirestoreRepository firestore;
- //final List<SportTrack> tracks;
+ 
   FireStoreBloc(this.firestore,) : super(const FireStoreInitialState()) {
     
     

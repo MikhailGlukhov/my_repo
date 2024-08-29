@@ -68,25 +68,34 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
     switch (_connectionStatus) {
       case [ConnectivityResult.mobile]:
         textmessage = 'Your connection now is mobile'.tr();
+
         break;
       case [ConnectivityResult.wifi]:
         textmessage = 'Your connection now is wifi'.tr();
         break;
       case [ConnectivityResult.none]:
         textmessage = 'You are now is offline'.tr();
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(textmessage),
+          duration: const Duration(seconds: 2),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          margin: const EdgeInsets.all(10),
+          behavior: SnackBarBehavior.floating,
+        ));
         break;
       case [ConnectivityResult.vpn]:
         textmessage = 'You are using vpn'.tr();
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(textmessage),
+          duration: const Duration(seconds: 2),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          margin: const EdgeInsets.all(10),
+          behavior: SnackBarBehavior.floating,
+        ));
         break;
     }
-
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(textmessage),
-      duration: const Duration(seconds: 1),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: const EdgeInsets.all(10),
-      behavior: SnackBarBehavior.floating,
-    ));
   }
 
   @override
@@ -122,78 +131,73 @@ class _TrakerListWidgetState extends State<TrakerListWidget> {
       ),
       body: BlocBuilder<FireStoreBloc, FireStoreState>(
         builder: (context, state) {
-          if (state is FireStoreLoadingState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            return StreamBuilder<List<SportTrack>>(
-                stream: FirestoreRepository().listSportTrack(),
-                builder: (context, snapshot) {
-                  List<SportTrack>? tracks = snapshot.data;
-                  if (tracks == null) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return ListView.builder(
-                      itemCount: tracks.length,
-                      itemBuilder: (context, index) {
-                        return Dismissible(
-                          key: UniqueKey(),
-                          onDismissed: (DismissDirection decoration) {
-                            (context)
-                                .read<FireStoreBloc>()
-                                .add(FireStoreEvent.delete(tracks[index].uid));
-                          },
-                          child: Container(
-                              margin: const EdgeInsets.all(10),
-                              height: 70,
-                              decoration: BoxDecoration(
-                                  color: brightness == Brightness.dark
-                                      ? Color.fromARGB(82, 221, 165, 196)
-                                      : Color.fromARGB(82, 252, 234, 244),
-                                  borderRadius: BorderRadius.circular(18),
-                                  border: Border.all(
-                                    color: Color.fromARGB(82, 41, 14, 29),
-                                    width: 2,
-                                  )),
-                              child: ListTile(
-                                title: Text(tracks[index].title),
-                                trailing: Container(
-                                    height: 15,
-                                    width: 15,
-                                    child: tracks[index].isCompleted
-                                        ? const Icon(Icons.check_box)
-                                        : Container(
-                                            height: 15,
-                                            width: 15,
-                                            color: Colors.black,
-                                          )),
-                                subtitle: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                        '${'Round'.tr()}: ${tracks[index].roundTime}${'sek'.tr()}'),
-                                    Text(
-                                        '${'Rest'.tr()} : ${tracks[index].restTime}${'sek'.tr()}'),
-                                    Text(
-                                        '${'Rounds'.tr()}: ${tracks[index].rounds}'),
-                                  ],
-                                ),
-                                onTap: () {
-                                  bool newCompletedTrack =
-                                      !tracks[index].isCompleted;
-                                  (context).read<FireStoreBloc>().add(
-                                      FireStoreEvent.update(tracks[index].uid,
-                                          newCompletedTrack));
-                                },
-                              )),
-                        );
-                      });
-                });
-          }
+          return StreamBuilder<List<SportTrack>>(
+              stream: FirestoreRepository().listSportTrack(),
+              builder: (context, snapshot) {
+                List<SportTrack>? tracks = snapshot.data;
+                if (tracks == null) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return ListView.builder(
+                  cacheExtent: 1300,
+                    itemCount: tracks.length,
+                    itemBuilder: (context, index) {
+                      return Dismissible(
+                        key: UniqueKey(),
+                        onDismissed: (DismissDirection decoration) {
+                          (context)
+                              .read<FireStoreBloc>()
+                              .add(FireStoreEvent.delete(tracks[index].uid));
+                        },
+                        child: Container(
+                            margin: const EdgeInsets.all(10),
+                            height: 70,
+                            decoration: BoxDecoration(
+                                color: brightness == Brightness.dark
+                                    ? const Color.fromARGB(82, 221, 165, 196)
+                                    : const Color.fromARGB(82, 252, 234, 244),
+                                borderRadius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: const Color.fromARGB(82, 41, 14, 29),
+                                  width: 2,
+                                )),
+                            child: ListTile(
+                              title: Text(tracks[index].title),
+                              trailing: SizedBox(
+                                  height: 15,
+                                  width: 15,
+                                  child: tracks[index].isCompleted
+                                      ? const Icon(Icons.check_box)
+                                      : Container(
+                                          height: 15,
+                                          width: 15,
+                                          color: Colors.black,
+                                        )),
+                              subtitle: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                      '${'Round'.tr()}: ${tracks[index].roundTime}${'sek'.tr()}'),
+                                  Text(
+                                      '${'Rest'.tr()} : ${tracks[index].restTime}${'sek'.tr()}'),
+                                  Text(
+                                      '${'Rounds'.tr()}: ${tracks[index].rounds}'),
+                                ],
+                              ),
+                              onTap: () {
+                                bool newCompletedTrack =
+                                    !tracks[index].isCompleted;
+                                (context).read<FireStoreBloc>().add(
+                                    FireStoreEvent.update(
+                                        tracks[index].uid, newCompletedTrack));
+                              },
+                            )),
+                      );
+                    });
+              });
         },
       ),
       floatingActionButton: FloatingActionButton(

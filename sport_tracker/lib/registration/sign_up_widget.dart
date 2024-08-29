@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/error_widget.dart';
 import 'package:sport_tracker/gen/assets.gen.dart';
 
-
 import 'package:sport_tracker/registration/bloc/sign_up_bloc.dart';
 import 'package:sport_tracker/routes/routes_name.dart';
 
@@ -32,7 +31,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title:  Text(
+        title: Text(
           'Registration'.tr(),
         ),
       ),
@@ -56,7 +55,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter your email address'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: ImageIcon(AssetImage(Assets.icons.mail.path), size: 24,),
+                  prefixIcon: ImageIcon(
+                    AssetImage(Assets.icons.mail.path),
+                    size: 24,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
@@ -77,7 +79,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter your password'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: ImageIcon(AssetImage(Assets.icons.pass.path), size: 24,),
+                  prefixIcon: ImageIcon(
+                    AssetImage(Assets.icons.pass.path),
+                    size: 24,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
@@ -86,24 +91,31 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             BlocListener<SignUpBloc, SignUpState>(
               listener: (context, state) {
                 state.when(
-                  initial: () => const CircularProgressIndicator(),
-                  inProgress: () => const CircularProgressIndicator(),
-                  sucess: () => context.pushNamed(RoutesName.verificationScreenName),
-                  error: (error) => 
-                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ErrorDialogWidget(error: error!,))),
-                  
-                );
+                    initial: () => const CircularProgressIndicator(),
+                    inProgress: () => const CircularProgressIndicator(),
+                    sucess: () =>
+                        context.pushNamed(RoutesName.verificationScreenName),
+                    error: (error) => showDialog(
+                        context: context,
+                        builder: (context) =>
+                            ErrorDialogWidget(error: error!)));
               },
               child: ElevatedButton(
-                  onPressed: () {
-                    context.read<SignUpBloc>().add(SignUpEvent.registrating(
-                        email: _emailController.text,
-                        password: _passwordController.text));
-                  },
-                  child:  Text(
-                    'Registration'.tr(),
-                    style: const TextStyle(fontSize: 22),
-                  ), style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),),
+                onPressed: () {
+                  context.read<SignUpBloc>().add(SignUpEvent.registrating(
+                      email: _emailController.text,
+                      password: _passwordController.text));
+                },
+                style: ElevatedButton.styleFrom(
+                    fixedSize:
+                        Size(MediaQuery.of(context).size.width * 0.7, 40),
+                    side: const BorderSide(
+                        color: Color.fromRGBO(171, 92, 196, 0.815), width: 2)),
+                child: Text(
+                  'Registration'.tr(),
+                  style: const TextStyle(fontSize: 22),
+                ),
+              ),
             ),
           ],
         ),

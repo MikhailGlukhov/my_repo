@@ -6,17 +6,3 @@ class SigInEvent with _$SigInEvent {
   const factory SigInEvent.logOut() = SingInLogOutEvent;
 }
 
-// abstract class SigInBlocEvent{
-
-// }
-
-// class SignInRequired extends SigInBlocEvent{
-//   final String email;
-//   final String password;
-
-//   SignInRequired(this.email, this.password);
-// }
-
-// class SignOutRequired extends SigInBlocEvent{
-  
-// }

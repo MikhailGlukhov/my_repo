@@ -50,12 +50,12 @@ class SettingsWidget extends StatelessWidget {
              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [ ElevatedButton(onPressed: () async{
                 final myBox = await Hive.openBox('settings');
                 myBox.put('locale', 'RU');
-                EasyLocalization.of(context)!.setLocale(Locale('ru', 'RU'));
+                EasyLocalization.of(context)!.setLocale(const Locale('ru', 'RU'));
               }, child: Image.asset(Assets.icons.ru.path, height: 40,width: 40,)),
                ElevatedButton(onPressed: () async{
                  final myBox = await Hive.openBox('settings');
                 myBox.put('locale', 'EN');
-                EasyLocalization.of(context)!.setLocale(Locale('en', 'US'));
+                EasyLocalization.of(context)!.setLocale(const Locale('en', 'US'));
               }, child: Image.asset(Assets.icons.en.path, height: 40,width: 40,)),],),
         
              

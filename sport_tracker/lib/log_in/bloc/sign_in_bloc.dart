@@ -23,8 +23,7 @@ class SignInBloc extends Bloc<SigInEvent, SignInState> {
         emit(const SignInState.sucess());
        
       } catch (e) {
-        // SnackBar(content: Text(e.toString()),);
-        // log(e.toString());
+       
         emit(SignInState.error(e.toString()));
       }
     });

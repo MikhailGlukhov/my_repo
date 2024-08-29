@@ -17,7 +17,7 @@ class SettingsSwitch extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
-          border: Border.all(color: Color.fromARGB(82, 0, 0, 0))),
+          border: Border.all(color: const Color.fromARGB(82, 0, 0, 0))),
       width: double.infinity,
       margin: const EdgeInsets.all(20),
       height: 45,

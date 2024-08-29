@@ -4,10 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sport_tracker/error_widget.dart';
 
-
 import 'package:sport_tracker/gen/assets.gen.dart';
-
-
 
 import 'package:sport_tracker/log_in/bloc/sign_in_bloc.dart';
 import 'package:sport_tracker/reset_password/reset_password_widget.dart';
@@ -35,7 +32,7 @@ class _SignInWidgetState extends State<SignInWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
+        title: Text(
           'Log In'.tr(),
         ),
         centerTitle: true,
@@ -60,7 +57,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter your email address'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: ImageIcon(AssetImage(Assets.icons.mail.path), size: 24,),
+                  prefixIcon: ImageIcon(
+                    AssetImage(Assets.icons.mail.path),
+                    size: 24,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
@@ -81,7 +81,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter your password'.tr(),
                   hintStyle: const TextStyle(fontSize: 16),
-                  prefixIcon: ImageIcon(AssetImage(Assets.icons.pass.path), size: 24,),
+                  prefixIcon: ImageIcon(
+                    AssetImage(Assets.icons.pass.path),
+                    size: 24,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),
@@ -92,33 +95,47 @@ class _SignInWidgetState extends State<SignInWidget> {
                 state.when(
                     initial: () => const CircularProgressIndicator(),
                     inProcess: () => const CircularProgressIndicator(),
-                    sucess:  () => context.pushReplacementNamed(RoutesName.homeScreenName),
-                    error: (error) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ErrorDialogWidget(error: error!,))),);
+                    sucess: () =>
+                        context.pushReplacementNamed(RoutesName.homeScreenName),
+                    error: (error) => showDialog(
+                        context: context,
+                        builder: (context) =>
+                            ErrorDialogWidget(error: error!)));
               },
               child: ElevatedButton(
-                  onPressed: () {
-                    context.read<SignInBloc>().add(SigInEvent.logIn(
-                        email: _emailController.text,
-                        password: _passwordController.text));
-                   
-                  }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
-                  child:  Text(
-                    '    Log In    '.tr(),
-                    style: TextStyle(fontSize: 22),
-                  ),),
+                onPressed: () {
+                  context.read<SignInBloc>().add(SigInEvent.logIn(
+                      email: _emailController.text,
+                      password: _passwordController.text));
+                },
+                style: ElevatedButton.styleFrom(
+                    fixedSize:
+                        Size(MediaQuery.of(context).size.width * 0.7, 40),
+                    side: const BorderSide(
+                        color: Color.fromRGBO(171, 92, 196, 0.815), width: 2)),
+                child: Text(
+                  '    Log In    '.tr(),
+                  style: const TextStyle(fontSize: 22),
+                ),
+              ),
             ),
             const SizedBox(
               height: 25,
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ResetPasswordWidget()));
-                }, style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width*0.7, 40),side: BorderSide(color: Color.fromRGBO(171, 92, 196, 0.815),width: 2)),
-                child:  Text(
-                  'Reset passowrd'.tr(),
-                  style:const TextStyle(fontSize: 22),
-                ),)
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ResetPasswordWidget()));
+              },
+              style: ElevatedButton.styleFrom(
+                  fixedSize: Size(MediaQuery.of(context).size.width * 0.7, 40),
+                  side: const BorderSide(
+                      color: Color.fromRGBO(171, 92, 196, 0.815), width: 2)),
+              child: Text(
+                'Reset passowrd'.tr(),
+                style: const TextStyle(fontSize: 22),
+              ),
+            )
           ],
         ),
       ),
